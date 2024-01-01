@@ -33,7 +33,17 @@ export default function HomePage(props) {
         <img src={jacketImage}/>
         <h4>{item.itemName}</h4>
         <h4>${item.itemPrice}</h4>
-        <h5>{item.itemDescription}</h5>
+        <h5>{Array.from(item.itemDescription).map((item, index) => {
+          if (index < 150) {
+            return (
+            item
+            )
+          } else if (index >= 150 && index <= 153) {
+            return (
+              "."
+            )
+          }
+        })}</h5>
         <h4 style={{color: "green"}} >{item.itemInStock === "true" ? "in stock" : "out of stock"}</h4>
         <h4>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4>
       </div>
@@ -43,12 +53,22 @@ export default function HomePage(props) {
   const carouselElements = items.map((item, index) => {
     return (
       <div className={slide === index ? "slide" : "slide slide-hidden"} >
-        <img src={jacketImage}/>
-        <h4>{item.itemName}</h4>
-        <h4>${item.itemPrice}</h4>
-        <h5>{item.itemDescription}</h5>
-        <h4 style={{color: "green"}} >{item.itemInStock === "true" ? "in stock" : "out of stock"}</h4>
-        <h4>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4>
+        <img src={jacketImage} style={{userSelect: "none"}}/>
+        <h4 style={{userSelect: "none"}}>{item.itemName}</h4>
+        <h4 style={{userSelect: "none"}}>${item.itemPrice}</h4>
+        <h5 style={{userSelect: "none"}}>{Array.from(item.itemDescription).map((item, index) => {
+          if (index < 150) {
+            return (
+            item
+            )
+          } else if (index >= 150 && index <= 153) {
+            return (
+              "."
+            )
+          }
+        })}</h5>
+        <h4 style={{color: "green", userSelect: "none"}} >{item.itemInStock === "true" ? "in stock" : "out of stock"}</h4>
+        <h4 style={{userSelect: "none"}}>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4>
       </div>
       )
   })
