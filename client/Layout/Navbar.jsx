@@ -6,7 +6,7 @@ export default function Navbar(props) {
   return (
     <div>
       <nav className="offer-bar">
-        <h4>Currently 70% off on all garden products. <u>Shop Now</u> </h4>
+        <h4>Currently 70% off on all garden products. <u style={{cursor: "pointer"}}>Shop Now</u> </h4>
       </nav>
       <nav className="nav-bar">
         <div className="nav-bar-icon">
