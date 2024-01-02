@@ -2,54 +2,58 @@ package com.example.factory.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
-@ToString
+@Data
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_gen")
     @SequenceGenerator(name = "user_seq_gen", sequenceName = "user_seq", allocationSize = 1)
     @Column(name = "user_id")
-    private Long userId = 0L;
+    private Long id = 0L;
 
-    @Column(name = "user_name")
-    private String userName;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column(name = "user_password")
-    private String userPassword;
-    @Column(name = "user_email")
-    private String userEmail;
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "usernamename")
+    private String username;
+
+    @Column(name = "_password")
+    private String password;
+    @Column(name = "email")
+    private String email;
 
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+        this.email = userEmail;
     }
 
 
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public String getUserPassword() {
-        return userPassword;
+        return password;
     }
 
     public String getUserEmail() {
-        return userEmail;
+        return email;
     }
 
 
@@ -67,14 +71,14 @@ public class User {
 //    private List<Address> addresses = new ArrayList<>();
 
     public User(String userName, String userPassword) {
-        this.userName = userName;
-        this.userPassword = userPassword;
+        this.username = userName;
+        this.password = userPassword;
     }
 
     //      --------For testing-------
     public User(Long userId, String userName, String userEmail) {
-        this.userId = userId;
-        this.userName = userName;
-        this.userEmail = userEmail;
+        this.id = userId;
+        this.username = userName;
+        this.email = userEmail;
     }
 }
