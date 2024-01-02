@@ -3,8 +3,12 @@ package com.example.factory.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -13,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq_gen")
     @SequenceGenerator(name = "user_seq_gen", sequenceName = "user_seq", allocationSize = 1)
@@ -26,10 +30,10 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "usernamename")
+    @Column(name = "username")
     private String username;
 
-    @Column(name = "_password")
+    @Column(name = "password")
     private String password;
     @Column(name = "email")
     private String email;
@@ -55,6 +59,38 @@ public class User {
     public String getUserEmail() {
         return email;
     }
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 
 
 //    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -70,15 +106,15 @@ public class User {
 //    @JsonIgnoreProperties("users")
 //    private List<Address> addresses = new ArrayList<>();
 
-    public User(String userName, String userPassword) {
-        this.username = userName;
-        this.password = userPassword;
-    }
-
-    //      --------For testing-------
-    public User(Long userId, String userName, String userEmail) {
-        this.id = userId;
-        this.username = userName;
-        this.email = userEmail;
-    }
+//    public User(String userName, String userPassword) {
+//        this.username = userName;
+//        this.password = userPassword;
+//    }
+//
+//    //      --------For testing-------
+//    public User(Long userId, String userName, String userEmail) {
+//        this.id = userId;
+//        this.username = userName;
+//        this.email = userEmail;
+//    }
 }

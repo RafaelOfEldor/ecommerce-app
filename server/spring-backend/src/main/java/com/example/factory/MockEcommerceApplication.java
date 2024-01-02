@@ -19,27 +19,27 @@ public class MockEcommerceApplication {
 
 	}
 
-	@Bean
-	CommandLineRunner commandLineRunner(
-			AddressRepository addressRepository,
-			CustomerRepository customerRepository,
-			ItemRepository itemRepository,
-			OrderRepository orderRepository,
-			UserRepository userRepository
-	) {
-		Faker faker = new Faker();
-		Random random = new Random();
-		return args -> {
-			try {
-				for (int i = 0; i < 10; i++) {
-					System.out.println(faker.commerce().productName());
-				}
-				String username = "TestUser";
-				String userPassword = "password123";
-				User user = userRepository.save(new User(username, userPassword));
-			} catch(Exception e) {
-				e.printStackTrace();
-			}
-		};
-	}
+//	@Bean
+//	CommandLineRunner commandLineRunner(
+//			AddressRepository addressRepository,
+//			CustomerRepository customerRepository,
+//			ItemRepository itemRepository,
+//			OrderRepository orderRepository,
+//			UserRepository userRepository
+//	) {
+//		Faker faker = new Faker();
+//		Random random = new Random();
+//		return args -> {
+//			try {
+//				for (int i = 0; i < 10; i++) {
+//					System.out.println(faker.commerce().productName());
+//				}
+//				String username = "TestUser";
+//				String userPassword = "password123";
+//				User user = userRepository.save(new User(username, userPassword));
+//			} catch(Exception e) {
+//				e.printStackTrace();
+//			}
+//		};
+//	}
 }
