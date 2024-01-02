@@ -1,0 +1,14 @@
+spring:
+    datasource:
+        url: jdbc:h2:mem:mydb
+        username: user
+        password:
+        driverClassName: org.h2.Driver
+        generate-unique-name: false
+        name: mock_ecommerce
+    h2:
+        console:
+            enabled: true
+    jpa:
+        hibernate:
+            ddl-auto: update
