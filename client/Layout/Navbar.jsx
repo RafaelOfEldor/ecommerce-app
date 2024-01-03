@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
-import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
+import { Link, Routes, Route, Outlet, useNavigate, NavLink } from "react-router-dom";
 import data from "../data";
+import AccountLogo from "../images/account-logo.svg"
+import SearchLogo from "../images/search-logo.svg"
+import ShoppingCartLogo from "../images/shopping-basket-logo.svg"
 
 export default function Navbar(props) {
   return (
@@ -14,17 +17,71 @@ export default function Navbar(props) {
         </div>
         
         <div className="nav-bar mid-section">
-          <h1>Home</h1>
-          <h1>Products</h1>
-          <h1>About</h1>
-          <h1>Contact</h1>
+        <NavLink 
+          to="/"
+          className={({isActive}) => 
+            isActive ? "navbar-link-active home" : "navbar-link home"
+          }>
+            <h1>Home</h1>
+          </NavLink>
+
+          <NavLink 
+          to="/products"
+          className={({isActive}) => 
+            isActive ? "navbar-link-active products" : "navbar-link products"
+          }>
+            <h1>Products</h1>
+          </NavLink>
+
+          <NavLink 
+          to="/about"
+          className={({isActive}) => 
+            isActive ? "navbar-link-active about" : "navbar-link about"
+          }>
+            <h1>About</h1>
+          </NavLink>
+
+          <NavLink 
+          to="/contact"
+          className={({isActive}) => 
+            isActive ? "navbar-link-active contact" : "navbar-link contact"
+          }>
+            <h1>Contact</h1>
+          </NavLink>
         </div>
 
         <div className="nav-bar right-section">
-          <h1 style={{width: "100px"}}>Sign in</h1>
-          <h1>fav#1</h1>
-          <h1>fav#2</h1>
-          <h1>fav#3</h1>
+          <NavLink 
+          to="/login"
+          className={({isActive}) => 
+            isActive ? "navbar-link-active sign-in" : "navbar-link sign-in"
+          }>
+            <h1>Sign in</h1>
+          </NavLink>
+
+          <NavLink 
+          to="/search"
+          className={({isActive}) => 
+            isActive ? "navbar-link-active search" : "navbar-link search"
+          }>
+            <img src={SearchLogo} style={{height: "30px"}}/>
+          </NavLink>
+          
+          <NavLink 
+          to="/cart"
+          className={({isActive}) => 
+            isActive ? "navbar-link-active cart" : "navbar-link cart"
+          }>
+            <img src={ShoppingCartLogo} style={{height: "30px"}}/>
+          </NavLink>
+          
+          <NavLink 
+          to="/account"
+          className={({isActive}) => 
+            isActive ? "navbar-link-active account" : "navbar-link account"
+          }>
+            <img src={AccountLogo} style={{height: "30px"}}/>
+          </NavLink>
         </div>
       </nav>
       <Outlet />
