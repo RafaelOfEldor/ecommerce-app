@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -51,4 +52,34 @@ public class AuthenticationService {
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().token(jwtToken).build();
     }
+
+//    public Authentication register(RegisterRequest request) {
+//        var user = User.builder()
+//                .firstName(request.getFirstname())
+//                .lastName(request.getLastname())
+//                .email(request.getEmail())
+//                .username(request.getUsername())
+//                .password(passwordEncoder.encode(request.getPassword()))
+//                .role(Role.USER)
+//                .build();
+//        userRepository.save(user);
+//        var jwtToken = jwtService.generateToken(user);
+//        System.out.println(AuthenticationResponse.builder().token(jwtToken).build());
+//        return authenticate(new AuthenticationRequest(request.getUsername(), request.getPassword()));
+//    }
+//
+//    public Authentication authenticate(AuthenticationRequest request) {
+//       Authentication authentication = authenticationManager.authenticate(
+//                new UsernamePasswordAuthenticationToken(
+//                        request.getUsername(),
+//                        request.getPassword()
+//                )
+//        );
+//        var user = userRepository.findByUsername(request.getUsername())
+//                .orElseThrow(() -> new UsernameNotFoundException("User not found."));
+//        var jwtToken = jwtService.generateToken(user);
+//        SecurityContextHolder.getContext().setAuthentication(authentication);
+////        return AuthenticationResponse.builder().token(jwtToken).build();
+//        return authentication;
+//    }
 }
