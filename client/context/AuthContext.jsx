@@ -2,8 +2,11 @@ import {
   createContext,
   useContext,
   useEffect,
-  useState
+  useState,
+  useNavigate
 } from "react";
+
+import {userNavigate} from "react-router-dom"
 import {getCustomers, login as performLogin} from "../../services/client.js";
 import jwtDecode from "jwt-decode";
 
@@ -16,11 +19,13 @@ const AuthContext = React.createContext({
   fetchUserInfo: async () => {},
 });
 
+
 export function useAuth() {
   return useContext(AuthContext);
 }
 
 export function AuthProvider({ children }) {
+  const navigate = useNavigate();
   const [username, setUsername] = React.useState();
   const [fullName, setFullName] = React.useState();
   const [userId, setUserId] = React.useState();
@@ -38,14 +43,23 @@ export function AuthProvider({ children }) {
   async function getUserFromToken() {
       let token = localStorage.getItem("access_token");
       if (token) {
+        if (Date.now() < token.exp) {
           token = jwtDecode(token);
           setUsername(token.sub)
           const res = await fetch("http://localhost:8080/api/v1/user/userinfo", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`
-          }
-        })
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("access_token")}`
+            }
+          })
+        } else {
+          // resetUserInfo()
+          // localStorage.removeItem("access_token")
+          console.log("Session expired, please login")
+          navigate("/login")
+        }
+      } else {
+        navigate("/login")
       }
   }
 
