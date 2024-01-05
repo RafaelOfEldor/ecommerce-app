@@ -36,15 +36,30 @@ export function AuthProvider({ children }) {
   async function getUserFromToken() {
       let token = localStorage.getItem("access_token");
       if (token) {
-        if (Date.now() < token.exp) {
+        const { exp: expiration } = jwtDecode(token);
+        if (Date.now() < expiration * 1000) {
           token = jwtDecode(token);
           setUsername(token.sub)
           const res = await fetch("http://localhost:8080/api/v1/user/userinfo", {
             method: "POST",
+            body: JSON.stringify({
+              username: token.sub
+            }),
             headers: {
-              Authorization: `Bearer ${localStorage.getItem("access_token")}`
+              "content-type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("access_token")}`,
             }
           })
+
+          const somestuff = {
+            Authorization: `Bearer ${localStorage.getItem("access_token")}`
+          }
+          console.log(somestuff)
+          console.log(res)
+          if (res.ok) {
+            const data = await res.json();
+            console.log(data)
+          }
         } else {
           // resetUserInfo()
           // localStorage.removeItem("access_token")
@@ -62,7 +77,7 @@ export function AuthProvider({ children }) {
 
   const logOut = () => {
     localStorage.removeItem("access_token")
-    setCustomer(null)
+    // resetUserInfo()
 }
 
 const isUserAuthenticated = () => {

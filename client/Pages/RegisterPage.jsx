@@ -4,11 +4,14 @@ import data from "../data";
 import GoogleLogo from "../images/Google-g-logo.svg"
 import Logo from "../images/Mock-Ecommerce.svg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
+import {useAuth} from "../context/AuthContext"
 
 export default function RegisterPage(props) {
 
   const [errorMessage, setErrorMessage] = React.useState("")
-
+  const { getUserFromToken } = useAuth();
+  
+  const navigate = useNavigate();
   async function registerUser(e) {
     e.preventDefault()
     if (e.target.firstName.value === "" 
@@ -48,6 +51,10 @@ export default function RegisterPage(props) {
     localStorage.setItem("access_token", data.token)
     console.log(data)
   }
+
+  getUserFromToken();
+  navigate("/")
+
 }
 
   return (

@@ -16,6 +16,10 @@ public class UserController {
     private final UserService userService;
     @PostMapping("/userinfo")
     public ResponseEntity<User> getUserInfo(@RequestBody UsernameDto usernameDto) {
+
+        /*
+        Make a DTO that sends back firstName, lastName, username, role, email, id
+        */
         User user = userService.findByUsername(usernameDto.getUsername());
         return ResponseEntity.ok(user);
     }
