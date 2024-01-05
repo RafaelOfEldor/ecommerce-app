@@ -54,14 +54,14 @@ public class ItemController {
         }
     }
 
-    @PutMapping("/{id}")
-    public Item updateItemById(@PathVariable Long id, @RequestBody Item machine) {
-        try {
-            return itemService.updateItem(id, machine);
-        } catch (Exception e) {
-            return null;
-        }
-    }
+//    @PutMapping("/{id}")
+//    public Item updateItemById(@PathVariable Long id, @RequestBody Item machine) {
+//        try {
+//            return itemService.updateItem(id, machine);
+//        } catch (Exception e) {
+//            return null;
+//        }
+//    }
 
     @DeleteMapping("/{id}")
     public void deleteItem(@PathVariable Long id) {
