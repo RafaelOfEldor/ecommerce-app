@@ -4,6 +4,8 @@ import HomePage from "./Pages/HomePage";
 import NavBar from "./Layout/Navbar";
 import LoginPage from "./Pages/LoginPage";
 import RegisterPage from "./Pages/RegisterPage";
+import AboutPage from "./Pages/AboutPage";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 export default function RoutesPage() {
   return (
@@ -13,6 +15,9 @@ export default function RoutesPage() {
         <Route index element={<HomePage />}/>
         <Route path="/login" element={<LoginPage />}/>
         <Route path="/register" element={<RegisterPage />}/>
+        
+          <Route path="/about" element={<ProtectedRoute><AboutPage /></ProtectedRoute>}/>
+        
         <Route path="*" element={<h1>Page not found</h1>} />
       </Route>
     </Routes>

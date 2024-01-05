@@ -19,6 +19,13 @@ export default function RegisterPage(props) {
     || e.target.confirmPassword.value === "") {
       setErrorMessage("All fields Must be filled")
       return;
+    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.target.email.value))
+    {
+      setErrorMessage("Invalid email")
+      return;
+    } else if (e.target.password.value !== e.target.confirmPassword.value) {
+      setErrorMessage("Passwords do not match")
+      return;
     }
     if (e.target.password.value === e.target.confirmPassword.value) {
       const userInfo = {
@@ -37,6 +44,8 @@ export default function RegisterPage(props) {
       },
     })
     const data = await res.json();
+
+    localStorage.setItem("access_token", data.token)
     console.log(data)
   }
 }

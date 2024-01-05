@@ -20,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
                 .allowCredentials(true)
-                .allowedOrigins("http://localhost:3000") // Replace with your React app's URL
+                .allowedOrigins("http://localhost:3000")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("Authorization", "Content-Type", "Accept")
                 .maxAge(3600L);

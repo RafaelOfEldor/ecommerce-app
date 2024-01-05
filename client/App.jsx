@@ -2,16 +2,17 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RoutesLayout from "./RoutesLayout.jsx";
+import {AuthProvider} from "./context/AuthContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 function App() {
   return (
-    // <AuthProvider>
+    <AuthProvider>
       <BrowserRouter>
         <RoutesLayout />
       </BrowserRouter>
-    // </AuthProvider>
+    </AuthProvider>
   );
 }
 
