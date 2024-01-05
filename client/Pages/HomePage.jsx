@@ -10,9 +10,7 @@ export default function HomePage(props) {
 
   const [items, setItems] = React.useState(data)
   React.useEffect(() => {
-    console.log("hii")
     console.log(items)
-    console.log(itemElements)
   },[items])
 
   const nextSlide = () => {
@@ -29,7 +27,7 @@ export default function HomePage(props) {
 
   const itemElements = items.map((item, index) => {
     return (
-      <div className="item-card">
+      <div className="item-card" key={index}>
         <img src={jacketImage}/>
         <h4>{item.itemName}</h4>
         <h4>${item.itemPrice}</h4>
@@ -52,7 +50,7 @@ export default function HomePage(props) {
 
   const carouselElements = items.map((item, index) => {
     return (
-      <div className={slide === index ? "slide" : "slide slide-hidden"} >
+      <div className={slide === index ? "slide" : "slide slide-hidden"} key={index}>
         <img src={jacketImage} style={{userSelect: "none"}}/>
         <h4 style={{userSelect: "none"}}>{item.itemName}</h4>
         <h4 style={{userSelect: "none"}}>${item.itemPrice}</h4>

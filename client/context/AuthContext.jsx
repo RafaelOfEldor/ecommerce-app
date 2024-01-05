@@ -50,24 +50,16 @@ export function AuthProvider({ children }) {
               Authorization: `Bearer ${localStorage.getItem("access_token")}`,
             }
           })
-
-          const somestuff = {
-            Authorization: `Bearer ${localStorage.getItem("access_token")}`
-          }
-          console.log(somestuff)
-          console.log(res)
           if (res.ok) {
             const data = await res.json();
             console.log(data)
           }
         } else {
-          // resetUserInfo()
-          // localStorage.removeItem("access_token")
+          logOut();
+          resetUserInfo();
           console.log("Session expired, please login")
-          // navigate("/login")
         }
       } else {
-        // navigate("/login")
       }
   }
 
@@ -89,8 +81,17 @@ const isUserAuthenticated = () => {
     if (Date.now() > expiration * 1000) {
         logOut()
         return false;
+    } else {
+      getUserFromToken()
+      return true;
     }
-    return true;
+}
+
+const resetUserInfo = () => {
+  setUsername(null)
+  setFirstName(null)
+  setLastName(null)
+  setMail(null)
 }
 
   

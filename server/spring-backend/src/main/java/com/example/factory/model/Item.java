@@ -17,20 +17,55 @@ import java.util.List;
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "machine_seq_gen")
-    @SequenceGenerator(name = "machine_seq_gen", sequenceName = "machine_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_seq_gen")
+    @SequenceGenerator(name = "item_seq_gen", sequenceName = "item_seq", allocationSize = 1)
     @Column(name = "item_id")
     private Long itemId = 0L;
 
-    @Column(name= "machine_name")
+    @Column(name= "item_name")
     private String itemName;
 
-    @Column(name = "item_qty")
-    private Integer itemQuantity;
+    @Column(name= "item_image")
+    private String itemImage;
 
-    public Item(String machineName, Integer quantity) {
-        this.itemName = machineName;
-        this.itemQuantity = quantity;
+    @Column(name= "item_in_stock")
+    private boolean itemInStock;
+
+    @Column(name= "item_price")
+    private double itemPrice;
+
+    @Column(name= "item_description")
+    private String itemDescription;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Review> reviews = new ArrayList<>();
+
+    @Column(name = "item_stock")
+    private Integer itemStock;
+
+    @Column(name = "item_category")
+    private String itemCategory;
+
+
+    public Item(String itemName, String itemImage, boolean itemInStock, int itemPrice, List<Review> reviews, Integer itemStock, String itemCategory) {
+        this.itemName = itemName;
+        this.itemImage = itemImage;
+        this.itemInStock = itemInStock;
+        this.itemPrice = itemPrice;
+        this.reviews = reviews;
+        this.itemStock = itemStock;
+        this.itemCategory = itemCategory;
     }
 
+    public Item(String itemName, String itemImage, boolean itemInStock, double itemPrice, String itemDescription, Integer itemStock, String itemCategory) {
+        this.itemName = itemName;
+        this.itemImage = itemImage;
+        this.itemInStock = itemInStock;
+        this.itemPrice = itemPrice;
+        this.itemDescription = itemDescription;
+        this.itemStock = itemStock;
+        this.itemCategory = itemCategory;
+    }
+
+    //Without reviews for now
 }
