@@ -12,7 +12,10 @@ const AuthContext = React.createContext({
   mail: undefined,
   firstName: undefined,
   lastName: undefined,
-  getUserFromToken: async () => {}
+  role: undefined,
+  isUserAuthenticated: undefined,
+  getUserFromToken: async () => {},
+  logOut: () => {}
 });
 
 
@@ -23,8 +26,10 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [username, setUsername] = React.useState();
   const [firstName, setFirstName] = React.useState();
+  const [role, setRole] = React.useState();
   const [lastName, setLastName] = React.useState();
   const [mail, setMail] = React.useState();
+  const [isUserAuthenticated, setIsUserAuthenticated] = React.useState();
   const [webSocket, setWebSocket] = React.useState();
 
   const getAuthConfig = () => ({
@@ -52,6 +57,12 @@ export function AuthProvider({ children }) {
           })
           if (res.ok) {
             const data = await res.json();
+            setIsUserAuthenticated(true)
+            setUsername(data.userName)
+            setFirstName(data.firstName)
+            setLastName(data.lastName)
+            setMail(data.email)
+            setRole(data.role)
             console.log(data)
           }
         } else {
@@ -69,21 +80,27 @@ export function AuthProvider({ children }) {
 
   const logOut = () => {
     localStorage.removeItem("access_token")
+    setIsUserAuthenticated()
+    setUsername()
+    setFirstName()
+    setLastName()
+    setMail()
+    setRole()
+    
     // resetUserInfo()
 }
 
-const isUserAuthenticated = () => {
+const getUserAuthentication = () => {
+  console.log("yoo")
     const token = localStorage.getItem("access_token");
     if (!token) {
-        return false;
     }
     const { exp: expiration } = jwtDecode(token);
     if (Date.now() > expiration * 1000) {
         logOut()
-        return false;
     } else {
+      setIsUserAuthenticated(true)
       getUserFromToken()
-      return true;
     }
 }
 
@@ -111,9 +128,12 @@ const resetUserInfo = () => {
         firstName,
         lastName,
         mail,
+        role,
+        isUserAuthenticated,
         setUsername,
         getUserFromToken,
-        isUserAuthenticated
+        getUserAuthentication,
+        logOut
       }}
     >
       {children}
@@ -151,7 +171,7 @@ const resetUserInfo = () => {
 //           customer,
 //           login,
 //           logOut,
-//           isUserAuthenticated,
+//           getUserAuthentication,
 //           setCustomerFromToken
 //       }}>
 //           {children}

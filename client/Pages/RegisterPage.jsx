@@ -9,7 +9,7 @@ import {useAuth} from "../context/AuthContext"
 export default function RegisterPage(props) {
 
   const [errorMessage, setErrorMessage] = React.useState("")
-  const { getUserFromToken } = useAuth();
+  const { getUserFromToken, getUserAuthentication } = useAuth();
   
   const navigate = useNavigate();
   async function registerUser(e) {
@@ -53,6 +53,7 @@ export default function RegisterPage(props) {
   }
 
   getUserFromToken();
+  getUserAuthentication()
   navigate("/")
 
 }
