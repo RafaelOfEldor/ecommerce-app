@@ -4,16 +4,22 @@ import data from "../data";
 import AccountLogo from "../images/account-logo.svg"
 import SearchLogo from "../images/search-logo.svg"
 import ShoppingCartLogo from "../images/shopping-basket-logo.svg"
+import ProjectLogo from "../images/project-logo.png"
+import {useAuth} from "../context/AuthContext"
 
 export default function Navbar(props) {
+
+  
+const { isUserAuthenticated } = useAuth()
+console.log(isUserAuthenticated)
   return (
     <div>
       <nav className="offer-bar">
-        <h4>Currently 70% off on all garden products. <u style={{cursor: "pointer"}}>Shop Now</u> </h4>
+        <h4>Currently 70% off on all garden products! <u style={{cursor: "pointer"}}>Shop Now</u> </h4>
       </nav>
       <nav className="nav-bar">
         <div className="nav-bar-icon">
-          <h1>Icon#1</h1>
+          <img src={ProjectLogo} />
         </div>
         
         <div className="nav-bar mid-section">
@@ -49,8 +55,16 @@ export default function Navbar(props) {
             <h1>Contact</h1>
           </NavLink>
         </div>
+          {!isUserAuthenticated ? 
+          <div className="nav-bar right-section">
+          <NavLink 
+          to="/search"
+          className={({isActive}) => 
+            isActive ? "navbar-link-active search" : "navbar-link search"
+          }>
+            <img src={SearchLogo} style={{height: "30px"}}/>
+          </NavLink>
 
-        <div className="nav-bar right-section">
           <NavLink 
           to="/login"
           className={({isActive}) => 
@@ -58,7 +72,9 @@ export default function Navbar(props) {
           }>
             <h1>Sign in</h1>
           </NavLink>
-
+          </div>
+          :
+          <div className="nav-bar right-section"> 
           <NavLink 
           to="/search"
           className={({isActive}) => 
@@ -76,13 +92,14 @@ export default function Navbar(props) {
           </NavLink>
           
           <NavLink 
-          to="/account"
+          to="/account/profile"
           className={({isActive}) => 
             isActive ? "navbar-link-active account" : "navbar-link account"
           }>
             <img src={AccountLogo} style={{height: "30px"}}/>
-          </NavLink>
-        </div>
+          </NavLink> 
+          </div>
+          }
       </nav>
       <Outlet />
     </div>

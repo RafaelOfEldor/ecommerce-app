@@ -12,9 +12,9 @@ export default function ProtextedRoute({children}) {
   const { isUserAuthenticated } = useAuth()
 
   useEffect(() => {
-    if (!isUserAuthenticated()) {
+    if (!isUserAuthenticated) {
         navigate("/login")
     }
   }, []) 
-  return isUserAuthenticated() ? children : ""
+  return isUserAuthenticated ? children : ""
 }

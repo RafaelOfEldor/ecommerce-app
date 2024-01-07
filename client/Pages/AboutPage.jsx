@@ -9,19 +9,9 @@ import {useAuth} from "../context/AuthContext"
 export default function AboutPage(props) {
 
 
-  const { isUserAuthenticated } = useAuth()
-
-  if (isUserAuthenticated()) {
-    return (
-      <div style={{display: "flex"}}>
-      <h1>Hello</h1>
-    </div>
-    )
-  } else {
-    return (
-      <div style={{display: "flex"}}>
-      <h1>Please log in.</h1>
-    </div>
-    )
-  }
+  return (
+    <div style={{display: "flex"}}>
+    <h1>Hello</h1>
+  </div>
+  )
 }

@@ -13,15 +13,13 @@ html, body {
   width: 10px;
 }
 
-/* Styling the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(175, 40, 96, 0.8); /* Set the color of the thumb */
-  border-radius: 50px; /* Round the corners of the thumb */
+  background-color: rgba(175, 40, 96, 0.8);
+  border-radius: 50px;
 }
 
-/* Styling the scrollbar track on hover */
 ::-webkit-scrollbar-track:hover {
-  background-color: #eee; /* Set the background color on hover */
+  background-color: #eee;
 }
 
 
@@ -41,31 +39,43 @@ html, body {
 
 .nav-bar {
   display: flex;
-  background-color: pink;
+  background: rgb(2,0,36);
+  background: linear-gradient(142deg, rgba(2,0,36,0.3) 0%, rgba(157,24,89,0.44) 37%, rgba(143,49,159,0.4) 57%, rgba(18, 61, 182, 0.4) 100%);
   padding: 10px 50px;
   align-items: center;
   text-align: center;
   max-width: 100vw;
   min-height: 40px;
+  border-bottom: 1px solid;
+  border-color: rgba(12, 12, 12, 0.26);
 }
 
 .nav-bar.mid-section {
   gap: 20px;
   margin-left: 44vw;
   transform: translate(-50%);
+  background: none;
+  border: none;
 }
 
 .nav-bar.right-section {
+  position: absolute;
   padding: 0;
   gap: 20px;
-  margin-left: 15vw;
+  left: 95vw;
   transform: translate(-50%);
+  background: none;
+  border: none;
 }
 
 .navbar-link {
   text-decoration: none;
   color: rgb(92, 67, 67);
-  
+  transition: ease-in-out 0.1s;
+}
+
+.navbar-link > img {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(5%) saturate(2265%) hue-rotate(309deg) brightness(97%) contrast(94%);
   transition: ease-in-out 0.1s;
 }
 
@@ -80,7 +90,6 @@ html, body {
 .navbar-link:hover {
   text-decoration: none;
   color: black;
-  
 }
 
 .navbar-link-active {
@@ -89,6 +98,14 @@ html, body {
   padding-bottom: 5px;
   border-color: rgb(10, 109, 122);
   color: black;
+}
+
+.navbar-link-active > img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(244deg) brightness(101%) contrast(101%);
+}
+
+.navbar-link > img:hover {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(244deg) brightness(101%) contrast(101%);
 }
 
 .item-cards {
@@ -250,3 +267,152 @@ html, body {
   height: 800px;
   margin-top: 0;
 }
+
+.account-page-div {
+  display: flex;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+
+.account-page-sidelayout {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+.account-page-sidelayout-links-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 50px;
+}
+
+.account-sidelayout-link {
+  text-decoration: none;
+  color: rgb(92, 67, 67);
+}
+
+.account-sidelayout-link-active {
+  text-decoration: none;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  scale: 1.05;
+  color: black;
+}
+
+.account-page-sidelayout.routes {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+}
+
+.account-page-sidelayout.personal {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 20px;
+}
+
+.account-page-sidelayout.personal.links {
+  margin-left: 40px;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.account-page-sidelayout.billing {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 20px;
+}
+
+.account-page-sidelayout.billing.links {
+  margin-left: 40px;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.account-sidelayout-routes-link {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.account-sidelayout-routes-link-active {
+  text-decoration: none;
+  padding-bottom: 5px;
+  color: black;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  transform: translate(0);
+  /* border: 3px solid rgba(0, 0, 0, 0.05); */
+  padding: 50px 50px;
+  transform: translate(0);
+  transform-style: preserve-3d;
+}
+
+.profile-form::before {
+  content:"";
+  position: absolute;
+  inset: 0;
+  transform: translate3d(0,0,-0.5px);
+  background: rgb(2,0,36);
+  background: linear-gradient(142deg, rgba(2,0,36,0.3) 0%, rgba(157,24,89,0.44) 37%, rgba(143,49,159,0.55) 57%, rgba(0,212,255,0.66) 100%);
+  filter: blur(10px);
+  clip-path: polygon(-100vmax -100vmax,100vmax -100vmax,100vmax 100vmax,-100vmax 100vmax,-100vmax -100vmax,0 0,0 100%,100% 100%,100% 0,0 0);
+}
+
+.profile-form-input {
+  width: 340px;
+  height: 50px;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border: none;
+  transition: ease-in-out 0.5s;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: rgba(193, 199, 201, 0.3);
+}
+
+.profile-form-input.username {
+  width: 100%
+}
+
+.profile-form-input.email {
+  width: 100%
+}
+
+.profile-form > button {
+  margin-left: 70%;
+  cursor: pointer;
+  background-color: rgb(155, 67, 15);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;;
+  width: 250px;
+  height: 60px;
+}
+
+.account-sidelayout-logout-button {
+  position:absolute;
+  top: 90vh;
+  border: none;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  background-color: rgb(155, 15, 15);
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
