@@ -12,8 +12,9 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Entity
 @NoArgsConstructor
+@Entity
+@Table(name = "items")
 public class Item {
 
     @Id
@@ -25,7 +26,7 @@ public class Item {
     @Column(name= "item_name")
     private String itemName;
 
-    @Column(name= "item_image")
+    @Column(name= "item_image", columnDefinition = "text")
     private String itemImage;
 
     @Column(name= "item_in_stock")
@@ -34,7 +35,7 @@ public class Item {
     @Column(name= "item_price")
     private double itemPrice;
 
-    @Column(name= "item_description")
+    @Column(name= "item_description", columnDefinition = "text")
     private String itemDescription;
 
     @OneToMany(cascade = CascadeType.ALL)

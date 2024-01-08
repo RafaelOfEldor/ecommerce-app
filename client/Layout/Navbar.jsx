@@ -18,9 +18,12 @@ console.log(isUserAuthenticated)
         <h4>Currently 70% off on all garden products! <u style={{cursor: "pointer"}}>Shop Now</u> </h4>
       </nav>
       <nav className="nav-bar">
-        <div className="nav-bar-icon">
-          <img src={ProjectLogo} />
-        </div>
+
+        <NavLink 
+          to="/"
+          className="nav-bar-icon">
+            <img src={ProjectLogo} />
+          </NavLink>
         
         <div className="nav-bar mid-section">
         <NavLink 

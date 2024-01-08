@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
-import data from "../data";
+// import data from "../data";
 import jacketImage from "../images/random-jacket.jpg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 
@@ -8,10 +8,38 @@ export default function HomePage(props) {
 
   const [slide, setSlide] = React.useState(0);
 
-  const [items, setItems] = React.useState(data)
+  const [items, setItems] = React.useState([])
+  const [carouselItems, setCarouselItems] = React.useState([])
   React.useEffect(() => {
     console.log(items)
   },[items])
+
+  async function fetchProducts() {
+    // fetch(`http://localhost:8080/api/v1/products/page/${Math.floor((Math.random() * 3))}`).then((response) =>
+    //   response.json().then((data) => {
+    //     setItems(data);
+    //   }),
+    // );
+
+    fetch(`http://localhost:8080/api/v1/products/page/1`).then((response) =>
+      response.json().then((data) => {
+        setItems(data);
+      }),
+    );
+  }
+
+  async function fetchCarouselItems() {
+    fetch(`http://localhost:8080/api/v1/products/page/1`).then((response) =>
+      response.json().then((data) => {
+        setCarouselItems(data);
+      }),
+    );
+  }
+
+  React.useEffect(() => {
+    fetchProducts();
+    fetchCarouselItems();
+  },[])
 
   const nextSlide = () => {
     if (slide + 1 < carouselElements.length) {
@@ -28,9 +56,9 @@ export default function HomePage(props) {
   const itemElements = items.map((item, index) => {
     return (
       <div className="item-card" key={index}>
-        <img src={jacketImage}/>
+        <img src={item.itemImage} style={{maxHeight: "200px"}}/>
         <h4>{item.itemName}</h4>
-        <h4>${item.itemPrice}</h4>
+        <h4>${item.itemPrice.toFixed(2)}</h4>
         <h5>{Array.from(item.itemDescription).map((item, index) => {
           if (index < 150) {
             return (
@@ -42,18 +70,18 @@ export default function HomePage(props) {
             )
           }
         })}</h5>
-        <h4 style={{color: "green"}} >{item.itemInStock === "true" ? "in stock" : "out of stock"}</h4>
-        <h4>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4>
+        <h4 style={{color: "green"}} >{item.itemInStock === true ? "in stock" : "out of stock"}</h4>
+        {/* <h4>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4> */}
       </div>
       )
   })
 
-  const carouselElements = items.map((item, index) => {
+  const carouselElements = carouselItems.map((item, index) => {
     return (
       <div className={slide === index ? "slide" : "slide slide-hidden"} key={index}>
-        <img src={jacketImage} style={{userSelect: "none"}}/>
+        <img src={item.itemImage} style={{userSelect: "none", maxHeight: "200px", minHeight: "400px"}}/>
         <h4 style={{userSelect: "none"}}>{item.itemName}</h4>
-        <h4 style={{userSelect: "none"}}>${item.itemPrice}</h4>
+        <h4 style={{userSelect: "none"}}>${item.itemPrice.toFixed(2)}</h4>
         <h5 style={{userSelect: "none"}}>{Array.from(item.itemDescription).map((item, index) => {
           if (index < 150) {
             return (
@@ -65,8 +93,8 @@ export default function HomePage(props) {
             )
           }
         })}</h5>
-        <h4 style={{color: "green", userSelect: "none"}} >{item.itemInStock === "true" ? "in stock" : "out of stock"}</h4>
-        <h4 style={{userSelect: "none"}}>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4>
+        <h4 style={{color: "green", userSelect: "none"}} >{item.itemInStock === true ? "in stock" : "out of stock"}</h4>
+        {/* <h4 style={{userSelect: "none"}}>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4> */}
       </div>
       )
   })
