@@ -46,10 +46,11 @@ export default function RegisterPage(props) {
         "content-type": "application/json",
       },
     })
-    const data = await res.json();
-
-    localStorage.setItem("access_token", data.token)
-    console.log(data)
+    if (res.ok) {
+      const data = await res.json(); 
+      localStorage.setItem("access_token", data.token)
+      console.log(data)
+    }
   }
 
   getUserFromToken();
