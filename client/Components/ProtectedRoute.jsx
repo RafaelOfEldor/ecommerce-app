@@ -9,12 +9,17 @@ import {useAuth} from "../context/AuthContext"
 export default function ProtextedRoute({children}) {
 
   const navigate = useNavigate();
-  const { isUserAuthenticated } = useAuth()
+  const { isUserAuthenticated, getUserAuthentication } = useAuth()
 
+  
   useEffect(() => {
-    if (!isUserAuthenticated) {
+    const checkUserAuthenticated = setTimeout(() => {
+      console.log("yoo")
+      if (!isUserAuthenticated) {
         navigate("/login")
     }
-  }, []) 
+    }, 500);
+  return () => clearTimeout(checkUserAuthenticated);
+  }, [isUserAuthenticated]) 
   return isUserAuthenticated ? children : ""
 }

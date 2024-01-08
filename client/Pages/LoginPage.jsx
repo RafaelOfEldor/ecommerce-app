@@ -30,14 +30,19 @@ export default function LoginPage(props) {
         "content-type": "application/json",
       },
     })
-    const data = await res.json();
+    if (res.ok) {
 
-    localStorage.setItem("access_token", data.token)
-    console.log(data)
-
-  getUserFromToken();
-  getUserAuthentication();
-  navigate("/")
+      const data = await res.json();
+      
+      localStorage.setItem("access_token", data.token)
+      console.log(data)
+      
+      getUserFromToken();
+      getUserAuthentication();
+      navigate("/")
+    } else {
+      setErrorMessage("Wrong username or password")
+    }
 
 }
 
@@ -46,6 +51,7 @@ export default function LoginPage(props) {
       <img src={Logo} className="register-page-logo"/>
       <form className="register-form" onSubmit={loginUser}>
         <h1 style={{fontWeight: "500", letterSpacing: "1px"}}>Sign In</h1>
+        <h4 style={{color: "red"}}>{errorMessage && errorMessage}</h4>
         <input placeholder="Username" name="username"/>
         <input placeholder="Password" name="password" type="password"/>
         <button className="create-account-button">Sign In</button>

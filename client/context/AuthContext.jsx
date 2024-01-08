@@ -94,6 +94,7 @@ const getUserAuthentication = () => {
   console.log("yoo")
     const token = localStorage.getItem("access_token");
     if (!token) {
+      return false;
     }
     const { exp: expiration } = jwtDecode(token);
     if (Date.now() > expiration * 1000) {
@@ -101,6 +102,7 @@ const getUserAuthentication = () => {
     } else {
       setIsUserAuthenticated(true)
       getUserFromToken()
+      return true;
     }
 }
 
@@ -130,6 +132,9 @@ const resetUserInfo = () => {
         mail,
         role,
         isUserAuthenticated,
+        setFirstName,
+        setLastName,
+        setMail,
         setUsername,
         getUserFromToken,
         getUserAuthentication,
