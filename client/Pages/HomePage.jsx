@@ -21,7 +21,7 @@ export default function HomePage(props) {
     //   }),
     // );
 
-    fetch(`http://localhost:8080/api/v1/products/page/1`).then((response) =>
+    fetch(`http://localhost:8080/api/v1/products`).then((response) =>
       response.json().then((data) => {
         setItems(data);
       }),
