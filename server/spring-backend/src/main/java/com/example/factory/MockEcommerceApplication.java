@@ -313,8 +313,8 @@ public class MockEcommerceApplication {
 						"jewlery"
 				));
 				itemRepository.save(new Item(
-						"Spikey Choker",
-						"https://assets.stickpng.com/images/5b4db90dc051e602a568cdef.png",
+						"Spiky Choker",
+						"https://i.pinimg.com/originals/c4/a7/8c/c4a78c23735c432884c3c9850b0e14d9.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -341,7 +341,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Amethyst Necklace",
-						"../images/random-jacket.jpg",
+						"https://www.lillianesjewelry.com/wp-content/uploads/115-B799-1-copy-600x600.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -350,7 +350,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Rolex",
-						"https://www.lillianesjewelry.com/wp-content/uploads/115-B799-1-copy-600x600.png",
+						"https://files.jewelfeed.com/jewelfeed/catalog/items/156af733-6b91-4fb8-ba43-f8818ae00ab9_WkcMv81.png.800x800_q85_keep_alpha.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
