@@ -41,7 +41,7 @@ public class MockEcommerceApplication {
 //				}
 				itemRepository.save(new Item(
 							"Jacket",
-							"../images/random-jacket.jpg",
+							"https://pngimg.com/d/jacket_PNG8047.png",
 							true,
 							random.nextDouble(18, 40),
 							"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -93,7 +93,7 @@ public class MockEcommerceApplication {
 						250,
 						"apparel"
 				));
-				new Item(
+				itemRepository.save(new Item(
 						"Skirt",
 						"https://assets.stickpng.com/images/580b57fbd9996e24bc43bf70.png",
 						true,
@@ -101,7 +101,7 @@ public class MockEcommerceApplication {
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"apparel"
-				);
+				));
 				itemRepository.save(new Item(
 						"Trousers",
 						"https://www.pngall.com/wp-content/uploads/2016/09/Trouser-Free-Download-PNG.png",
@@ -183,15 +183,15 @@ public class MockEcommerceApplication {
 						250,
 						"apparel"
 				));
-				new Item(
-						"Hatsune Cosplay",
+				itemRepository.save(new Item(
+						"Hatsune Miku Cosplay",
 						"https://www.youvimi.com/cdn/shop/products/QQ_20210603105308.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"apparel"
-				);
+				));
 				itemRepository.save(new Item(
 						"Karate Set",
 						"https://www.pngitem.com/pimgs/m/46-466231_lightweight-karate-gi-itemprop-thumbnail-data-sizes-karate.png",
@@ -276,7 +276,7 @@ public class MockEcommerceApplication {
 						250,
 						"jewlery"
 				));
-				new Item(
+				itemRepository.save(new Item(
 						"Platinum Bracelet",
 						"https://cdn11.bigcommerce.com/s-j38el1cgyu/images/stencil/1280x1280/products/7444/24353/BD-3540_0__28223.1690339445.png?c=1",
 						true,
@@ -284,7 +284,7 @@ public class MockEcommerceApplication {
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"jewlery"
-				);
+				));
 				itemRepository.save(new Item(
 						"Butterfly Necklace",
 						"https://i.pinimg.com/originals/fb/e3/f5/fbe3f5552f8bca53ce13435d232e56da.png",
@@ -366,7 +366,7 @@ public class MockEcommerceApplication {
 						250,
 						"jewlery"
 				));
-				new Item(
+				itemRepository.save(new Item(
 						"Gucci Ring",
 						"https://itsluxury.com/media/catalog/product/y/b/ybc152045001__1.png?quality=100&fit=bounds&height=&width=",
 						true,
@@ -374,7 +374,7 @@ public class MockEcommerceApplication {
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"jewlery"
-				);
+				));
 				itemRepository.save(new Item(
 						"Chanel Nosering",
 						"https://www.chanel.com/images/t_zoomjewelry2/f_auto/lune-single-earring-white-white-gold-diamond-packshot-default-j12120-9529713360926.jpg",
@@ -407,7 +407,7 @@ public class MockEcommerceApplication {
 
 				itemRepository.save(new Item(
 						"Monster Energi Drink",
-						"https://purepng.com/public/uploads/large/purepng.com-ipadelectronicstablet-ipad-941524671278vjvlk.png",
+						"https://cleanfoodsmealprep.com/wp-content/uploads/2021/01/Adobe_Post_20210126_2246430.4344855218195506.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -416,7 +416,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Cake",
-						"../images/random-jacket.jpg",
+						"https://static.vecteezy.com/system/resources/thumbnails/027/098/826/small/chocolate-cake-with-berries-isolated-png.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -425,7 +425,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Protein Bar - Chocolate",
-						"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP825/macbookair.png",
+						"https://www.pureprotein.com/cdn/shop/files/ppr-126517-1-chocolate-deluxe-50g_1_195a16d0-7628-42f8-9de6-f3580979eecf.png?v=1685123337",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -434,7 +434,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Protein Bar - Vanilla Caramel",
-						"https://upload.wikimedia.org/wikipedia/commons/f/f5/Avalanche_Hardline_Liquid_Cooled_Gaming_PC.png",
+						"https://www.nutramino.com/sites/default/files/styles/large/public/2022-07/Bar-Crispy-van-caramel-1000-1066_0.png?itok=1przEF9S",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -443,7 +443,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Beef Jerky",
-						"https://p2-ofp.static.pub/fes/cms/2022/03/21/3ved6sx5xwp6yhl8lbpo42lgxtblqh290202.png",
+						"https://www.jacklinks.com/shop/media/catalog/product/1/0/10000017977_3.25oz_jl_bf_swht_jerk_hero.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -452,25 +452,25 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Potato Chips - Mexican Fiesta",
-						"https://i0.wp.com/mtcfactoryoutlet.com/wp-content/uploads/2021/08/tab-a7-lite.png?fit=3000%2C2000&ssl=1",
+						"https://www.kims.no/wp-content/uploads/sites/16/2021/11/Mexican-fiesta.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"consumable"
 				));
-				new Item(
+				itemRepository.save(new Item(
 						"Potato Chips - Salt % Vinegar",
-						"../images/random-jacket.jpg",
+						"https://image.similarpng.com/very-thumbnail/2021/11/Lay's-Salt-&-Vinegar-Flavored-Potato-Chips-on-transparent-background-PNG.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"consumable"
-				);
+				));
 				itemRepository.save(new Item(
 						"Candy Mix - 500G",
-						"https://www.vhv.rs/dpng/f/11-119933_lg-oled-tv-png-transparent-png.png",
+						"https://image.pngaaa.com/573/3540573-middle.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -479,7 +479,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Whey Protein - Strawberry",
-						"https://storage.googleapis.com/alpine-inkwell-325917.appspot.com/devices/iphone-14-header.png",
+						"https://medievilnutrition.com/cdn/shop/products/wdp_strawberry_delight.png?v=1702294736&width=1000",
 						true,
 						5999,
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -488,7 +488,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Oreo Cookies - 200G",
-						"https://static.vecteezy.com/system/resources/previews/010/864/665/original/massage-gun-3d-illustration-free-png.png",
+						"https://www.cadburygiftsdirect.co.uk/media/catalog/product/cache/d781fed7f79dc069f26dcbeb98b1f140/o/r/oreo-original-154g_3.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -497,7 +497,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Biscuits - 400G",
-						"https://images.barrons.com/im-477124",
+						"https://assets.stickpng.com/images/580b57fbd9996e24bc43c0fa.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -506,7 +506,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"GFuel Starter Pack - 12 Flavours",
-						"../images/random-jacket.jpg",
+						"https://cdn.shopify.com/s/files/1/0223/3113/files/vbk1.png?v=1702893470",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -515,7 +515,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Taco Spice",
-						"https://ongpng.com/wp-content/uploads/2023/03/31.SAMSUNG-_Odyssey_gaiming_monitor_1573x1632.png",
+						"https://www.santamariaworld.com/optimized/product-large/globalassets/uk/products/50239.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -524,7 +524,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"FlapJack",
-						"https://products.shureweb.eu/shure_product_db/product_images/files/5d7/cae/9d-/thumb_transparent/2140e6b3255a02c1671635465b5c46f6.png",
+						"https://maxsportnutrition.com/upload/images/category/flapjack.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -533,7 +533,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Organic All-Natural Energy Bar",
-						"https://mediadl.musictribe.com/media/PLM/data/images/products/P0CQK/2000Wx2000H/Image_TH_P0CQK_GoXLR_Left_XL.png",
+						"https://www.outdoorprovisions.co.uk/cdn/shop/products/01.png?v=1665754109",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -542,25 +542,25 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Milk Chocolate",
-						"https://store.sony.co.nz/dw/image/v2/ABBC_PRD/on/demandware.static/-/Sites-sony-master-catalog/default/dw2e089ba5/images/WH1000XM5S/WH1000XM5S.png",
+						"https://w7.pngwing.com/pngs/415/821/png-transparent-cadbury-dairy-milk-chocolate-cake-chocolate-bar-cadbury-dairy-milk-cocoa-food-cocoa-bean-superfood.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"consumable"
 				));
-				new Item(
+				itemRepository.save(new Item(
 						"White Chocolate",
-						"https://help.apple.com/assets/61AFEC45FA5233173908347B/61B0509E1BF38548362237B5/no_NO/b9f519195f84950573eea5088a49b964.png",
+						"https://i.pinimg.com/originals/08/fb/e5/08fbe57c7535c93165a6a764adeec47c.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"consumable"
-				);
+				));
 				itemRepository.save(new Item(
 						"Midnight Tea",
-						"https://assets.stickpng.com/images/60b79e8771a1fd000411f6be.png",
+						"https://www.yogitea.com/site/assets/files/23363/yogi-tea-for-the-senses-good-night-gb-scan.300x0.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -569,7 +569,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Instant Coffee Powder - 300G",
-						"../images/random-jacket.jpg",
+						"https://www.nescafe.com/us/sites/g/files/jgfbjl306/files/gdn_product/field_product_images/nescafe-b150474f7ed01776fa185928e86ef29f2692d9f8.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -578,7 +578,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Liquorice",
-						"https://images.samsung.com/is/image/samsung/assets/nz/support/mobile-devices/how-to-activate-samsung-earbuds/1111.png?$ORIGIN_PNG$",
+						"https://fazerpro.fazer.com/globalassets/remix_salmiakki_230g_404191_web.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -599,7 +599,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Macbook Air 2024",
-						"../images/random-jacket.jpg",
+						"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP825/macbookair.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -608,7 +608,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Lenovo Legion 16 pro",
-						"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP825/macbookair.png",
+						"https://ongpng.com/wp-content/uploads/2023/04/3.Lenovo-Legion-Y540-1026x806-1.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -642,18 +642,18 @@ public class MockEcommerceApplication {
 						250,
 						"technology"
 				));
-				new Item(
+				itemRepository.save(new Item(
 						"LG 65\" Oled TV",
-						"../images/random-jacket.jpg",
+						"https://www.vhv.rs/dpng/f/11-119933_lg-oled-tv-png-transparent-png.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"technology"
-				);
+				));
 				itemRepository.save(new Item(
 						"Samsung Galaxy Phone 23",
-						"https://www.vhv.rs/dpng/f/11-119933_lg-oled-tv-png-transparent-png.png",
+						"https://static.vecteezy.com/system/resources/previews/022/722/945/original/samsung-galaxy-s23-ultra-transparent-image-free-png.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -698,7 +698,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"4k Oled Ultrawide 144hz Monitor",
-						"https://ongpng.com/wp-content/uploads/2023/03/31.SAMSUNG-_Odyssey_gaiming_monitor_1573x1632.png",
+						"https://storage.aoc.com/assets/8533/AOC_CU34G2_PV_-FTR-large.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -732,18 +732,18 @@ public class MockEcommerceApplication {
 						250,
 						"technology"
 				));
-				new Item(
+				itemRepository.save(new Item(
 						"Apple Airpods Max",
-						"https://help.apple.com/assets/61AFEC45FA5233173908347B/61B0509E1BF38548362237B5/no_NO/b9f519195f84950573eea5088a49b964.png",
+						"https://parspng.com/wp-content/uploads/2023/08/airpodspng.parspng.com-3.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"technology"
-				);
+				));
 				itemRepository.save(new Item(
 						"Apple Airpods Pro",
-						"https://assets.stickpng.com/images/60b79e8771a1fd000411f6be.png",
+						"https://www.pngall.com/wp-content/uploads/14/Airpod-PNG-Photo.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -752,7 +752,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Samsung Earbuds",
-						"../images/random-jacket.jpg",
+						"https://images.samsung.com/is/image/samsung/assets/nz/support/mobile-devices/how-to-activate-samsung-earbuds/1111.png?$ORIGIN_PNG$",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
@@ -761,7 +761,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Meta Quest 3",
-						"https://images.samsung.com/is/image/samsung/assets/nz/support/mobile-devices/how-to-activate-samsung-earbuds/1111.png?$ORIGIN_PNG$",
+						"https://www.synergiz.com/wp-content/uploads/2023/10/meta-quest-3.png",
 						true,
 						random.nextDouble(18, 40),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
