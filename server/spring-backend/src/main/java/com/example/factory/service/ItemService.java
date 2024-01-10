@@ -31,6 +31,31 @@ public class ItemService {
         return itemRepository.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
     }
 
+    public List<Item> getApparelPageable(int pageNumber) {
+        return itemRepository.findByItemCategory("apparel", PageRequest.of(pageNumber, 10)).stream().toList();
+    }
+    public List<Item> getJewelryPageable(int pageNumber) {
+        return itemRepository.findByItemCategory("jewelry", PageRequest.of(pageNumber, 10)).stream().toList();
+    }
+
+    public List<Item> getTechnologyPageable(int pageNumber) {
+        return itemRepository.findByItemCategory("technology", PageRequest.of(pageNumber, 10)).stream().toList();
+    }
+
+    public List<Item> getGardeningPageable(int pageNumber) {
+        return itemRepository.findByItemCategory("gardening", PageRequest.of(pageNumber, 10)).stream().toList();
+    }
+
+    public List<Item> getConsumablesPageable(int pageNumber) {
+        return itemRepository.findByItemCategory("consumables", PageRequest.of(pageNumber, 10)).stream().toList();
+    }
+
+    public List<Item> getFurniturePageable(int pageNumber) {
+        return itemRepository.findByItemCategory("furniture", PageRequest.of(pageNumber, 10)).stream().toList();
+    }
+
+
+
     public Item getItemById(Long id) {
         return itemRepository.findById(id).orElse(null);
     }

@@ -21,7 +21,7 @@ export default function HomePage(props) {
     //   }),
     // );
 
-    fetch(`http://localhost:8080/api/v1/products`).then((response) =>
+    fetch(`http://localhost:8080/api/v1/products/page/0`).then((response) =>
       response.json().then((data) => {
         setItems(data);
       }),
@@ -56,7 +56,7 @@ export default function HomePage(props) {
   const itemElements = items.map((item, index) => {
     return (
       <div className="item-card" key={index}>
-        <img src={item.itemImage} style={{maxHeight: "200px"}}/>
+        <img src={item.itemImage} style={{maxHeight: "200px", maxWidth: "300px"}}/>
         <h4>{item.itemName}</h4>
         <h4>${item.itemPrice.toFixed(2)}</h4>
         <h5>{Array.from(item.itemDescription).map((item, index) => {
