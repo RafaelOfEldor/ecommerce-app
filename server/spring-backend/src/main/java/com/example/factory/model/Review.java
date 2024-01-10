@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @ToString
@@ -20,7 +22,7 @@ public class Review {
     @Column(name = "review_id")
     private Long reviewId = 0L;
 
-    @Column(name= "review_comment")
+    @Column(name= "review_comment", columnDefinition = "TEXT")
     private String reviewComment;
 
     @ManyToOne
@@ -32,4 +34,13 @@ public class Review {
 
     @Column(name= "review_author")
     private String reviewAuthor;
+
+    @Column(name= "review_publish_date")
+    private LocalDate reviewPublishDate = LocalDate.now();
+
+    public Review(String reviewAuthor, int reviewRating, String reviewComment) {
+        this.reviewComment = reviewComment;
+        this.reviewRating = reviewRating;
+        this.reviewAuthor = reviewAuthor;
+    }
 }

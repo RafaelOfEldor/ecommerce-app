@@ -40,57 +40,64 @@ public class ItemController {
         }
     }
 
+    @GetMapping("/apparel/page/{pageNumber}")
+    public List<Item> getApparelByPage(@PathVariable int pageNumber) {
+        try {
+            return itemService.getApparelPageable(pageNumber);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @GetMapping("/jewelry/page/{pageNumber}")
+    public List<Item> getJewelryByPage(@PathVariable int pageNumber) {
+        try {
+            return itemService.getJewelryPageable(pageNumber);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @GetMapping("/technology/page/{pageNumber}")
+    public List<Item> getTechnologyItemsByPage(@PathVariable int pageNumber) {
+        try {
+            return itemService.getTechnologyPageable(pageNumber);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @GetMapping("/gardening/page/{pageNumber}")
+    public List<Item> getGardeningItemsByPage(@PathVariable int pageNumber) {
+        try {
+            return itemService.getGardeningPageable(pageNumber);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @GetMapping("/consumables/page/{pageNumber}")
+    public List<Item> getConsumablesItemsByPage(@PathVariable int pageNumber) {
+        try {
+            return itemService.getConsumablesPageable(pageNumber);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @GetMapping("/furniture/page/{pageNumber}")
+    public List<Item> getFurnitureItemsByPage(@PathVariable int pageNumber) {
+        try {
+            return itemService.getFurniturePageable(pageNumber);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     @GetMapping("/{id}")
     public Item getItemsById(@PathVariable Long id) {
         return itemService.getItemById(id);
     }
 
-    @PostMapping
-    public Item addItem(@RequestBody Item machine) {
-        try {
-            return itemService.addItem(machine);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-//    @PutMapping("/{id}")
-//    public Item updateItemById(@PathVariable Long id, @RequestBody Item machine) {
-//        try {
-//            return itemService.updateItem(id, machine);
-//        } catch (Exception e) {
-//            return null;
-//        }
-//    }
-
-    @DeleteMapping("/{id}")
-    public void deleteItem(@PathVariable Long id) {
-        itemService.deleteItem(id);
-    }
-
-    //Takes in id of order in parameter and a json with an array "machineId" of Long's corresponding to a machine's id.
-    //Example:
-    //      {
-    //             "machineId": [
-    //                           14, <-(the id of machine 14)
-    //                           5, <-(the id of machine 5)
-    //                           22 <-(the id of machine 22)
-    //                           ]
-    //      }
-    @PostMapping("/order/{orderid}/addexistingmachines")
-    public Order addExistingItemsToOrder(@PathVariable Long orderid,  @RequestBody ExistingItemsDTO existingItemDTO) {
-        try {
-            Order order = orderService.getOrderById(orderid);
-
-            for (Long itemId : existingItemDTO.getItemId()) {
-                Item item = itemService.getItemById(itemId);
-                order.getItems().add(item);
-            }
-
-            return orderService.addOrder(order);
-        } catch (Exception e) {
-            return null;
-        }
-    }
 
 }

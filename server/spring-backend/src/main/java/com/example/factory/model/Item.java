@@ -1,5 +1,6 @@
 package com.example.factory.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,6 +40,7 @@ public class Item {
     private String itemDescription;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties({"item"})
     private List<Review> reviews = new ArrayList<>();
 
     @Column(name = "item_stock")
