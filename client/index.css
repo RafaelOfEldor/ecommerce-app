@@ -121,6 +121,34 @@ html, body {
   width: 300px;
 }
 
+.item-card-addcart-button {
+  width: 100px;
+   height: 40px;
+   border: none;
+   border-radius: 10px;
+   background-color: grey;
+   color: white;
+   cursor: pointer
+}
+
+.item-card-buy-button {
+  width: 80px;
+   height: 40px;
+   border: none;
+   border-radius: 10px;
+   background-color: green;
+   color: white;
+   cursor: pointer;
+}
+
+.item-card-addcart-button:active {
+  scale: 0.95;
+}
+
+.item-card-buy-button:active {
+  scale: 0.95;
+}
+
 .homepage-carousel {
   margin: 0;
   padding: 0;
