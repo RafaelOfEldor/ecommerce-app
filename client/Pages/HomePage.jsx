@@ -3,13 +3,17 @@ import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
 // import data from "../data";
 import jacketImage from "../images/random-jacket.jpg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
+import {useAuth} from "../context/AuthContext"
 
 export default function HomePage(props) {
 
   const [slide, setSlide] = React.useState(0);
+  const { isUserAuthenticated, username, mail, firstName, lastName, role, logOut  } = useAuth()
+  const navigate = useNavigate();
 
   const [items, setItems] = React.useState([])
   const [carouselItems, setCarouselItems] = React.useState([])
+
   React.useEffect(() => {
     console.log(items)
   },[items])
@@ -53,6 +57,22 @@ export default function HomePage(props) {
     }
   }
 
+  function handleAddItemToCart() {
+    if (isUserAuthenticated) {
+      console.log("yoo")
+    } else {
+      navigate("/login")
+    }
+  }
+
+  function handleBuyItem() {
+    if (isUserAuthenticated) {
+      console.log("yoo")
+    } else {
+      navigate("/login")
+    }
+  }
+
   const itemElements = items.map((item, index) => {
     return (
       <div className="item-card" key={index}>
@@ -70,7 +90,21 @@ export default function HomePage(props) {
             )
           }
         })}</h5>
-        <h4 style={{color: "green"}} >{item.itemInStock === true ? "in stock" : "out of stock"}</h4>
+        <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+          <h4 style={{color: "green"}} >{item.itemInStock === true ? "in stock" : "out of stock"}</h4>
+          <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "5px"}}>
+            <button
+            className="item-card-addcart-button"
+            onClick={handleAddItemToCart}
+            >
+              Add To Cart</button>
+            <button
+            className="item-card-buy-button"
+            onClick={handleBuyItem}
+            >
+              Buy</button>
+            </div>
+        </div>
         {/* <h4>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4> */}
       </div>
       )
