@@ -130,7 +130,7 @@ export default function CartPage(props) {
         <h4 style={{fontWeight: "400", color: "green"}}>
           Our company provides <b>100% free shipping</b> anywhere in the world! 
         </h4 >
-        <h4 style={{fontWeight: "400", color: "green"}}>Dissatisfied? No problem! We provide a 100% money-back-guarantee for our dissatisfied customers</h4>
+        <h4 style={{fontWeight: "400", color: "green"}}>Unhappy with your purchase? No problem! We provide a 100% money-back-guarantee for our dissatisfied customers</h4>
         <h3 style={{fontWeight: "400"}}>Subtotal {`(${cartElements?.length != 0 && cartElements.length} items)`}: <b>${totalPrice && totalPrice.toFixed(2)}</b></h3>
         <button>Proceed to checkout</button>
       </div>
