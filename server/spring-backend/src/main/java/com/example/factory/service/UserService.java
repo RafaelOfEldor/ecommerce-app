@@ -1,9 +1,14 @@
 package com.example.factory.service;
 
 import com.example.factory.auth.RegisterRequest;
+import com.example.factory.dtos.AddToCartDTO;
 import com.example.factory.dtos.UserChangeDTO;
 import com.example.factory.dtos.UserInfoDto;
+import com.example.factory.model.Item;
 import com.example.factory.model.User;
+import com.example.factory.model.UserCart;
+import com.example.factory.repository.ItemRepository;
+import com.example.factory.repository.UserCartRepository;
 import com.example.factory.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +22,38 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final UserCartRepository userCartRepository;
+    private final ItemRepository itemRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, UserCartRepository userCartRepository, ItemRepository itemRepository) {
         this.userRepository = userRepository;
+        this.userCartRepository = userCartRepository;
+        this.itemRepository = itemRepository;
     }
 
     public User findByUsername(String username) {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User was not found"));
     }
+
+    public ResponseEntity<Optional<UserCart>> addItemToCart(AddToCartDTO addToCartDTO) {
+        try {
+            User user = userRepository.findById(addToCartDTO.getUserId()).orElse(null);
+            if (user != null) {
+                UserCart userCart = userCartRepository.findById(user.getUserCart().getId()).orElse(null);
+                Item item = itemRepository.findById(addToCartDTO.getItemId()).orElse(null);
+                userCart.getItems().add(item);
+                userCartRepository.save(userCart);
+                userRepository.save(user);
+                return ResponseEntity.ok(Optional.of(userCart));
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        return ResponseEntity.badRequest().body(null);
+    }
+
+
 
     public ResponseEntity<Optional<UserInfoDto>> getUserInfoByUserName(String username) {
         User user = userRepository.findByUsername(username).orElse(null);
@@ -33,21 +61,24 @@ public class UserService {
 
         UserInfoDto userInfo= new UserInfoDto();
         userInfo.setUserName(user.getUserName());
-        userInfo.setFirstName(user.getFirstName());
-        userInfo.setLastName(user.getLastName());
+        userInfo.setFirstName(user.getFirstname());
+        userInfo.setLastName(user.getLastname());
         userInfo.setRole(user.getRole());
         userInfo.setEmail(user.getEmail());
         userInfo.setId(user.getId());
+        userInfo.setUserCart(user.getUserCart());
         return ResponseEntity.ok(Optional.of(userInfo));
         }
         return ResponseEntity.badRequest().body(null);
     }
 
+
+
     public ResponseEntity<String> changeFirstname(UserChangeDTO firstnameRequest) {
         User user = userRepository.findByUsername(firstnameRequest.getUsername()).orElse(null);
         if (user != null) {
             System.out.println("in here");
-            user.setFirstName(firstnameRequest.getDetailToChange());
+            user.setFirstname(firstnameRequest.getDetailToChange());
             userRepository.save(user);
             return ResponseEntity.ok("Change was successfully made");
         }
@@ -58,7 +89,7 @@ public class UserService {
     public ResponseEntity<String> changeLastname(UserChangeDTO lastnameRequest) {
         User user = userRepository.findByUsername(lastnameRequest.getUsername()).orElse(null);
         if (user != null) {
-            user.setLastName(lastnameRequest.getDetailToChange());
+            user.setLastname(lastnameRequest.getDetailToChange());
             userRepository.save(user);
             return ResponseEntity.ok("Change was successfully made");
         }

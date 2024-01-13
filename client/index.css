@@ -108,6 +108,20 @@ html, body {
   filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(7499%) hue-rotate(244deg) brightness(101%) contrast(101%);
 }
 
+.cart-items-circle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  color: white;
+  margin-top: 20px;
+  margin-left: 17px;
+}
+
 .item-cards {
   margin-top: 5vh;
   display: flex;

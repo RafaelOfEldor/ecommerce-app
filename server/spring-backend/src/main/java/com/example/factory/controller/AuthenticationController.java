@@ -3,6 +3,7 @@ package com.example.factory.controller;
 import com.example.factory.auth.AuthenticationRequest;
 import com.example.factory.auth.RegisterRequest;
 import com.example.factory.auth.AuthenticationResponse;
+import com.example.factory.model.UserCart;
 import com.example.factory.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
