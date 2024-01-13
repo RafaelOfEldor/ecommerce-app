@@ -73,7 +73,7 @@ export default function HomePage(props) {
             }
           })
           if (res.ok) {
-            const data = res.json();
+            const data = await res.json();
             increaseAmountOfItemsInCart()
             console.log(data)
           }
@@ -112,12 +112,12 @@ export default function HomePage(props) {
           <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "5px"}}>
             <button
             className="item-card-addcart-button"
-            onClick={() => handleAddItemToCart(index + 1)}
+            onClick={() => handleAddItemToCart(item?.itemId)}
             >
               Add To Cart</button>
             <button
             className="item-card-buy-button"
-            onClick={() => handleBuyItem(index + 1)}
+            onClick={() => handleBuyItem(item?.itemId)}
             >
               Buy</button>
             </div>
