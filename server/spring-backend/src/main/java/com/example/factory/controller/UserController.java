@@ -1,9 +1,11 @@
 package com.example.factory.controller;
 
+import com.example.factory.dtos.AddToCartDTO;
 import com.example.factory.dtos.UserChangeDTO;
 import com.example.factory.dtos.UserInfoDto;
 import com.example.factory.dtos.UsernameDto;
 import com.example.factory.model.User;
+import com.example.factory.model.UserCart;
 import com.example.factory.service.AuthenticationService;
 import com.example.factory.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +27,15 @@ public class UserController {
             return ResponseEntity.badRequest().body(null);
         }
         return user;
+    }
+
+    @PostMapping("/cart/additem")
+    public ResponseEntity<Optional<UserCart>> addItemToCart(@RequestBody AddToCartDTO addToCartDTO) {
+        ResponseEntity<Optional<UserCart>> UserCart = userService.addItemToCart(addToCartDTO);
+        if (UserCart == null) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        return UserCart;
     }
 
     @PostMapping("/change/firstname")

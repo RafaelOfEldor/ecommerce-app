@@ -7,6 +7,7 @@ import RegisterPage from "./Pages/RegisterPage";
 import AboutPage from "./Pages/AboutPage";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import AccountPage from "./Pages/AccountPage";
+import CartPage from "./Pages/CartPage";
 import AccountProfileComponent from "./Pages/account-subpages/ProfileComponent";
 import AccountAdressesComponent from "./Pages/account-subpages/AdressesComponent";
 import AccountCancellationsComponent from "./Pages/account-subpages/CancellationsComponent";
@@ -23,6 +24,7 @@ export default function RoutesPage() {
         <Route path="/login" element={<LoginPage />}/>
         <Route path="/register" element={<RegisterPage />}/>
         <Route path="/about" element={<ProtectedRoute><AboutPage /></ProtectedRoute>}/>
+        <Route path="/cart" element={<ProtectedRoute><CartPage /></ProtectedRoute>}/>
   
         <Route path="/account" element={<ProtectedRoute><AccountPage /></ProtectedRoute>}>
           <Route path="profile" element={<AccountProfileComponent />}/>

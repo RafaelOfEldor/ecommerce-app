@@ -8,7 +8,7 @@ import {useAuth} from "../context/AuthContext"
 export default function HomePage(props) {
 
   const [slide, setSlide] = React.useState(0);
-  const { isUserAuthenticated, username, mail, firstName, lastName, role, logOut  } = useAuth()
+  const { isUserAuthenticated, username, userId, mail, firstName, lastName, role, logOut, increaseAmountOfItemsInCart  } = useAuth()
   const navigate = useNavigate();
 
   const [items, setItems] = React.useState([])
@@ -57,9 +57,26 @@ export default function HomePage(props) {
     }
   }
 
-  function handleAddItemToCart() {
+  async function handleAddItemToCart(itemId) {
     if (isUserAuthenticated) {
-      console.log("yoo")
+      const addToCartElement = {
+        userId: userId,
+        itemId: itemId
+      }
+      console.log(JSON.stringify())
+      const res = await fetch("http://localhost:8080/api/v1/user/cart/additem", {
+            method: "POST",
+            body: JSON.stringify(addToCartElement),
+            headers: {
+              "content-type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            }
+          })
+          if (res.ok) {
+            const data = res.json();
+            increaseAmountOfItemsInCart()
+            console.log(data)
+          }
     } else {
       navigate("/login")
     }
@@ -95,12 +112,12 @@ export default function HomePage(props) {
           <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "5px"}}>
             <button
             className="item-card-addcart-button"
-            onClick={handleAddItemToCart}
+            onClick={() => handleAddItemToCart(index + 1)}
             >
               Add To Cart</button>
             <button
             className="item-card-buy-button"
-            onClick={handleBuyItem}
+            onClick={() => handleBuyItem(index + 1)}
             >
               Buy</button>
             </div>

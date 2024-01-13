@@ -10,7 +10,7 @@ import {useAuth} from "../context/AuthContext"
 export default function Navbar(props) {
 
   
-const { isUserAuthenticated } = useAuth()
+const { isUserAuthenticated, ItemAmountInCart } = useAuth()
 console.log(isUserAuthenticated)
   return (
     <div>
@@ -90,8 +90,14 @@ console.log(isUserAuthenticated)
           to="/cart"
           className={({isActive}) => 
             isActive ? "navbar-link-active cart" : "navbar-link cart"
-          }>
-            <img src={ShoppingCartLogo} style={{height: "30px"}}/>
+          }
+          style={{display: "flex"}}>
+              <img src={ShoppingCartLogo} style={{height: "30px"}}/>
+              {ItemAmountInCart != 0 &&
+                <div className="cart-items-circle">
+                  {ItemAmountInCart && ItemAmountInCart}
+                </div>
+              }
           </NavLink>
           
           <NavLink 

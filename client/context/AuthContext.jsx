@@ -9,13 +9,16 @@ import {jwtDecode} from "jwt-decode";
 
 const AuthContext = React.createContext({
   username: undefined,
+  userId: undefined,
   mail: undefined,
   firstName: undefined,
   lastName: undefined,
+  ItemAmountInCart: undefined,
   role: undefined,
   isUserAuthenticated: undefined,
   getUserFromToken: async () => {},
-  logOut: () => {}
+  logOut: () => {},
+  increaseAmountOfItemsInCart: () => {}
 });
 
 
@@ -25,6 +28,8 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [username, setUsername] = React.useState();
+  const [userId, setUserId] = React.useState();
+  const [ItemAmountInCart, setItemAmountInCart] = React.useState();
   const [firstName, setFirstName] = React.useState();
   const [role, setRole] = React.useState();
   const [lastName, setLastName] = React.useState();
@@ -63,6 +68,8 @@ export function AuthProvider({ children }) {
             setLastName(data.lastName)
             setMail(data.email)
             setRole(data.role)
+            setUserId(data.id)
+            setItemAmountInCart(data.userCart.items.length)
             console.log(data)
           }
         } else {
@@ -72,6 +79,10 @@ export function AuthProvider({ children }) {
         }
       } else {
       }
+  }
+
+  function increaseAmountOfItemsInCart() {
+    setItemAmountInCart(prev => prev + 1)
   }
 
   useEffect(() => {
@@ -127,15 +138,18 @@ const resetUserInfo = () => {
     <AuthContext.Provider
       value={{
         username,
+        userId,
         firstName,
         lastName,
         mail,
+        ItemAmountInCart,
         role,
         isUserAuthenticated,
         setFirstName,
         setLastName,
         setMail,
         setUsername,
+        increaseAmountOfItemsInCart,
         getUserFromToken,
         getUserAuthentication,
         logOut

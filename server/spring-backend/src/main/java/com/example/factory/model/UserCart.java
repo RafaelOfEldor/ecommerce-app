@@ -32,7 +32,10 @@ public class UserCart {
     )
     private List<Item> items = new ArrayList<>();
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnoreProperties({"userCart", "password", "userName", "credentialsNonExpired",
+            "credentialsNonExpired", "accountNonExpired", "accountNonLocked", "userPassword"
+    ,"userEmail", "enabled", "authorities", "role"})
     private User user;
 }
