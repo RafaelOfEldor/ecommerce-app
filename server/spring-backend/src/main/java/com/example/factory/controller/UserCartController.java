@@ -33,7 +33,7 @@ public class UserCartController {
         return userCartService.getCartByUserId(userid);
     }
 
-    @GetMapping("/checkout")
+    @PostMapping("/checkout")
     public ResponseEntity<Optional<Order>> confirmPurchase(@RequestBody PurchaseItemDTO purchaseItemDTO) {
         return userCartService.confirmPurchase(purchaseItemDTO);
     }
