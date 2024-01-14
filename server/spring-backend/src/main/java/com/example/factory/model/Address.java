@@ -31,7 +31,7 @@ public class Address {
 
     @ManyToMany(mappedBy = "addresses", cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"orders", "addresses"})
-    private List<Customer> customers = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
     public Address(String addressStreetName, String addressStreetNameNumber) {
         this.addressStreetName = addressStreetName;

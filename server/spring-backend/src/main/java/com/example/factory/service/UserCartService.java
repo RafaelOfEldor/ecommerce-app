@@ -1,12 +1,13 @@
 package com.example.factory.service;
 
 import com.example.factory.controller.UserCartController;
+import com.example.factory.dtos.AddToCartDTO;
+import com.example.factory.dtos.ItemsWithQuantityDTO;
+import com.example.factory.dtos.PurchaseItemDTO;
 import com.example.factory.dtos.UserIdDTO;
-import com.example.factory.model.Customer;
-import com.example.factory.model.User;
-import com.example.factory.model.UserCart;
-import com.example.factory.repository.UserCartRepository;
-import com.example.factory.repository.UserRepository;
+import com.example.factory.model.*;
+import com.example.factory.repository.*;
+import jakarta.persistence.Column;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,17 @@ public class UserCartService {
 
     UserCartRepository userCartRepository;
     UserRepository userRepository;
+    ItemRepository itemRepository;
+    OrderedItemRepository orderedItemRepository;
+    OrderRepository orderRepository;
 
     @Autowired
-    public UserCartService(UserCartRepository userCartRepository, UserRepository userRepository) {
+    public UserCartService(UserCartRepository userCartRepository, UserRepository userRepository, ItemRepository itemRepository, OrderedItemRepository orderedItemRepository, OrderRepository orderRepository) {
         this.userCartRepository = userCartRepository;
         this.userRepository = userRepository;
+        this.itemRepository = itemRepository;
+        this.orderedItemRepository = orderedItemRepository;
+        this.orderRepository = orderRepository;
     }
 
 
@@ -41,8 +48,43 @@ public class UserCartService {
         return ResponseEntity.badRequest().body(Optional.of(null));
     }
 
+    public ResponseEntity<Optional<Order>> confirmPurchase(PurchaseItemDTO purchaseItemDTO) {
+        try {
+            User user = userRepository.findById(purchaseItemDTO.getUserId()).orElse(null);
+            if (user != null) {
+                UserCart userCart = userCartRepository.findById(user.getUserCart().getId()).orElse(null);
+                Order order = orderRepository.save(new Order());
+                for (ItemsWithQuantityDTO item : purchaseItemDTO.getItems()) {
+                    OrderedItem orderedItem = orderedItemRepository.save(new OrderedItem(
+                            item.getItemName(),
+                            item.getItemOrigianlId(),
+                            item.getItemImage(),
+                            item.getItemPrice(),
+                            item.getItemDescription(),
+                            item.getItemCategory(),
+                            item.getItemQuantity()
+                    ));
+                    Optional<Item> itemToChange = itemRepository.findById(orderedItem.getOrderedItemOriginalItemId());
+                    if (itemToChange != null) {
+                        itemToChange.get().setItemStock(itemToChange.get().getItemStock() - item.getItemQuantity());
+                        itemRepository.save(itemToChange.get());
+                        userCart.getItems().remove(itemToChange.get());
+                        userCartRepository.save(userCart);
+                    }
+                    order.getItems().add(orderedItem);
+                    order.setUser(user);
+                    user.getOrders().add(order);
+                    orderRepository.save(order);
+                    userRepository.save(user);
+                }
 
-
+                return ResponseEntity.ok(Optional.of(order));
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        return ResponseEntity.badRequest().body(null);
+    }
 
     public UserCart getUserCartById(Long id) {
         return userCartRepository.findById(id).orElse(null);

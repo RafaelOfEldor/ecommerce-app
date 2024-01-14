@@ -38,6 +38,19 @@ public class User implements UserDetails {
     @Column(name = "email")
     private String email;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonIgnoreProperties("user")
+    private List<Order> orders = new ArrayList<>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "user_address",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id")
+    )
+    @JsonIgnoreProperties("users")
+    private List<Address> addresses = new ArrayList<>();
+
     @OneToOne
     @JoinColumn(name = "user_cart_id")
     @JsonIgnoreProperties({"user"})

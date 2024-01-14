@@ -38,6 +38,15 @@ public class UserController {
         return UserCart;
     }
 
+    @PostMapping("/cart/removeitem")
+    public ResponseEntity<Optional<UserCart>> removeItemFromCart(@RequestBody AddToCartDTO addToCartDTO) {
+        ResponseEntity<Optional<UserCart>> UserCart = userService.removeItemFromCart(addToCartDTO);
+        if (UserCart == null) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        return UserCart;
+    }
+
     @PostMapping("/change/firstname")
     public ResponseEntity<String> changeFirstname(@RequestBody UserChangeDTO firstnameRequest) {
         return userService.changeFirstname(firstnameRequest);

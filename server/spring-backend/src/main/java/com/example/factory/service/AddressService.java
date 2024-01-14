@@ -1,7 +1,6 @@
 package com.example.factory.service;
 
 import com.example.factory.model.Address;
-import com.example.factory.model.Customer;
 import com.example.factory.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -35,12 +34,12 @@ public class AddressService {
 
     public void deleteAddress(Long id) { addressRepository.deleteById(id);}
 
-    public Address addAddressToCustomer(Customer customer, String streetName, String streetNumber) {
-        Address address = new Address(streetName, streetNumber);
-        customer.getAddresses().add(address);
-        addressRepository.save(address);
-        return address;
-    }
+//    public Address addAddressToCustomer(Customer customer, String streetName, String streetNumber) {
+//        Address address = new Address(streetName, streetNumber);
+//        customer.getAddresses().add(address);
+//        addressRepository.save(address);
+//        return address;
+//    }
 
     public Address updateAddress(Long id, Address newAddress) {
 
