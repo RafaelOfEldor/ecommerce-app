@@ -15,6 +15,7 @@ export default function CartPage(props) {
   const {pathname, hash, search} = location
   const pathText = pathname.split("/")
   const [cartDetails, setCartDetails] = useState([]);
+  const [itemsToBuyPeparedList, setItemsToBuyPeparedList] = useState([]);
   const [totalPrice, setTotalPrice] = useState();
   const [originalPrice, setOriginalPrice] = useState([]);
 
@@ -32,6 +33,19 @@ export default function CartPage(props) {
             setOriginalPrice(prev => data.items.map((item) => {
               return (
                 item.itemPrice
+              )
+            }))
+            setItemsToBuyPeparedList(prev => data.items.map((item) => {
+              return (
+                {
+                itemName: item.itemName,
+                itemOrigianlId: item.itemId,
+                itemImage: item.itemImage,
+                itemPrice: item.itemPrice,
+                itemDescription: item.itemDescription,
+                itemCategory: item.itemCategory,
+                itemQuantity: 1
+                }
               )
             }))
             let sum = 0;
@@ -84,56 +98,35 @@ export default function CartPage(props) {
     Example:
 
     userId: userId,
-    address: selectedAddress
-    items: [
-      {
-      itemName: cartDetails.itemName;
-      itemOrigianlId: cartDetails.itemId;
-      itemImage: cartDetails.itemImage;
-      itemPrice: originalPrice[i].itemPrice;
-      itemDescription: cartDetails.itemDescription;
-      itemCategory: cartDetails.itemCategory;
-      itemQuantity: selectedQuantity; 
-    },
-    {
-      itemName: cartDetails.itemName;
-      itemOrigianlId: cartDetails.itemId;
-      itemImage: cartDetails.itemImage;
-      itemPrice: originalPrice[i].itemPrice;
-      itemDescription: cartDetails.itemDescription;
-      itemCategory: cartDetails.itemCategory;
-      itemQuantity: selectedQuantity; 
-    },
-    {
-      itemName: cartDetails.itemName;
-      itemOrigianlId: cartDetails.itemId;
-      itemImage: cartDetails.itemImage;
-      itemPrice: originalPrice[i].itemPrice;
-      itemDescription: cartDetails.itemDescription;
-      itemCategory: cartDetails.itemCategory;
-      itemQuantity: selectedQuantity; 
-    },
-  
-    ]
-
-    so to make the list of items, map over the cartDetails and return that. Remember to use the original price
+    address: selectedAddress,
+    items: itemsToBuyPreparedList
     
     */
   }
 
   const handleQuantityChange = (index, event) => {
     const newCartDetails = [...cartDetails];
+    const newItemsToBuyDetails = [...itemsToBuyPeparedList]
+
     const newQuantity = parseInt(event.target.value, 10);
   
     newCartDetails[index].itemPrice = originalPrice[index] * newQuantity;
+    newItemsToBuyDetails[index].itemQuantity = newQuantity;
     console.log(originalPrice)
     console.log(newQuantity)
     console.log(newCartDetails[index].itemPrice)
   
     setCartDetails(newCartDetails);
+    setItemsToBuyPeparedList(newItemsToBuyDetails)
     calculateTotalPrice(); // Update the total price based on the changes
   };
+
   console.log(cartDetails)
+  console.log(itemsToBuyPeparedList)
+
+  const handleAddressSelect = (index, event) => {
+
+  }
 
   function calculateTotalPrice() {
     let sum = 0;
@@ -217,7 +210,7 @@ export default function CartPage(props) {
         <h4 style={{fontWeight: "400", color: "green"}}>Unhappy with your purchase? No problem! We provide a 100% money-back-guarantee for our dissatisfied customers</h4>
         <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
           <h3 style={{fontWeight: "400"}}>Ship to:</h3>
-          <select style={{height: "30px", width: "200px", textAlign: "center"}}>
+          <select style={{height: "30px", width: "200px", textAlign: "center"}} onChange={(event) => handleAddressSelect(index, event)}>
             <option style={{padding: "50px", fontSize: "1rem", textAlign: "center"}}>Select address</option>
             {adressOptionsElement}
           </select>
