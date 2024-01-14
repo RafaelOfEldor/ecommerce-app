@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PurchaseItemDTO {
     private Long userId;
+    private Long addressId;
 
     private List<ItemsWithQuantityDTO> items;
 }

@@ -15,9 +15,11 @@ export default function CartPage(props) {
   const {pathname, hash, search} = location
   const pathText = pathname.split("/")
   const [cartDetails, setCartDetails] = useState([]);
-  const [itemsToBuyPeparedList, setItemsToBuyPeparedList] = useState([]);
+  const [shippingAddress, setShippingAddress] = useState()
+  const [itemsToBuyPreparedList, setitemsToBuyPreparedList] = useState([]);
   const [totalPrice, setTotalPrice] = useState();
   const [originalPrice, setOriginalPrice] = useState([]);
+  const [errorMessage, setErrorMessage] = useState();
 
   async function fetchCartInfo() {
     if (isUserAuthenticated) {
@@ -35,7 +37,7 @@ export default function CartPage(props) {
                 item.itemPrice
               )
             }))
-            setItemsToBuyPeparedList(prev => data.items.map((item) => {
+            setitemsToBuyPreparedList(prev => data.items.map((item) => {
               return (
                 {
                 itemName: item.itemName,
@@ -86,19 +88,49 @@ export default function CartPage(props) {
     window.location.reload()
   }
 
-  const adressOptionsElement = addresses.map((item) => {
+  const adressOptionsElement = addresses.map(item => {
     return (
-       <option value={item} style={{padding: "50px", fontSize: "1rem", textAlign: "center"}}> {item.addressStreetName} {item.addressHouseNumber}, {item.addressPostalCode} </option>
+        <option 
+          value={item.addressId} style={{padding: "50px", fontSize: "1rem", textAlign: "center"}}>
+          {item.addressStreetName} {item.addressHouseNumber}, {item.addressPostalCode} 
+        </option>
            )
         }
     )
-  async function handleCheckout(itemId) {
+  async function handleCheckout() {
+    if (addresses.length === 0) {
+      setErrorMessage("You need a shipping address to checkout. You can add one here")
+    } else if (!shippingAddress) {
+      setErrorMessage("You need to select a shipping address before proceeding to checkout")
+    } else {
+      const purchaseElement = {
+        userId: userId,
+        addressId: shippingAddress,
+        items: itemsToBuyPreparedList
+      }
+
+      const res = await fetch("http://localhost:8080/api/v1/usercart/checkout", {
+            method: "POST",
+            body: JSON.stringify(purchaseElement),
+            headers: {
+              "content-type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            }
+          })
+          if (res.ok) {
+            const data = await res.json();
+            console.log(data)
+          }
+
+          navigate("/account/purchases")
+      console.log(shippingAddress)
+    }
     /*
     Create an object containg a Long "userId" and an array items containing ItemsWithQuantityDTO.
     Example:
 
     userId: userId,
-    address: selectedAddress,
+    addressId: shippingAddress,
     items: itemsToBuyPreparedList
     
     */
@@ -106,7 +138,7 @@ export default function CartPage(props) {
 
   const handleQuantityChange = (index, event) => {
     const newCartDetails = [...cartDetails];
-    const newItemsToBuyDetails = [...itemsToBuyPeparedList]
+    const newItemsToBuyDetails = [...itemsToBuyPreparedList]
 
     const newQuantity = parseInt(event.target.value, 10);
   
@@ -117,23 +149,25 @@ export default function CartPage(props) {
     console.log(newCartDetails[index].itemPrice)
   
     setCartDetails(newCartDetails);
-    setItemsToBuyPeparedList(newItemsToBuyDetails)
+    setitemsToBuyPreparedList(newItemsToBuyDetails)
     calculateTotalPrice(); // Update the total price based on the changes
   };
 
   console.log(cartDetails)
-  console.log(itemsToBuyPeparedList)
+  console.log(itemsToBuyPreparedList)
 
-  const handleAddressSelect = (index, event) => {
-
+  const handleAddressSelect = (event) => {
+    setShippingAddress(event.target.value)
   }
+
+  console.log(shippingAddress)
 
   function calculateTotalPrice() {
     let sum = 0;
-            for (let i = 0; i <cartDetails.length; i++) {
-              sum += cartDetails[i].itemPrice
-            }
-            setTotalPrice(sum)
+    for (let i = 0; i <cartDetails.length; i++) {
+      sum += cartDetails[i].itemPrice
+    }
+    setTotalPrice(sum)
   }
 
   useEffect(() => {
@@ -210,14 +244,14 @@ export default function CartPage(props) {
         <h4 style={{fontWeight: "400", color: "green"}}>Unhappy with your purchase? No problem! We provide a 100% money-back-guarantee for our dissatisfied customers</h4>
         <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
           <h3 style={{fontWeight: "400"}}>Ship to:</h3>
-          <select style={{height: "30px", width: "200px", textAlign: "center"}} onChange={(event) => handleAddressSelect(index, event)}>
-            <option style={{padding: "50px", fontSize: "1rem", textAlign: "center"}}>Select address</option>
+          <select style={{height: "30px", width: "200px", textAlign: "center"}} onChange={(event) => handleAddressSelect(event)}>
+            <option style={{padding: "50px", fontSize: "1rem", textAlign: "center"}} value={null}>Select address</option>
             {adressOptionsElement}
           </select>
         </div>
         <h3 style={{fontWeight: "400"}}>Subtotal {`(${cartElements?.length != 0 && cartElements.length} items)`}: <b>${totalPrice && totalPrice.toFixed(2)}</b></h3>
-        
-        <button>Proceed to checkout</button>
+        <button onClick={handleCheckout}>Proceed to checkout</button>
+        {errorMessage && <h5 style={{color: "red", fontWeight: "400", textAlign: "center"}}>{errorMessage}</h5>}
       </div>
     </div>
   )

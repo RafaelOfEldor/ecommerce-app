@@ -8,6 +8,7 @@ import {useAuth} from "../context/AuthContext"
 export default function HomePage(props) {
 
   const [slide, setSlide] = React.useState(0);
+  const [itemAddedToCart, setItemAddedToCart] = React.useState(false);
   const { isUserAuthenticated, username, userId, mail, firstName, lastName, role, logOut, increaseAmountOfItemsInCart  } = useAuth()
   const navigate = useNavigate();
 
@@ -76,7 +77,15 @@ export default function HomePage(props) {
             const data = await res.json();
             increaseAmountOfItemsInCart()
             console.log(data)
+            setItemAddedToCart(true)
+
+            const addedToCartDuration = setTimeout(() => {
+              console.log("it happened")
+              setItemAddedToCart(false)
+            }, 2000);
+            return () => clearTimeout(addedToCartDuration);
           }
+
     } else {
       navigate("/login")
     }
@@ -169,6 +178,10 @@ export default function HomePage(props) {
       </div>
       <div className="item-cards">
         {items && itemElements}
+      </div>
+
+      <div className={`item-added-to-cart-component ${itemAddedToCart ? 'show' : ''}`}>
+        <h1>Item added to cart</h1>
       </div>
     </div>
   );
