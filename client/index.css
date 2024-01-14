@@ -444,6 +444,7 @@ html, body {
 .cart-items-div {
   display: flex;
   max-width: 1000px;
+  min-width: 1000px;
   max-height: 200px;
   min-height: 200px;
   align-items: center;

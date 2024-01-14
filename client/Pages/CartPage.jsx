@@ -16,6 +16,7 @@ export default function CartPage(props) {
   const pathText = pathname.split("/")
   const [cartDetails, setCartDetails] = useState([]);
   const [totalPrice, setTotalPrice] = useState();
+  const [originalPrice, setOriginalPrice] = useState([]);
 
   async function fetchCartInfo() {
     if (isUserAuthenticated) {
@@ -28,23 +29,99 @@ export default function CartPage(props) {
           if (res.ok) {
             const data = await res.json();
             setCartDetails(data.items)
+            setOriginalPrice(prev => data.items.map((item) => {
+              return (
+                item.itemPrice
+              )
+            }))
             let sum = 0;
             for (let i = 0; i <cartDetails.length; i++) {
               sum += cartDetails[i].itemPrice
             }
             console.log(cartDetails)
+            console.log(originalPrice)
             console.log(sum)
             setTotalPrice(sum)
           }
     }
   }
 
+  async function handleRemoveFromCart(itemId) {
+    if (isUserAuthenticated) {
+      const removeFromCartElement = {
+        userId: userId,
+        itemId: itemId
+      }
+      console.log(JSON.stringify())
+      const res = await fetch("http://localhost:8080/api/v1/user/cart/removeitem", {
+            method: "POST",
+            body: JSON.stringify(removeFromCartElement),
+            headers: {
+              "content-type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+            }
+          })
+          if (res.ok) {
+            const data = await res.json();
+            console.log(data)
+          }
+    } else {
+      navigate("/login")
+    }
+
+    window.location.reload()
+  }
+
+  async function handleCheckout(itemId) {
+    /*
+    Create an object containg a Long "userId" and an array items containing ItemsWithQuantityDTO.
+    Example:
+
+    userId: userId,
+    items: [
+      {
+      itemName: cartDetails.itemName;
+      itemOrigianlId: cartDetails.itemId;
+      itemImage: cartDetails.itemImage;
+      itemPrice: originalPrice[i].itemPrice;
+      itemDescription: cartDetails.itemDescription;
+      itemCategory: cartDetails.itemCategory;
+      itemQuantity: selectedQuantity; 
+    },
+    {
+      itemName: cartDetails.itemName;
+      itemOrigianlId: cartDetails.itemId;
+      itemImage: cartDetails.itemImage;
+      itemPrice: originalPrice[i].itemPrice;
+      itemDescription: cartDetails.itemDescription;
+      itemCategory: cartDetails.itemCategory;
+      itemQuantity: selectedQuantity; 
+    },
+    {
+      itemName: cartDetails.itemName;
+      itemOrigianlId: cartDetails.itemId;
+      itemImage: cartDetails.itemImage;
+      itemPrice: originalPrice[i].itemPrice;
+      itemDescription: cartDetails.itemDescription;
+      itemCategory: cartDetails.itemCategory;
+      itemQuantity: selectedQuantity; 
+    },
+  
+    ]
+
+    so to make the list of items, map over the cartDetails and return that. Remember to use the original price
+    
+    */
+  }
+
   const handleQuantityChange = (index, event) => {
     const newCartDetails = [...cartDetails];
-    const originalPrice = newCartDetails[index].itemPrice / parseInt(event.target.value, 10)  // Assuming itemPrice represents the total price of one item
     const newQuantity = parseInt(event.target.value, 10);
   
-    newCartDetails[index].itemPrice = originalPrice * newQuantity;
+    newCartDetails[index].itemPrice = originalPrice[index] * newQuantity;
+    console.log(originalPrice)
+    console.log(newQuantity)
+    console.log(newCartDetails[index].itemPrice)
   
     setCartDetails(newCartDetails);
     calculateTotalPrice(); // Update the total price based on the changes
@@ -71,7 +148,7 @@ export default function CartPage(props) {
     return (
       <div className="cart-items-div" key={index}>
         <div>
-          <img src={item.itemImage} style={{maxHeight: "100px", maxWidth: "100px"}}/>
+          <img src={item.itemImage} style={{maxHeight: "100px", maxWidth: "100px", minWidth: "100px"}}/>
         </div>
         <div style={{height: "180px", width: "1px", backgroundColor: "black"}}></div>
         <div style={{display: "flex", flexDirection: "column"}}>
@@ -91,7 +168,7 @@ export default function CartPage(props) {
           </h5>
           
         <div className="cart-item-operations-div">
-          <button>Remove from cart</button>
+          <button onClick={() => handleRemoveFromCart(item.itemId)} >Remove from cart</button>
         </div>
         </div>
         <div style={{display: "flex", alignItems: "center", justifyContent: "center", paddingLeft: "140px", flexDirection: "column",

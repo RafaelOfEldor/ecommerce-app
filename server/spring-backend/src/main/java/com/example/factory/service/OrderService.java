@@ -1,6 +1,5 @@
 package com.example.factory.service;
 
-import com.example.factory.model.Customer;
 import com.example.factory.model.Item;
 import com.example.factory.model.Order;
 import com.example.factory.repository.OrderRepository;
@@ -52,37 +51,37 @@ public class OrderService {
                 });
     }
 
-    public Order addOrderToCustomer(Customer customer, String orderName, Long machineId) {
-        Item machine = itemService.getItemById(machineId);
+//    public Order addOrderToCustomer(Customer customer, String orderName, Long machineId) {
+//        Item machine = itemService.getItemById(machineId);
+//
+//        if (machine == null) {
+//            System.out.println("Item not found!");
+//            return null;
+//        }
+//
+//        System.out.println("Item ID: " + machine.getItemId());
+//        System.out.println("Item Name: " + machine.getItemName());
+//
+//        Order order = new Order(orderName);
+//        order.getItems().add(machine);
+//        order.setCustomer(customer);
+//        customer.getOrders().add(order);
+//        return orderRepository.save(order);
+//
+//    }
 
-        if (machine == null) {
-            System.out.println("Item not found!");
-            return null;
-        }
-
-        System.out.println("Item ID: " + machine.getItemId());
-        System.out.println("Item Name: " + machine.getItemName());
-
-        Order order = new Order(orderName);
-        order.getItems().add(machine);
-        order.setCustomer(customer);
-        customer.getOrders().add(order);
-        return orderRepository.save(order);
-
-    }
-
-    public Order createOrder(String orderName, Long machineId) {
-        Order order = new Order(orderName);
-
-        Item machine = itemService.getItemById(machineId);
-
-        if (machine == null) {
-            System.out.println("Item not found!");
-        }
-
-        order.getItems().add(machine);
-
-        return orderRepository.save(order);
-    }
+//    public Order createOrder(String orderName, Long machineId) {
+//        Order order = new Order(orderName);
+//
+//        Item machine = itemService.getItemById(machineId);
+//
+//        if (machine == null) {
+//            System.out.println("Item not found!");
+//        }
+//
+//        order.getItems().add(machine);
+//
+//        return orderRepository.save(order);
+//    }
 
 }

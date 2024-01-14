@@ -53,6 +53,23 @@ public class UserService {
         return ResponseEntity.badRequest().body(null);
     }
 
+    public ResponseEntity<Optional<UserCart>> removeItemFromCart(AddToCartDTO addToCartDTO) {
+        try {
+            User user = userRepository.findById(addToCartDTO.getUserId()).orElse(null);
+            if (user != null) {
+                UserCart userCart = userCartRepository.findById(user.getUserCart().getId()).orElse(null);
+                Item item = itemRepository.findById(addToCartDTO.getItemId()).orElse(null);
+                userCart.getItems().remove(item);
+                userCartRepository.save(userCart);
+                userRepository.save(user);
+                return ResponseEntity.ok(Optional.of(userCart));
+            }
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(null);
+        }
+        return ResponseEntity.badRequest().body(null);
+    }
+
 
 
     public ResponseEntity<Optional<UserInfoDto>> getUserInfoByUserName(String username) {

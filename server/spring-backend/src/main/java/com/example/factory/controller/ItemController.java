@@ -13,13 +13,11 @@ import java.util.List;
 @RequestMapping("/api/v1/products")
 public class ItemController {
 
-    private final CustomerService customerService;
     private final ItemService itemService;
     private final AddressService addressService;
     private final OrderService orderService;
     @Autowired
-    public ItemController(CustomerService customerService, AddressService addressService, OrderService orderService, ItemService itemService) {
-        this.customerService = customerService;
+    public ItemController(AddressService addressService, OrderService orderService, ItemService itemService) {
         this.itemService = itemService;
         this.addressService = addressService;
         this.orderService = orderService;

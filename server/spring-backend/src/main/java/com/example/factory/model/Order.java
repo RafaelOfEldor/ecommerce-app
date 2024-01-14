@@ -30,14 +30,14 @@ public class Order {
     @JoinTable(
             name = "orders_items",
             joinColumns = @JoinColumn(name = "order_id"),
-            inverseJoinColumns = @JoinColumn(name = "item_id")
+            inverseJoinColumns = @JoinColumn(name = "ordered_item_id")
     )
-    private List<Item> items = new ArrayList<>();
+    private List<OrderedItem> items = new ArrayList<>();
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "user_id")
     @JsonIgnoreProperties({"orders", "addresses"})
-    private Customer customer;
+    private User user;
 
     public Order(String orderName) {
         this.orderName = orderName;
