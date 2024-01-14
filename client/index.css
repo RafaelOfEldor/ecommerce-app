@@ -527,7 +527,7 @@ html, body {
   align-items: center;
   background-color: white;
   width: 300px;
-  height: 260px;
+  height: 350px;
   padding: 40px 40px;
   gap: 20px;
 }
@@ -545,13 +545,119 @@ html, body {
   box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
   background: #FFD814;
   width: 200px;
-  height: 40px;
+  height: 50px;
   border-color: rgb(252, 210, 0);
 }
 
 .checkout-from-cart-div > button:hover {
   background: rgb(222, 180, 0, 0.8);
 }
+
+.account-addresses-page {
+  display: flex;
+  margin: 50px 50px;
+  flex-direction: column;
+}
+
+.account-addresses-page > div {
+  margin-top: 20px;
+  width: 55vw;;
+  height: 500px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.account-addresses-page > button {
+  width: 10vw;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 45vw;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.account-addresses-page > button:active {
+  margin-top: 21px;
+}
+
+.account-add-address-div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px 50px;
+  margin-left: 150px;
+}
+
+.account-add-address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px 50px;
+  margin: 100px 100px;
+}
+
+.account-add-address-form > input {
+  height: 50px;
+  width: 800px
+}
+
+.account-add-address-form > button {
+  position: absolute;
+  top: 90vh;
+  left: 70vw;
+  width: 200px;
+  height: 50px;
+  background-color: green;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.account-add-address-div > button {
+  position: absolute;
+  top: 90vh;
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.account-add-address-form > button:hover {
+  cursor: pointer
+}
+
+.account-add-address-div > button:hover {
+  cursor: pointer
+}
+
+.account-add-address-form > button:active {
+  top: 90.5vh;
+}
+
+.account-add-address-div > button:active {
+  top: 90.5vh;
+}
+
+.address-component-heading-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address-component {
+  display: flex;
+  justify-content: space-between;
+  border-style: solid;
+  border-width: 1px;
+  background-color: rgba(126, 156, 224, 0.14);
+  height: 50px;
+  align-items: center;
+}
+
 
 
 

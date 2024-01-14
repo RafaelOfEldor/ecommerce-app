@@ -26,15 +26,19 @@ public class Address {
     private String addressStreetName;
 
 
-    @Column(name = "address_street_name_number")
-    private String addressStreetNameNumber;
+    @Column(name = "address_house_number")
+    private String addressHouseNumber;
+
+    @Column(name = "address_postal_code")
+    private String addressPostalCode;
 
     @ManyToMany(mappedBy = "addresses", cascade = CascadeType.ALL)
     @JsonIgnoreProperties({"orders", "addresses"})
     private List<User> users = new ArrayList<>();
 
-    public Address(String addressStreetName, String addressStreetNameNumber) {
+    public Address(String addressStreetName, String addressHouseNumber, String addressPostalCode) {
         this.addressStreetName = addressStreetName;
-        this.addressStreetNameNumber = addressStreetNameNumber;
+        this.addressHouseNumber = addressHouseNumber;
+        this.addressPostalCode = addressPostalCode;
     }
 }

@@ -9,7 +9,7 @@ import {useAuth} from "../context/AuthContext"
 export default function CartPage(props) {
 
 
-  const { isUserAuthenticated, username, userId, mail, firstName, lastName, role, logOut  } = useAuth()
+  const { isUserAuthenticated, username, userId, addresses, mail, firstName, lastName, role, logOut  } = useAuth()
   const navigate = useNavigate();
   const location = useLocation();
   const {pathname, hash, search} = location
@@ -72,12 +72,19 @@ export default function CartPage(props) {
     window.location.reload()
   }
 
+  const adressOptionsElement = addresses.map((item) => {
+    return (
+       <option value={item} style={{padding: "50px", fontSize: "1rem", textAlign: "center"}}> {item.addressStreetName} {item.addressHouseNumber}, {item.addressPostalCode} </option>
+           )
+        }
+    )
   async function handleCheckout(itemId) {
     /*
     Create an object containg a Long "userId" and an array items containing ItemsWithQuantityDTO.
     Example:
 
     userId: userId,
+    address: selectedAddress
     items: [
       {
       itemName: cartDetails.itemName;
@@ -208,7 +215,15 @@ export default function CartPage(props) {
           Our company provides <b>100% free shipping</b> anywhere in the world! 
         </h4 >
         <h4 style={{fontWeight: "400", color: "green"}}>Unhappy with your purchase? No problem! We provide a 100% money-back-guarantee for our dissatisfied customers</h4>
+        <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
+          <h3 style={{fontWeight: "400"}}>Ship to:</h3>
+          <select style={{height: "30px", width: "200px", textAlign: "center"}}>
+            <option style={{padding: "50px", fontSize: "1rem", textAlign: "center"}}>Select address</option>
+            {adressOptionsElement}
+          </select>
+        </div>
         <h3 style={{fontWeight: "400"}}>Subtotal {`(${cartElements?.length != 0 && cartElements.length} items)`}: <b>${totalPrice && totalPrice.toFixed(2)}</b></h3>
+        
         <button>Proceed to checkout</button>
       </div>
     </div>
