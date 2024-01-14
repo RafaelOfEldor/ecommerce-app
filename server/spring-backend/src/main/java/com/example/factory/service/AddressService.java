@@ -1,23 +1,50 @@
 package com.example.factory.service;
 
+import com.example.factory.dtos.NewAddressDTO;
 import com.example.factory.model.Address;
+import com.example.factory.model.User;
 import com.example.factory.repository.AddressRepository;
+import com.example.factory.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AddressService {
 
     private final AddressRepository addressRepository;
+    private final UserRepository userRepository;
     @Autowired
-    public AddressService(AddressRepository addressRepository) {
+    public AddressService(AddressRepository addressRepository, UserRepository userRepository) {
         this.addressRepository = addressRepository;
+        this.userRepository = userRepository;
     }
 
-    public Address addAddress(Address Address) {
-        return addressRepository.save(Address);
+    public Address addAddress(Address address) {
+        return addressRepository.save(address);
+    }
+
+    public ResponseEntity<Optional<Address>> createNewAddress(NewAddressDTO newAddressDTO) {
+        Address address = addressRepository.save(new Address(
+                newAddressDTO.getAddressStreetName(),
+                newAddressDTO.getAddressHouseNumber(),
+                newAddressDTO.getAddressPostalCode()
+        ));
+
+        User user = userRepository.findById(newAddressDTO.getUserId()).orElse(null);
+        if (user != null) {
+            user.getAddresses().add(address);
+            address.getUsers().add(user);
+            addressRepository.save(address);
+//            userRepository.save(user);
+            return ResponseEntity.ok(Optional.of(address));
+        }
+        return ResponseEntity.badRequest().body(null);
+//        return ResponseEntity.ok(Optional.of(address));
+
     }
 
     public List<Address> getAddresses() {
@@ -34,12 +61,12 @@ public class AddressService {
 
     public void deleteAddress(Long id) { addressRepository.deleteById(id);}
 
-//    public Address addAddressToCustomer(Customer customer, String streetName, String streetNumber) {
-//        Address address = new Address(streetName, streetNumber);
-//        customer.getAddresses().add(address);
-//        addressRepository.save(address);
-//        return address;
-//    }
+    public Address addAddressToUser(User user, String streetName, String streetNumber, String postalCode) {
+        Address address = new Address(streetName, streetNumber, postalCode);
+        user.getAddresses().add(address);
+        addressRepository.save(address);
+        return address;
+    }
 
     public Address updateAddress(Long id, Address newAddress) {
 
@@ -48,9 +75,13 @@ public class AddressService {
                     if (newAddress.getAddressStreetName() != null) {
                         address.setAddressStreetName(newAddress.getAddressStreetName());
                     }
-                    if (newAddress.getAddressStreetNameNumber() != null) {
+                    if (newAddress.getAddressHouseNumber() != null) {
 
-                        address.setAddressStreetNameNumber(newAddress.getAddressStreetNameNumber());
+                        address.setAddressHouseNumber(newAddress.getAddressHouseNumber());
+                    }
+                    if (newAddress.getAddressPostalCode() != null) {
+
+                        address.setAddressPostalCode(newAddress.getAddressPostalCode());
                     }
                     return addressRepository.save(address);
                 })

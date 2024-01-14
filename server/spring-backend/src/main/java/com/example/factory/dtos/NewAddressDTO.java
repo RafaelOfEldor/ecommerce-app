@@ -10,7 +10,9 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class NewAddressDTO {
+    private Long userId;
     private String addressStreetName;
-    private String addressStreetNameNumber;
+    private String addressHouseNumber;
+    private String addressPostalCode;
 
 }

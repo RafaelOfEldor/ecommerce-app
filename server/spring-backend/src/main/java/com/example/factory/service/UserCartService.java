@@ -64,11 +64,11 @@ public class UserCartService {
                             item.getItemCategory(),
                             item.getItemQuantity()
                     ));
-                    Optional<Item> itemToChange = itemRepository.findById(orderedItem.getOrderedItemOriginalItemId());
+                    Item itemToChange = itemRepository.findById(orderedItem.getOrderedItemOriginalItemId()).orElse(null);
                     if (itemToChange != null) {
-                        itemToChange.get().setItemStock(itemToChange.get().getItemStock() - item.getItemQuantity());
-                        itemRepository.save(itemToChange.get());
-                        userCart.getItems().remove(itemToChange.get());
+                        itemToChange.setItemStock(itemToChange.getItemStock() - item.getItemQuantity());
+                        itemRepository.save(itemToChange);
+                        userCart.getItems().remove(itemToChange);
                         userCartRepository.save(userCart);
                     }
                     order.getItems().add(orderedItem);

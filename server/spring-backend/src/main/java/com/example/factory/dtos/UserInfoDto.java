@@ -1,5 +1,7 @@
 package com.example.factory.dtos;
 
+import com.example.factory.model.Address;
+import com.example.factory.model.Order;
 import com.example.factory.model.Role;
 import com.example.factory.model.UserCart;
 import lombok.Getter;
@@ -23,6 +25,8 @@ public class UserInfoDto {
     private String userName;
     private Role role;
     private String email;
+    private List<Address> addresses;
+    private List<Order> orders;
     private UserCart userCart;
     private Long id;
 }

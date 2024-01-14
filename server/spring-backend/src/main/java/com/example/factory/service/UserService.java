@@ -4,9 +4,7 @@ import com.example.factory.auth.RegisterRequest;
 import com.example.factory.dtos.AddToCartDTO;
 import com.example.factory.dtos.UserChangeDTO;
 import com.example.factory.dtos.UserInfoDto;
-import com.example.factory.model.Item;
-import com.example.factory.model.User;
-import com.example.factory.model.UserCart;
+import com.example.factory.model.*;
 import com.example.factory.repository.ItemRepository;
 import com.example.factory.repository.UserCartRepository;
 import com.example.factory.repository.UserRepository;
@@ -34,6 +32,14 @@ public class UserService {
 
     public User findByUsername(String username) {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User was not found"));
+    }
+
+    public User addUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
     public ResponseEntity<Optional<UserCart>> addItemToCart(AddToCartDTO addToCartDTO) {
@@ -80,6 +86,8 @@ public class UserService {
         userInfo.setUserName(user.getUserName());
         userInfo.setFirstName(user.getFirstname());
         userInfo.setLastName(user.getLastname());
+        userInfo.setAddresses(user.getAddresses());
+        userInfo.setOrders(user.getOrders());
         userInfo.setRole(user.getRole());
         userInfo.setEmail(user.getEmail());
         userInfo.setId(user.getId());

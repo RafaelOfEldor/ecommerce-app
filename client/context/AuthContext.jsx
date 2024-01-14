@@ -33,6 +33,8 @@ export function AuthProvider({ children }) {
   const [firstName, setFirstName] = React.useState();
   const [role, setRole] = React.useState();
   const [lastName, setLastName] = React.useState();
+  const [addresses, setAddresses] = React.useState();
+  const [orders, setOrders] = React.useState();
   const [mail, setMail] = React.useState();
   const [isUserAuthenticated, setIsUserAuthenticated] = React.useState();
   const [webSocket, setWebSocket] = React.useState();
@@ -68,6 +70,8 @@ export function AuthProvider({ children }) {
             setLastName(data.lastName)
             setMail(data.email)
             setRole(data.role)
+            setAddresses(data.addresses)
+            setOrders(data.orders)
             setUserId(data.id)
             setItemAmountInCart(data.userCart.items.length)
             console.log(data)
@@ -144,6 +148,8 @@ const resetUserInfo = () => {
         mail,
         ItemAmountInCart,
         role,
+        addresses,
+        orders,
         isUserAuthenticated,
         setFirstName,
         setLastName,
