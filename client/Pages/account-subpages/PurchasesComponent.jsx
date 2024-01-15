@@ -5,7 +5,7 @@ import {useAuth} from "../../context/AuthContext"
 export default function PurchasesComponent(props) {
 
 
-  const { isUserAuthenticated, username, mail, firstName, lastName, role  } = useAuth()
+  const { isUserAuthenticated, username, mail, orders, firstName, lastName, role  } = useAuth()
   const navigate = useNavigate();
 
   return (
@@ -32,7 +32,7 @@ export default function PurchasesComponent(props) {
       <button>Save Changes</button>
       
     </form>
-</div>
+  </div>
   )
 }
 
