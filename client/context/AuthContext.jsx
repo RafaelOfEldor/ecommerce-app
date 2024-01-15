@@ -13,6 +13,8 @@ const AuthContext = React.createContext({
   mail: undefined,
   firstName: undefined,
   lastName: undefined,
+  addresses: undefined,
+  orders: undefined,
   ItemAmountInCart: undefined,
   role: undefined,
   isUserAuthenticated: undefined,

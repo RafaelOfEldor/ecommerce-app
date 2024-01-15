@@ -37,19 +37,19 @@ public class OrderService {
 
     public void deleteOrder(Long id) { orderRepository.deleteById(id);}
 
-    public Order updateOrder(Long id, Order newOrder) {
-
-        return orderRepository.findById(id)
-                .map(order -> {
-                    if (newOrder.getOrderName() != null) {
-                        order.setOrderName(newOrder.getOrderName());
-                    }
-                    return orderRepository.save(order);
-                })
-                .orElseGet(() -> {
-                    return orderRepository.save(newOrder);
-                });
-    }
+//    public Order updateOrder(Long id, Order newOrder) {
+//
+//        return orderRepository.findById(id)
+//                .map(order -> {
+//                    if (newOrder.getOrderName() != null) {
+//                        order.setOrderName(newOrder.getOrderName());
+//                    }
+//                    return orderRepository.save(order);
+//                })
+//                .orElseGet(() -> {
+//                    return orderRepository.save(newOrder);
+//                });
+//    }
 
 //    public Order addOrderToCustomer(Customer customer, String orderName, Long machineId) {
 //        Item machine = itemService.getItemById(machineId);

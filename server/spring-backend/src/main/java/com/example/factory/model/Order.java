@@ -23,8 +23,10 @@ public class Order {
     @Column(name = "order_id")
     private Long orderId = 0L;
 
-    @Column(name = "order_name")
-    private String orderName;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    @JsonIgnoreProperties({"orders", "addresses", "users"})
+    private Address address;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -39,7 +41,7 @@ public class Order {
     @JsonIgnoreProperties({"orders", "addresses"})
     private User user;
 
-    public Order(String orderName) {
-        this.orderName = orderName;
+    public Order(Address address) {
+        this.address = address;
     }
 }

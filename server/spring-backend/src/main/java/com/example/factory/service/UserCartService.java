@@ -23,14 +23,16 @@ public class UserCartService {
     ItemRepository itemRepository;
     OrderedItemRepository orderedItemRepository;
     OrderRepository orderRepository;
+    AddressRepository addressRepository;
 
     @Autowired
-    public UserCartService(UserCartRepository userCartRepository, UserRepository userRepository, ItemRepository itemRepository, OrderedItemRepository orderedItemRepository, OrderRepository orderRepository) {
+    public UserCartService(UserCartRepository userCartRepository, UserRepository userRepository, ItemRepository itemRepository, OrderedItemRepository orderedItemRepository, OrderRepository orderRepository, AddressRepository addressRepository) {
         this.userCartRepository = userCartRepository;
         this.userRepository = userRepository;
         this.itemRepository = itemRepository;
         this.orderedItemRepository = orderedItemRepository;
         this.orderRepository = orderRepository;
+        this.addressRepository = addressRepository;
     }
 
 
@@ -71,8 +73,10 @@ public class UserCartService {
                         userCart.getItems().remove(itemToChange);
                         userCartRepository.save(userCart);
                     }
-                    order.getItems().add(orderedItem);
+                    Address address = addressRepository.findById(purchaseItemDTO.getAddressId()).orElse(null);
+                    order.setAddress(address);
                     order.setUser(user);
+                    order.getItems().add(orderedItem);
                     user.getOrders().add(order);
                     orderRepository.save(order);
                     userRepository.save(user);

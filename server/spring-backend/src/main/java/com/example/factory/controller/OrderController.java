@@ -66,14 +66,14 @@ public class OrderController {
 //        }
 //    }
 
-    @PutMapping("/{id}")
-    public Order updateOrderById(@PathVariable Long id, @RequestBody Order order) {
-        try {
-            return orderService.updateOrder(id, order);
-        } catch (Exception e) {
-            return null;
-        }
-    }
+//    @PutMapping("/{id}")
+//    public Order updateOrderById(@PathVariable Long id, @RequestBody Order order) {
+//        try {
+//            return orderService.updateOrder(id, order);
+//        } catch (Exception e) {
+//            return null;
+//        }
+//    }
 
 //    @DeleteMapping("/{id}")
 //    public void deleteOrder(@PathVariable Long id) {
