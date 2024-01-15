@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
   const [role, setRole] = React.useState();
   const [lastName, setLastName] = React.useState();
   const [addresses, setAddresses] = React.useState();
-  const [orders, setOrders] = React.useState();
+  const [orders, setOrders] = React.useState([]);
   const [mail, setMail] = React.useState();
   const [isUserAuthenticated, setIsUserAuthenticated] = React.useState();
   const [webSocket, setWebSocket] = React.useState();

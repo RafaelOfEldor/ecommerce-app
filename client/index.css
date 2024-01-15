@@ -704,6 +704,72 @@ html, body {
   color: white;
 }
 
+.order-page-div {
+  margin-left: 100px;
+  margin-top: 50px;
+  background-color: rgba(0, 0, 0, 0.034);
+}
+
+.order-component-div.inactive {
+  margin-top: 0;
+  display: flex;
+  width: 1000px;
+  height: 50px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: pink;
+  /* transition: ease-in-out 0.5s; */
+  align-items: center;
+  border-style: solid;
+}
+.order-component-div.active {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  background-color: pink;
+  border-style: solid;
+  /* transition: ease-in-out 0.5s; */
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.order-items-div {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  transition: ease-in-out 0.5s;
+}
+
+.order-details-div {
+display: flex;
+flex-direction: column;
+width: 150px;
+height: 200px;
+background-color: pink;
+align-items: center;
+border-style: solid;
+}
+
+
+
+.order-page-div {
+
+}
+
+.order-component-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 1000px;
+  height: 50px;
+  background-color: rgba(0, 28, 0, 0.1);
+}
+
+
+
 
 
 
