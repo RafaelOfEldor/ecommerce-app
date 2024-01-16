@@ -77,8 +77,8 @@ public class UserCartService {
                     order.setAddress(address);
                     order.setUser(user);
                     order.getItems().add(orderedItem);
-                    user.getOrders().add(order);
                     orderRepository.save(order);
+                    user.getOrders().add(order);
                     userRepository.save(user);
                 }
 
