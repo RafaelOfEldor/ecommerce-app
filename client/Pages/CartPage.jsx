@@ -9,7 +9,7 @@ import {useAuth} from "../context/AuthContext"
 export default function CartPage(props) {
 
 
-  const { isUserAuthenticated, username, userId, addresses, mail, firstName, lastName, role, logOut  } = useAuth()
+  const { isUserAuthenticated, username, userId, addresses, mail, firstName, lastName, role, getUserFromToken, logOut  } = useAuth()
   const navigate = useNavigate();
   const location = useLocation();
   const {pathname, hash, search} = location
@@ -120,9 +120,13 @@ export default function CartPage(props) {
           if (res.ok) {
             const data = await res.json();
             console.log(data)
+            getUserFromToken()
+            const awaitRedirect = setTimeout(() => {
+              navigate("/account/purchases")
+            }, 500);
+            return () => clearTimeout(awaitRedirect);
           }
-
-          navigate("/account/purchases")
+          
       console.log(shippingAddress)
     }
     /*

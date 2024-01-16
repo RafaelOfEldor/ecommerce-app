@@ -23,7 +23,7 @@ public class Order {
     @Column(name = "order_id")
     private Long orderId = 0L;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "address_id")
     @JsonIgnoreProperties({"orders", "addresses", "users"})
     private Address address;
