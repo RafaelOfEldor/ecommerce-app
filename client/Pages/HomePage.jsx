@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
-import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
+import { Link, Routes, Route, Outlet, useNavigate, useSearchParams } from "react-router-dom";
 // import data from "../data";
 import jacketImage from "../images/random-jacket.jpg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
 
 export default function HomePage(props) {
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const itemId = searchParams.get(`itemid`);
 
   const [slide, setSlide] = React.useState(0);
   const [itemAddedToCart, setItemAddedToCart] = React.useState(false);
@@ -58,6 +61,10 @@ export default function HomePage(props) {
     }
   }
 
+  function handleViewProduct(productId){
+    navigate(`/products/product/view?itemid=${productId}`)
+  }
+
   async function handleAddItemToCart(itemId) {
     if (isUserAuthenticated) {
       const addToCartElement = {
@@ -101,7 +108,7 @@ export default function HomePage(props) {
 
   const itemElements = items.map((item, index) => {
     return (
-      <div className="item-card" key={index}>
+      <div className="item-card" key={index} onClick={() => handleViewProduct(item.itemId)}>
         <img src={item.itemImage} style={{maxHeight: "200px", maxWidth: "300px"}}/>
         <h4>{item.itemName}</h4>
         <h4>${item.itemPrice.toFixed(2)}</h4>
@@ -138,7 +145,7 @@ export default function HomePage(props) {
 
   const carouselElements = carouselItems.map((item, index) => {
     return (
-      <div className={slide === index ? "slide" : "slide slide-hidden"} key={index}>
+      <div className={slide === index ? "slide" : "slide slide-hidden"} key={index} onClick={() => handleViewProduct(item.itemId)}>
         <img src={item.itemImage} style={{userSelect: "none", maxHeight: "200px", minHeight: "400px"}}/>
         <h4 style={{userSelect: "none"}}>{item.itemName}</h4>
         <h4 style={{userSelect: "none"}}>${item.itemPrice.toFixed(2)}</h4>
