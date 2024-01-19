@@ -11,7 +11,7 @@ export default function ProductComponent(props) {
   const [itemAddedToCart, setItemAddedToCart] = React.useState(false);
   const { isUserAuthenticated, username, userId, mail, firstName, lastName, role, logOut, increaseAmountOfItemsInCart  } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const itemId = searchParams.get(`itemid`);
 
@@ -90,10 +90,23 @@ export default function ProductComponent(props) {
           </div>
           <h4  className="product-details-page-product-div-price">${product?.itemPrice?.toFixed(2)}</h4>
           <h4  className="product-details-page-product-div-description">{product?.itemDescription}</h4>
-          <div style={{height: "1px", minWidth: "400px", maxWidth: "400px", background: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)"}}></div>
-          <div style={{display: "flex", gap: "20px"}}>
-            <button>Add to cart</button>
-            <button>Buy now</button>
+          <div style={{height: "1px", minWidth: "400px", maxWidth: "400px", marginTop: "20px", background: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)"}}></div>
+          <div style={{display: "flex", gap: "20px", marginTop: "20px"}}>
+          <button
+            className="item-card-addcart-button" style={{width: "190px", height: "50px"}}
+            onClick={() => handleAddItemToCart(product?.itemId)}
+            >
+              Add To Cart</button>
+            <button
+            className="item-card-buy-button" style={{width: "190px", height: "50px"}}
+            onClick={() => handleBuyItem(product?.itemId)}
+            >
+              Buy</button>
+          </div>
+          <div style={{display: "flex", flexDirection: "column", alignItems: "center", width: "400px", gap: "20px", marginTop: "20px", borderStyle: "solid", borderRadius: "10px",
+          borderWidth: "2px", background: "linear-gradient(142deg, rgba(2,0,36,0.8) 0%, rgba(157,24,89,0.2) 37%, rgba(143,49,159,0.8) 57%, rgba(18, 61, 182, 0.8) 100%)"}}>
+          <h3>Free shipping</h3>
+          <h4>Get free shipping anywhere in the world</h4>
           </div>
         </div>
         {/* itemCategory
@@ -113,7 +126,7 @@ export default function ProductComponent(props) {
         itemStock
       250 */}
     </div>
-    <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "500px", backgroundColor: "red"}}>
+    <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "500px", backgroundColor: "red", marginTop: "50px"}}>
       <h1>Add reviews here:</h1>
     </div>
     </div>
