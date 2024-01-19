@@ -60,13 +60,7 @@ public class MockEcommerceApplication {
 								"https://pngimg.com/d/jacket_PNG8047.png",
 								true,
 								random.nextDouble(18, 40),
-								"The sports jacket, a versatile and timeless piece of outerwear, seamlessly blends style and functionality. Crafted from high-quality materials, this jacket embodies a perfect marriage of form and function, making it an essential addition to any wardrobe. The exterior showcases a sophisticated design, characterized by a tailored fit that accentuates the wearer's silhouette. The meticulous attention to detail is evident in the fine stitching and carefully chosen fabrics, ensuring a polished and refined appearance.\n" +
-										"\n" +
-										"Constructed to withstand varying weather conditions, the sports jacket provides a comfortable and breathable layer. Its lightweight yet durable composition makes it an ideal choice for transitional seasons or as a stylish outer layer during cooler evenings. The jacket features a zippered front closure and a well-designed collar, offering both protection from the elements and a touch of classic elegance.\n" +
-										"\n" +
-										"Versatility is a key attribute of this sports jacket. Whether paired with jeans for a casual outing or worn over a crisp shirt for a more formal affair, it effortlessly adapts to various occasions. Pockets, both functional and stylish, add practicality to the design, allowing for the convenient storage of essentials while maintaining a sleek aesthetic.\n" +
-										"\n" +
-										"In summary, the sports jacket is a sartorial essential, marrying fashion and function in a way that complements the modern lifestyle. With its timeless appeal and thoughtful design, this jacket stands as a symbol of sophistication and practicality, making it a wardrobe staple for those who appreciate both style and substance.",
+								"The sports jacket is a versatile and stylish garment, seamlessly blending sophistication with a casual flair. Crafted from high-quality fabrics such as wool, tweed, or cotton, it exudes a refined yet relaxed aesthetic. With a tailored fit, it accentuates the wearer's silhouette, providing both comfort and elegance. Its design often features notched lapels, a single-breasted front, and multiple pockets, adding both functionality and visual interest. Ideal for various occasions, from semi-formal gatherings to outdoor events, the sports jacket effortlessly elevates any ensemble. Whether paired with jeans or dress trousers, this wardrobe essential epitomizes timeless fashion and sartorial versatility.",
 								250,
 								"apparel"
 				);
@@ -83,7 +77,7 @@ public class MockEcommerceApplication {
 						"https://pngimg.com/uploads/dress/dress_PNG115.png",
 						true,
 						random.nextDouble(18, 40),
-						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
+						"This enchanting blue dress embodies timeless elegance with a contemporary twist. Crafted from a luxurious, flowing fabric, the dress drapes gracefully, accentuating the wearer's silhouette. The vibrant shade of blue, reminiscent of a clear summer sky, adds a touch of sophistication to any occasion. The fitted bodice features delicate lace detailing, enhancing the dress's feminine allure. A modest neckline transitions seamlessly into a flowing, A-line skirt that gracefully sweeps the floor. The subtle shimmer in the fabric catches the light, creating a subtle play of reflections. This dress is a perfect fusion of classic charm and modern allure.",
 						250,
 						"apparel"
 				));
@@ -92,7 +86,8 @@ public class MockEcommerceApplication {
 						"https://www.freeiconspng.com/uploads/blank-t-shirt-png-8.png",
 						true,
 						random.nextDouble(18, 40),
-						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
+						"\n" +
+								"Introducing our stylish Blue Sky Cotton T-Shirt, a wardrobe essential that effortlessly blends comfort with contemporary flair. Crafted from premium, breathable cotton, this shirt promises a soft touch against your skin, making it perfect for casual outings or laid-back days at home. The vibrant shade of blue adds a refreshing pop of color to your ensemble, enhancing your overall style. The classic crew neckline and short sleeves ensure a timeless silhouette, while the durable fabric maintains its shape wash after wash. Whether paired with jeans for a relaxed look or under a blazer for a smart-casual vibe, this Blue Sky T-Shirt is a versatile must-have.",
 						250,
 						"apparel"
 				));
@@ -101,7 +96,7 @@ public class MockEcommerceApplication {
 						"https://www.pngall.com/wp-content/uploads/6/Sweater-PNG-Image.png",
 						true,
 						random.nextDouble(18, 40),
-						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
+						"This cozy sweater envelops you in warmth and style, seamlessly blending comfort with fashion. Crafted from a luxurious blend of soft, high-quality materials, it offers a tactile delight against your skin. The fabric drapes effortlessly, creating a flattering silhouette while providing an exquisite feel. The classic crew neckline and ribbed cuffs enhance its timeless appeal, making it a versatile wardrobe staple. Whether you're lounging at home or stepping out into the brisk autumn air, this sweater's exceptional craftsmanship and attention to detail ensure you stay both snug and effortlessly chic. Embrace the season with this essential piece of comfort and elegance.",
 						250,
 						"apparel"
 				));
@@ -110,7 +105,7 @@ public class MockEcommerceApplication {
 						"https://www.freepnglogos.com/uploads/shorts-png/pants-swimming-short-png-9.png",
 						true,
 						random.nextDouble(18, 40),
-						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
+						"Discover ultimate comfort and style with our versatile shorts. Crafted from breathable, high-quality fabric, these shorts are perfect for any casual occasion. The tailored fit ensures a flattering silhouette, while the elastic waistband provides a customizable and secure fit. Whether you're strolling along the beach or enjoying a weekend brunch, these shorts offer both functionality and fashion. Featuring a classic design with subtle detailing, they effortlessly transition from day to night. Embrace the freedom of movement and express your individuality with this wardrobe essential. Elevate your warm-weather wardrobe with these comfortable and stylish shorts that effortlessly blend fashion and function.",
 						250,
 						"apparel"
 				));
@@ -119,7 +114,7 @@ public class MockEcommerceApplication {
 						"https://www.comegetcustomized.com/media/catalog/product/5/0/500_34.png",
 						true,
 						random.nextDouble(18, 40),
-						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
+						"Introducing our sleek and versatile tank top, the epitome of comfort and style. Crafted from a lightweight and breathable blend of cotton and elastane, this tank top ensures optimal comfort for any activity. The classic sleeveless design allows for unrestricted movement, making it perfect for workouts or casual wear. The carefully contoured fit accentuates your physique while providing a relaxed feel. With a ribbed neckline and armholes, this tank top adds a touch of texture to your ensemble. Whether you're hitting the gym, lounging at home, or layering it under a shirt, our tank top effortlessly combines fashion and functionality.",
 						250,
 						"apparel"
 				));
@@ -128,7 +123,7 @@ public class MockEcommerceApplication {
 						"https://i.pinimg.com/originals/65/e4/4c/65e44c191055166f7e9c8fa703edbc74.png",
 						true,
 						random.nextDouble(18, 40),
-						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
+						"Elevate your style with our exquisite A-line skirt, a versatile wardrobe essential for the modern fashionista. Crafted from premium fabric, the skirt boasts a flattering silhouette that gracefully accentuates curves. The timeless design seamlessly transitions from casual to formal, making it ideal for various occasions. Its mid-length adds a touch of sophistication, while the subtle flare ensures ease of movement. The skirt's impeccable craftsmanship is evident in every detail, from the meticulously stitched seams to the tasteful embellishments. Embrace comfort without compromising on elegance – this A-line skirt effortlessly merges fashion and function, defining a new standard in contemporary chic.",
 						250,
 						"apparel"
 				));
@@ -137,7 +132,10 @@ public class MockEcommerceApplication {
 						"https://www.pngall.com/wp-content/uploads/2016/09/Trouser-Free-Download-PNG.png",
 						true,
 						random.nextDouble(18, 40),
-						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
+						"\n" +
+								"Sure! Here's a 100-word description for a pair of trousers:\n" +
+								"\n" +
+								"Introducing our sleek and versatile trousers, the epitome of modern style and comfort. Crafted with precision from high-quality, breathable fabric, these trousers seamlessly blend sophistication with practicality. The tailored fit accentuates your silhouette, offering a polished look suitable for any occasion, whether it's a formal meeting or a casual outing. The classic design is complemented by thoughtful details like a secure button and zip closure, ensuring a snug yet comfortable fit. With a timeless appeal and impeccable craftsmanship, these trousers effortlessly elevate your wardrobe, making them a must-have staple for the fashion-conscious individual seeking elegance and ease.",
 						250,
 						"apparel"
 				));

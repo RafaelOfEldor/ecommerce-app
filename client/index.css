@@ -778,13 +778,13 @@ border-width: 1px;
 }
 
 .product-details-page {
-  background-color: blue;
+  /* background-color: blue; */
   padding-top: 5vh;
 }
 
 .product-details-page-product-div {
   display: flex;
-  background-color: pink;
+  /* background-color: pink; */
   margin-left: 50vw;
   width: 60vw;
   transform: translate(-50%, 0%);
