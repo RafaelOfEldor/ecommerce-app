@@ -77,29 +77,45 @@ export default function ProductComponent(props) {
   }
 
   return (
-    <div>
-      <h1 style={{maxHeight: "100px", maxWidth: "100px"}}>{product?.itemName}</h1>
-      <img src={product?.itemImage} style={{maxHeight: "100px", maxWidth: "100px"}}/>
-      <h4 style={{maxHeight: "100px", maxWidth: "100px"}}>{product?.itemCategory}</h4>
-      <h4 style={{maxHeight: "100px", maxWidth: "1000px"}}>{product?.itemDescription}</h4>
-      <h4 style={{maxHeight: "100px", maxWidth: "100px"}}>{product?.itemPrice}</h4>
-      <h4 style={{maxHeight: "100px", maxWidth: "100px"}}>{product?.itemStock}</h4>
-      {/* itemCategory
-      "apparel"
-      itemDescription
-      "The sports jacket, a versatile and timeless piece of outerwear, seamlessly blends style and functionality. Crafted from high-quality materials, this jacket embodies a perfect marriage of form and function, making it an essential addition to any wardrobe. The exterior showcases a sophisticated design, characterized by a tailored fit that accentuates the wearer's silhouette. The meticulous attention to detail is evident in the fine stitching and carefully chosen fabrics, ensuring a polished and refined appearance.\n\nConstructed to withstand varying weather conditions, the sports jacket provides a comfortable and breathable layer. Its lightweight yet durable composition makes it an ideal choice for transitional seasons or as a stylish outer layer during cooler evenings. The jacket features a zippered front closure and a well-designed collar, offering both protection from the elements and a touch of classic elegance.\n\nVersatility is a key attribute of this sports jacket. Whether paired with jeans for a casual outing or worn over a crisp shirt for a more formal affair, it effortlessly adapts to various occasions. Pockets, both functional and stylish, add practicality to the design, allowing for the convenient storage of essentials while maintaining a sleek aesthetic.\n\nIn summary, the sports jacket is a sartorial essential, marrying fashion and function in a way that complements the modern lifestyle. With its timeless appeal and thoughtful design, this jacket stands as a symbol of sophistication and practicality, making it a wardrobe staple for those who appreciate both style and substance."
-      itemId
-      1
-      itemImage
-      "https://pngimg.com/d/jacket_PNG8047.png"
-      itemInStock
-      true
-      itemName
-      "Jacket"
-      itemPrice
-      36.088667288943256
-      itemStock
+    <div className="product-details-page">
+      <div className="product-details-page-product-div">
+        <div className="product-details-page-product-div-image">
+          <img src={product?.itemImage} />
+        </div>
+        <div className="product-details-page-product-div-info-div">
+          <h1  className="product-details-page-product-div-name">{product?.itemName}</h1>
+          <div style={{display: "flex"}}>
+            <h4  className="product-details-page-product-div-category">{product?.itemCategory} | </h4>
+            <h4  className="product-details-page-product-div-stock"> {product?.itemInStock ? "In stock" : "Out of stock"}</h4>
+          </div>
+          <h4  className="product-details-page-product-div-price">${product?.itemPrice?.toFixed(2)}</h4>
+          <h4  className="product-details-page-product-div-description">{product?.itemDescription}</h4>
+          <div style={{height: "1px", minWidth: "400px", maxWidth: "400px", background: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)"}}></div>
+          <div style={{display: "flex", gap: "20px"}}>
+            <button>Add to cart</button>
+            <button>Buy now</button>
+          </div>
+        </div>
+        {/* itemCategory
+        "apparel"
+        itemDescription
+        "The sports jacket, a versatile and timeless piece of outerwear, seamlessly blends style and functionality. Crafted from high-quality materials, this jacket embodies a perfect marriage of form and function, making it an essential addition to any wardrobe. The exterior showcases a sophisticated design, characterized by a tailored fit that accentuates the wearer's silhouette. The meticulous attention to detail is evident in the fine stitching and carefully chosen fabrics, ensuring a polished and refined appearance.\n\nConstructed to withstand varying weather conditions, the sports jacket provides a comfortable and breathable layer. Its lightweight yet durable composition makes it an ideal choice for transitional seasons or as a stylish outer layer during cooler evenings. The jacket features a zippered front closure and a well-designed collar, offering both protection from the elements and a touch of classic elegance.\n\nVersatility is a key attribute of this sports jacket. Whether paired with jeans for a casual outing or worn over a crisp shirt for a more formal affair, it effortlessly adapts to various occasions. Pockets, both functional and stylish, add practicality to the design, allowing for the convenient storage of essentials while maintaining a sleek aesthetic.\n\nIn summary, the sports jacket is a sartorial essential, marrying fashion and function in a way that complements the modern lifestyle. With its timeless appeal and thoughtful design, this jacket stands as a symbol of sophistication and practicality, making it a wardrobe staple for those who appreciate both style and substance."
+        itemId
+        1
+        itemImage
+        "https://pngimg.com/d/jacket_PNG8047.png"
+        itemInStock
+        true
+        itemName
+        "Jacket"
+        itemPrice
+        36.088667288943256
+        itemStock
       250 */}
+    </div>
+    <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "500px", backgroundColor: "red"}}>
+      <h1>Add reviews here:</h1>
+    </div>
     </div>
   );
 }

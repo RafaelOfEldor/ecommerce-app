@@ -27,6 +27,10 @@ export default function ProductsPage(props) {
     fetchProducts();
   },[page])
 
+  function handleViewProduct(productId){
+    navigate(`/products/product/view?itemid=${productId}`)
+  }
+
   async function handleAddItemToCart(itemId) {
     if (isUserAuthenticated) {
       const addToCartElement = {
@@ -70,7 +74,7 @@ export default function ProductsPage(props) {
 
   const productsElements = products.map((item, index) => {
     return (
-      <div className="item-card" key={index}>
+      <div className="item-card" key={index} onClick={() => handleViewProduct(item.itemId)}>
         <img src={item.itemImage} style={{maxHeight: "200px", maxWidth: "300px"}}/>
         <h4>{item.itemName}</h4>
         <h4>${item.itemPrice.toFixed(2)}</h4>
