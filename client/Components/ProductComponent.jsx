@@ -109,6 +109,7 @@ export default function ProductComponent(props) {
           <h4>Get free shipping anywhere in the world</h4>
           </div>
         </div>
+        
         {/* itemCategory
         "apparel"
         itemDescription
@@ -126,9 +127,37 @@ export default function ProductComponent(props) {
         itemStock
       250 */}
     </div>
-    <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "500px", backgroundColor: "red", marginTop: "50px"}}>
-      <h1>Add reviews here:</h1>
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: "50px"}}>
+      <div style={{height: "1px", minWidth: "95vw", maxWidth: "95vw", marginTop: "20px", background: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)"}}></div>
     </div>
+    <div style={{display: "flex", justifyContent: "", alignItems: "center", marginTop: "50px"}}>
+      <h1 style={{marginLeft: "5vw"}}>Reviews</h1>
     </div>
+    <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "500px",  marginTop: "50px"}}>
+      <div style={{display: "flex", flexDirection: "column", gap: "50px", marginTop: "50px", paddingLeft: "200px"}}>
+
+        {product?.reviews?.length > 0 ? product?.reviews?.map((item, index) => {
+          return (
+            <div style={{
+              backgroundColor: "grey",
+              maxWidth: "1500px",
+              borderStyle: "solid",
+              borderWidth: "2px",
+              borderImage: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)",
+              borderImageSlice: "1",
+              }}>
+              <h3>{item.reviewRating} / 5</h3>
+              <h4 style={{fontWeight: "400"}}>{item.reviewComment}</h4>
+              <h4 style={{fontWeight: "600"}}>{item.reviewAuthor}</h4>
+            </div>
+            )
+          }) 
+          :
+          ""
+        }
+
+      </div>
+    </div>
+  </div>
   );
 }
