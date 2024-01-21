@@ -780,6 +780,7 @@ border-width: 1px;
 .product-details-page {
   /* background-color: blue; */
   padding-top: 5vh;
+  padding-bottom: 5vh;
 }
 
 .product-details-page-product-div {

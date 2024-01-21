@@ -32,6 +32,10 @@ public class Review {
     @Column(name= "review_rating")
     private int reviewRating;
 
+
+    @ManyToOne
+    private User user;
+
     @Column(name= "review_author")
     private String reviewAuthor;
 
