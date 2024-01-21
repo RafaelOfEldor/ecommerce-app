@@ -15,10 +15,10 @@ export default function ProductComponent(props) {
 
   const itemId = searchParams.get(`itemid`);
 
-  const [product, setProduct] = React.useState({})
+  const [product, setProduct] = useState({})
+  const [productRating, setProductRating] = useState(null)
   const [page, setPage] = useState(0)
 
-  console.log(itemId)
 
   async function fetchProduct() {
     if (itemId){
@@ -26,10 +26,17 @@ export default function ProductComponent(props) {
       response.json().then((data) => {
         console.log(data)
         setProduct(data);
+        let i = 0;
+        data.reviews?.map((item) => {
+          i += item.reviewRating;
+        })
+        setProductRating((i/data.reviews?.length))
       }),
       );
     }
   }
+
+  console.log(productRating)
 
   React.useEffect(() => {
     fetchProduct();
@@ -84,9 +91,13 @@ export default function ProductComponent(props) {
         </div>
         <div className="product-details-page-product-div-info-div">
           <h1  className="product-details-page-product-div-name">{product?.itemName}</h1>
-          <div style={{display: "flex"}}>
-            <h4  className="product-details-page-product-div-category">{product?.itemCategory} | </h4>
-            <h4  className="product-details-page-product-div-stock"> {product?.itemInStock ? "In stock" : "Out of stock"}</h4>
+          <div style={{display: "flex", alignItems: "center"}}>
+            <h4  className="product-details-page-product-div-category">
+              {product?.reviews?.length > 0 && productRating.toFixed(2) + " / 5"} 
+            </h4>
+            <h4 style={{fontWeight: "400", marginLeft: "10px"}}> {`${product?.reviews?.length > 0 ? "(" + product?.reviews?.length + " reviews)" : "no reviews"}`}</h4>
+            <h4 style={{fontWeight: "400", marginLeft: "10px"}}> | </h4>
+            <h4  className="product-details-page-product-div-stock" style={{marginLeft: "5px"}}>  {product?.itemInStock ? "In stock" : "Out of stock"}</h4>
           </div>
           <h4  className="product-details-page-product-div-price">${product?.itemPrice?.toFixed(2)}</h4>
           <h4  className="product-details-page-product-div-description">{product?.itemDescription}</h4>
@@ -133,13 +144,12 @@ export default function ProductComponent(props) {
     <div style={{display: "flex", justifyContent: "", alignItems: "center", marginTop: "50px"}}>
       <h1 style={{marginLeft: "5vw"}}>Reviews</h1>
     </div>
-    <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "500px",  marginTop: "50px"}}>
+    <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "500px",  marginTop: "50px", paddingBottom: "5vh"}}>
       <div style={{display: "flex", flexDirection: "column", gap: "50px", marginTop: "50px", paddingLeft: "200px"}}>
 
         {product?.reviews?.length > 0 ? product?.reviews?.map((item, index) => {
           return (
             <div style={{
-              backgroundColor: "grey",
               maxWidth: "1500px",
               borderStyle: "solid",
               borderWidth: "2px",
