@@ -1,8 +1,5 @@
 package com.example.factory.controller;
 
-import com.example.factory.dtos.ExistingItemsDTO;
-import com.example.factory.dtos.ExistingSubassembliesDTO;
-import com.example.factory.dtos.NewItemDTO;
 import com.example.factory.model.*;
 import com.example.factory.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
