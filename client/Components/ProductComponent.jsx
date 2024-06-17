@@ -9,7 +9,7 @@ export default function ProductComponent(props) {
 
   const [slide, setSlide] = React.useState(0);
   const [itemAddedToCart, setItemAddedToCart] = React.useState(false);
-  const { isUserAuthenticated, username, userId, mail, firstName, lastName, role, logOut, increaseAmountOfItemsInCart  } = useAuth()
+  const { isUserAuthenticated, username, userId, mail, firstName, lastName, role, logOut, orders, increaseAmountOfItemsInCart  } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
@@ -18,6 +18,9 @@ export default function ProductComponent(props) {
   const [product, setProduct] = useState({})
   const [productRating, setProductRating] = useState(null)
   const [page, setPage] = useState(0)
+  const [canReview, setCanReview] = useState(false);
+  const [reviewText, setReviewText] = useState("testing");
+  const [reviewRating, setReviewRating] = useState(5);
 
 
   async function fetchProduct() {
@@ -36,10 +39,48 @@ export default function ProductComponent(props) {
     }
   }
 
+  const handleAddReview = async () => {
+    
+
+    const reviewComponent = {
+      reviewComment: reviewText,
+      itemId: itemId,
+      reviewRating: reviewRating,
+      userId: userId,
+      reviewAuthor: username,
+      reviewPublishDate: new Date().toLocaleString()
+
+    }
+    const res = await fetch("http://localhost:8080/api/v1/reviews/addreview", {
+      method: "POST",
+      body: JSON.stringify(reviewComponent),
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+      }
+    })
+    if (res.ok) {
+      const data = await res.json();
+      console.log(data)
+    }
+  }
+
   console.log(productRating)
 
   React.useEffect(() => {
     fetchProduct();
+    console.log(orders);
+    {orders?.map((order, index) => {
+      order?.items?.map((item) => {
+        if (itemId.toString() === item.orderedItemOriginalItemId.toString()) {
+          console.log("in here!")
+          return (
+            setCanReview(true)
+          )
+        }
+      })
+      
+    })}
   },[itemId])
 
   async function handleAddItemToCart(itemId) {
@@ -144,8 +185,31 @@ export default function ProductComponent(props) {
     <div style={{display: "flex", justifyContent: "", alignItems: "center", marginTop: "50px"}}>
       <h1 style={{marginLeft: "5vw"}}>Reviews</h1>
     </div>
+    {canReview && 
+      <div style={{display: "flex", marginTop: "50px"}}> 
+        <h3 style={{color: "green"}}>You've recently purchased this item!</h3>
+        <button style={{height: "25px", width: "100px"}} onClick={handleAddReview}> Add review </button>
+      </div>
+    }
+    
     <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "500px",  marginTop: "50px", paddingBottom: "5vh"}}>
+    
       <div style={{display: "flex", flexDirection: "column", gap: "50px", marginTop: "50px", paddingLeft: "200px"}}>
+      {/* {orders?.map((order, index) => {
+          order?.items?.map((item) => {
+            if (itemId.toString() === item.orderedItemOriginalItemId.toString()) {
+              console.log("in here!")
+              return (
+                
+              )
+            }
+          })
+          
+        })} */}
+        
+        
+
+        
 
         {product?.reviews?.length > 0 ? product?.reviews?.map((item, index) => {
           return (

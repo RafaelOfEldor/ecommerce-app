@@ -40,7 +40,7 @@ public class Review {
     private String reviewAuthor;
 
     @Column(name= "review_publish_date")
-    private LocalDate reviewPublishDate = LocalDate.now();
+    private String reviewPublishDate;
 
     public Review(String reviewAuthor, int reviewRating, String reviewComment) {
         this.reviewComment = reviewComment;
