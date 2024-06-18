@@ -65,7 +65,8 @@ export default function HomePage(props) {
     navigate(`/products/product/view?itemid=${productId}`)
   }
 
-  async function handleAddItemToCart(itemId) {
+  const handleAddItemToCart = async (event, itemId) => {
+    event.stopPropagation();
     if (isUserAuthenticated) {
       const addToCartElement = {
         userId: userId,
@@ -128,7 +129,7 @@ export default function HomePage(props) {
           <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "5px"}}>
             <button
             className="item-card-addcart-button"
-            onClick={() => handleAddItemToCart(item?.itemId)}
+            onClick={(event) => handleAddItemToCart(event, item?.itemId)}
             >
               Add To Cart</button>
             <button
