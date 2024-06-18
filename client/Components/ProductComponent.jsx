@@ -28,6 +28,23 @@ export default function ProductComponent(props) {
       fetch(`http://localhost:8080/api/v1/products/${itemId}`).then((response) =>
       response.json().then((data) => {
         console.log(data)
+        let alreadyReviewed = data?.reviews?.find(item => item.reviewAuthor === username);
+        if (alreadyReviewed) {
+          setCanReview(false);
+        } else {
+          orders?.map((order, index) => {
+            order?.items?.map((item) => {
+              if (itemId.toString() === item.orderedItemOriginalItemId.toString()) {
+                console.log("in here!")
+                  return (
+                    setCanReview(true)
+                  )
+              }
+            })
+            
+          })
+        }
+
         setProduct(data);
         let i = 0;
         data.reviews?.map((item) => {
@@ -65,23 +82,11 @@ export default function ProductComponent(props) {
     }
   }
 
-  console.log(productRating)
+
 
   React.useEffect(() => {
     fetchProduct();
-    console.log(orders);
-    {orders?.map((order, index) => {
-      order?.items?.map((item) => {
-        if (itemId.toString() === item.orderedItemOriginalItemId.toString()) {
-          console.log("in here!")
-          return (
-            setCanReview(true)
-          )
-        }
-      })
-      
-    })}
-  },[itemId])
+  },[itemId, product])
 
   async function handleAddItemToCart(itemId) {
     if (isUserAuthenticated) {
@@ -213,8 +218,9 @@ export default function ProductComponent(props) {
 
         {product?.reviews?.length > 0 ? product?.reviews?.map((item, index) => {
           return (
-            <div style={{
+            <div key={index} style={{
               maxWidth: "1500px",
+              minWidth: "70vw",
               borderStyle: "solid",
               borderWidth: "2px",
               borderImage: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)",
