@@ -19,8 +19,9 @@ export default function ProductComponent(props) {
   const [productRating, setProductRating] = useState(null)
   const [page, setPage] = useState(0)
   const [canReview, setCanReview] = useState(false);
-  const [reviewText, setReviewText] = useState("testing");
-  const [reviewRating, setReviewRating] = useState(5);
+  const [reviewText, setReviewText] = useState("");
+  const [reviewRating, setReviewRating] = useState(1);
+  const [showReviewAddition, setShowReviewAddition] = useState(false);
 
 
   async function fetchProduct() {
@@ -57,8 +58,7 @@ export default function ProductComponent(props) {
   }
 
   const handleAddReview = async () => {
-    
-
+    location.reload();
     const reviewComponent = {
       reviewComment: reviewText,
       itemId: itemId,
@@ -86,7 +86,7 @@ export default function ProductComponent(props) {
 
   React.useEffect(() => {
     fetchProduct();
-  },[itemId, product])
+  },[itemId])
 
   async function handleAddItemToCart(itemId) {
     if (isUserAuthenticated) {
@@ -120,7 +120,19 @@ export default function ProductComponent(props) {
       navigate("/login")
     }
   }
+  
 
+  const handleSettingReviewText = (event) => {
+    setReviewText(event.target.value);
+    console.log(reviewText);
+  }
+
+  const handleSettingReviewRating = (event) => {
+    setReviewRating(Number(event.target.value));
+    console.log(reviewRating);
+  }
+
+  
   function handleBuyItem() {
     if (isUserAuthenticated) {
       console.log("yoo")
@@ -190,14 +202,9 @@ export default function ProductComponent(props) {
     <div style={{display: "flex", justifyContent: "", alignItems: "center", marginTop: "50px"}}>
       <h1 style={{marginLeft: "5vw"}}>Reviews</h1>
     </div>
-    {canReview && 
-      <div style={{display: "flex", marginTop: "50px"}}> 
-        <h3 style={{color: "green"}}>You've recently purchased this item!</h3>
-        <button style={{height: "25px", width: "100px"}} onClick={handleAddReview}> Add review </button>
-      </div>
-    }
     
-    <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "500px",  marginTop: "50px", paddingBottom: "5vh"}}>
+    
+    <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "auto",  marginTop: "50px", paddingBottom: "5vh", overflow: "auto"}}>
     
       <div style={{display: "flex", flexDirection: "column", gap: "50px", marginTop: "50px", paddingLeft: "200px"}}>
       {/* {orders?.map((order, index) => {
@@ -215,7 +222,49 @@ export default function ProductComponent(props) {
         
 
         
+        {canReview && 
+          <div style={{ display: 'flex', flexDirection: 'column', marginTop: '50px' }}> 
+          <h3 style={{ color: 'green' }}>You've recently purchased this item! Leave a review: </h3>
+          <div style={{
+            maxWidth: '1500px',
+            minWidth: '70vw',
+            borderStyle: 'solid',
+            borderWidth: '2px',
+            borderImage: 'linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18,61,182,1) 100%)',
+            borderImageSlice: '1',
+            padding: '10px',
+            
+          }}>
+            <label htmlFor="rating" style={{ display: 'block', fontSize: '1.2em' }}>Rate: </label>
+            <div style={{display: "flex", gap: "10px"}}>
+            <select id="rating" name="rating" style={{ marginBottom: '10px' }} value={reviewRating} onChange={handleSettingReviewRating}>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
 
+            <h4 style={{fontWeight: "400"}}> / </h4>
+            <h4 style={{fontWeight: "400"}}> 5</h4>
+            </div>
+            <textarea style={{ width: '100%', height: '100px', marginBottom: '10px' }} value={reviewText} placeholder="Write review here" onChange={handleSettingReviewText}>
+              {reviewText}
+            </textarea>
+            <h4 style={{ fontWeight: '500' }}><b>Purchased by: </b>{username}</h4>
+          </div>  
+          <button style={reviewText === "" ?
+            { height: '25px', width: '100px', marginTop: '20px', borderStyle: "none", background: "rgba(184, 200, 181, 0.8)", borderRadius: "10px",
+            }
+          :
+            {
+              height: '25px', width: '100px', marginTop: '20px', borderStyle: "none", background: "rgba(128, 221, 154, 0.8)", borderRadius: "10px",
+              cursor: "pointer"
+            }}
+           disabled={reviewText === ""}
+           onClick={handleAddReview}>Add review</button>
+        </div>
+        }
         {product?.reviews?.length > 0 ? product?.reviews?.map((item, index) => {
           return (
             <div key={index} style={{
@@ -225,10 +274,12 @@ export default function ProductComponent(props) {
               borderWidth: "2px",
               borderImage: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)",
               borderImageSlice: "1",
+              padding: "10px",
+              background: "rgba(136, 228, 227, 0.4)"
               }}>
-              <h3>{item.reviewRating} / 5</h3>
-              <h4 style={{fontWeight: "400"}}>{item.reviewComment}</h4>
-              <h4 style={{fontWeight: "600"}}>{item.reviewAuthor}</h4>
+              <h3 style={{fontWeight: "500"}}>{item.reviewRating} / 5</h3>
+              <h4 style={{fontWeight: "400", marginTop: "10px"}}>{item.reviewComment}</h4>
+              <h4 style={{fontWeight: "500", marginTop: "10px"}}> <b>Purchased by: </b>{item.reviewAuthor}</h4>
             </div>
             )
           }) 
