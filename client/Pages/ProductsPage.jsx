@@ -124,11 +124,18 @@ export default function ProductsPage(props) {
       <div className={`item-added-to-cart-component ${itemAddedToCart ? 'show' : ''}`}>
         <h1>Item added to cart</h1>
       </div>
-      <button onClick={() => setPage(prev => prev + 1)}
-      style={{marginLeft: "50vw", transform: "translate(-50%", marginTop: "50px", width: "200px", height: "100px", backgroundColor: "blue", color: "white", border: "none",
-      fontSize: "1.2rem", }}>
-        next page
-      </button>
+      <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+        <button onClick={() => setPage(prev => prev + 1)}
+        style={{ marginTop: "50px", width: "200px", height: "100px", backgroundColor: "blue", color: "white", border: "none",
+          fontSize: "1.2rem", }}>
+          previous page
+        </button>
+        <button onClick={() => setPage(prev => prev + 1)}
+        style={{marginLeft: "50vw", transform: "translate(-50%", marginTop: "50px", width: "200px", height: "100px", backgroundColor: "blue", color: "white", border: "none",
+          fontSize: "1.2rem", }}>
+          next page
+        </button>
+        </div>
     </div>
   );
 }
