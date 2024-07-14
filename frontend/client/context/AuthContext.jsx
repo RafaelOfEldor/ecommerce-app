@@ -153,6 +153,7 @@ const resetUserInfo = () => {
         addresses,
         orders,
         isUserAuthenticated,
+        setAddresses,
         setFirstName,
         setLastName,
         setMail,
