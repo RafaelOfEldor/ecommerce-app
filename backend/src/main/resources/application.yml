@@ -1,0 +1,24 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/jwt_security
+        username: postgres
+        password: password
+        name: mock_ecommerce
+        driver-class-name: org.postgresql.Driver
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+        show-sql: true
+        properties:
+          hibernate:
+            format_sql: true
+        database: postgresql
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+logging:
+    level:
+        org:
+            springframework:
+                web:
+                    cors: TRACE
+                    servlet: TRACE
+                security: DEBUG
