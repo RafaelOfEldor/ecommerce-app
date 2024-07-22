@@ -1,5 +1,7 @@
 # ecommerce-app
-An ecommerce website using spring boot + react. Made to improve and display my spring boot backend skills.
+An ecommerce website using spring boot + react, deployed through AWS with docker. 
+
+Made to improve and display my spring boot backend skills.
 
 
 Nothing costs any money lol, check your accounts payment details after signing up to see a wonderful little treat.
