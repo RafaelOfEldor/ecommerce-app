@@ -5,12 +5,12 @@ import {useAuth} from "../../context/AuthContext"
 export default function AdressesComponent(props) {
 
 
-  const { isUserAuthenticated, username, addresses, userId, orders, mail, firstName, lastName, role  } = useAuth()
+  const { isUserAuthenticated, username, addresses, setAddresses, userId, orders, mail, firstName, lastName, role  } = useAuth()
   const [addAddress, setAddAddress] = useState(false)
   const navigate = useNavigate();
 
   async function handleAddAddress(e){
-    // e.preventDefault()
+    e.preventDefault()
     const newAddressElement = {
       userId: userId,
       addressStreetName: e.target.streetname.value,
@@ -30,6 +30,7 @@ export default function AdressesComponent(props) {
             const data = await res.json();
             console.log(data)
             setAddAddress(false)
+            setAddresses(prevAddresses => [...prevAddresses, data]);
           }
           
   }
