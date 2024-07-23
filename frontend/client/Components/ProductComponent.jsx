@@ -4,6 +4,7 @@ import { Link, Routes, Route, Outlet, useNavigate, useSearchParams } from "react
 import jacketImage from "../images/random-jacket.jpg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function ProductComponent(props) {
 
@@ -26,7 +27,7 @@ export default function ProductComponent(props) {
 
   async function fetchProduct() {
     if (itemId){
-      fetch(`http://localhost:8080/api/v1/products/${itemId}`).then((response) =>
+      fetch(`${apiUrl}/api/v1/products/${itemId}`).then((response) =>
       response.json().then((data) => {
         console.log(data)
         let alreadyReviewed = data?.reviews?.find(item => item.reviewAuthor === username);
@@ -68,7 +69,7 @@ export default function ProductComponent(props) {
       reviewPublishDate: new Date().toLocaleString()
 
     }
-    const res = await fetch("http://localhost:8080/api/v1/reviews/addreview", {
+    const res = await fetch(`${apiUrl}/api/v1/reviews/addreview`, {
       method: "POST",
       body: JSON.stringify(reviewComponent),
       headers: {
@@ -95,7 +96,7 @@ export default function ProductComponent(props) {
         itemId: itemId
       }
       console.log(JSON.stringify())
-      const res = await fetch("http://localhost:8080/api/v1/user/cart/additem", {
+      const res = await fetch(`${apiUrl}/api/v1/user/cart/additem`, {
             method: "POST",
             body: JSON.stringify(addToCartElement),
             headers: {

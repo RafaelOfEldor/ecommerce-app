@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 import {jwtDecode} from "jwt-decode";
 
@@ -54,7 +55,7 @@ export function AuthProvider({ children }) {
         if (Date.now() < expiration * 1000) {
           token = jwtDecode(token);
           setUsername(token.sub)
-          const res = await fetch("http://localhost:8080/api/v1/user/userinfo", {
+          const res = await fetch(`${apiUrl}/api/v1/user/userinfo`, {
             method: "POST",
             body: JSON.stringify({
               username: token.sub

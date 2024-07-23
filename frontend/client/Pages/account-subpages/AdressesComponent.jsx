@@ -1,6 +1,7 @@
 import React, { useContext, Component, useState } from "react";
 import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
 import {useAuth} from "../../context/AuthContext"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function AdressesComponent(props) {
 
@@ -18,7 +19,7 @@ export default function AdressesComponent(props) {
       addressPostalCode: e.target.postalcode.value
     }
 
-    const res = await fetch("http://localhost:8080/api/v1/address", {
+    const res = await fetch(`${apiUrl}/api/v1/address`, {
             method: "POST",
             body: JSON.stringify(newAddressElement),
             headers: {

@@ -5,6 +5,7 @@ import GoogleLogo from "../images/Google-g-logo.svg"
 import Logo from "../images/Mock-Ecommerce.svg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function LoginPage(props) {
 
@@ -23,7 +24,7 @@ export default function LoginPage(props) {
         password: e.target.password.value
     }
 
-    const res = await fetch("http://localhost:8080/api/v1/auth/authenticate", {
+    const res = await fetch(`${apiUrl}/api/v1/auth/authenticate`, {
       method: "POST",
       body: JSON.stringify(userInfo),
       headers: {

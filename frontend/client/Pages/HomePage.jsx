@@ -4,6 +4,7 @@ import { Link, Routes, Route, Outlet, useNavigate, useSearchParams } from "react
 import jacketImage from "../images/random-jacket.jpg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function HomePage(props) {
 
@@ -23,13 +24,13 @@ export default function HomePage(props) {
   },[items])
 
   async function fetchProducts() {
-    // fetch(`http://localhost:8080/api/v1/products/page/${Math.floor((Math.random() * 3))}`).then((response) =>
+    // fetch(`${apiUrl}/api/v1/products/page/${Math.floor((Math.random() * 3))}`).then((response) =>
     //   response.json().then((data) => {
     //     setItems(data);
     //   }),
     // );
 
-    fetch(`http://localhost:8080/api/v1/products/page/0`).then((response) =>
+    fetch(`${apiUrl}/api/v1/products/page/0`).then((response) =>
       response.json().then((data) => {
         setItems(data);
       }),
@@ -37,7 +38,7 @@ export default function HomePage(props) {
   }
 
   async function fetchCarouselItems() {
-    fetch(`http://localhost:8080/api/v1/products/page/1`).then((response) =>
+    fetch(`${apiUrl}/api/v1/products/page/1`).then((response) =>
       response.json().then((data) => {
         setCarouselItems(data);
       }),
@@ -73,7 +74,7 @@ export default function HomePage(props) {
         itemId: itemId
       }
       console.log(JSON.stringify())
-      const res = await fetch("http://localhost:8080/api/v1/user/cart/additem", {
+      const res = await fetch(`${apiUrl}/api/v1/user/cart/additem`, {
             method: "POST",
             body: JSON.stringify(addToCartElement),
             headers: {

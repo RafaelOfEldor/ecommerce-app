@@ -2,6 +2,7 @@ import React, { useContext, Component, useState } from "react";
 import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
 import {useAuth} from "../../context/AuthContext"
 import Triangle from "../../images/triangle.svg"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function PurchasesComponent(props) {
 

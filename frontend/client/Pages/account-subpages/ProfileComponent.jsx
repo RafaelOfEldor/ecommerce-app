@@ -1,6 +1,7 @@
 import React, { useContext, Component } from "react";
 import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
 import {useAuth} from "../../context/AuthContext"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function AccountProfileComponent(props) {
 
@@ -19,7 +20,7 @@ const [loadingChanges, setLoadingChanges] = React.useState(false)
     }, 2000);
     
     if (e.target.firstname.value !== "") {
-      const res = await fetch("http://localhost:8080/api/v1/user/change/firstname", {
+      const res = await fetch(`${apiUrl}/api/v1/user/change/firstname`, {
         method: "POST",
         body: JSON.stringify({
           username: username,
@@ -36,7 +37,7 @@ const [loadingChanges, setLoadingChanges] = React.useState(false)
       }
     }
     if (e.target.lastname.value !== "") {
-      const res = await fetch("http://localhost:8080/api/v1/user/change/lastname", {
+      const res = await fetch(`${apiUrl}/api/v1/user/change/lastname`, {
         method: "POST",
         body: JSON.stringify({
           username: username,
@@ -52,7 +53,7 @@ const [loadingChanges, setLoadingChanges] = React.useState(false)
       }
     }
     if (e.target.username.value !== "") {
-      const res = await fetch("http://localhost:8080/api/v1/user/change/username", {
+      const res = await fetch(`${apiUrl}/api/v1/user/change/username`, {
         method: "POST",
         body: JSON.stringify({
           username: username,
@@ -72,7 +73,7 @@ const [loadingChanges, setLoadingChanges] = React.useState(false)
     }
     if (e.target.mail.value !== "") {
       e.preventDefault()
-      const res = await fetch("http://localhost:8080/api/v1/user/change/email", {
+      const res = await fetch(`${apiUrl}/api/v1/user/change/email`, {
         method: "POST",
         body: JSON.stringify({
           username: username,

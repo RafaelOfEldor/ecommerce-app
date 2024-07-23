@@ -4,6 +4,7 @@ import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
 import jacketImage from "../images/random-jacket.jpg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function ProductsPage(props) {
 
@@ -16,7 +17,7 @@ export default function ProductsPage(props) {
   const [page, setPage] = useState(0)
 
   async function fetchProducts() {
-    fetch(`http://localhost:8080/api/v1/products/page/${page}`).then((response) =>
+    fetch(`${apiUrl}/api/v1/products/page/${page}`).then((response) =>
       response.json().then((data) => {
         setProducts(data);
       }),
@@ -39,7 +40,7 @@ export default function ProductsPage(props) {
         itemId: itemId
       }
       console.log(JSON.stringify())
-      const res = await fetch("http://localhost:8080/api/v1/user/cart/additem", {
+      const res = await fetch(`${apiUrl}/api/v1/user/cart/additem`, {
             method: "POST",
             body: JSON.stringify(addToCartElement),
             headers: {

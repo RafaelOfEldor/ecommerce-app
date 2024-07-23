@@ -6,6 +6,7 @@ import SearchLogo from "../images/search-logo.svg"
 import ShoppingCartLogo from "../images/shopping-basket-logo.svg"
 import ProjectLogo from "../images/project-logo.png"
 import {useAuth} from "../context/AuthContext"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function Navbar(props) {
 

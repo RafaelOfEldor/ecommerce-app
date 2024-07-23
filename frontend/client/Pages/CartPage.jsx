@@ -5,6 +5,7 @@ import GoogleLogo from "../images/Google-g-logo.svg"
 import Logo from "../images/Mock-Ecommerce.svg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function CartPage(props) {
 
@@ -23,7 +24,7 @@ export default function CartPage(props) {
 
   async function fetchCartInfo() {
     if (isUserAuthenticated) {
-      const res = await fetch(`http://localhost:8080/api/v1/usercart/${userId}`, {
+      const res = await fetch(`${apiUrl}/api/v1/usercart/${userId}`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${localStorage.getItem("access_token")}`,
@@ -69,7 +70,7 @@ export default function CartPage(props) {
         itemId: itemId
       }
       console.log(JSON.stringify())
-      const res = await fetch("http://localhost:8080/api/v1/user/cart/removeitem", {
+      const res = await fetch(`${apiUrl}/api/v1/user/cart/removeitem`, {
             method: "POST",
             body: JSON.stringify(removeFromCartElement),
             headers: {
