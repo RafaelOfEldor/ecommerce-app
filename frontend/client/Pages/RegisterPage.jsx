@@ -5,6 +5,7 @@ import GoogleLogo from "../images/Google-g-logo.svg"
 import Logo from "../images/Mock-Ecommerce.svg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
+const apiUrl = process.env.BACKEND_API_BASE_URL;
 
 export default function RegisterPage(props) {
 
@@ -39,7 +40,7 @@ export default function RegisterPage(props) {
         password: e.target.password.value
     }
 
-    const res = await fetch("http://localhost:8080/api/v1/auth/register", {
+    const res = await fetch(`${apiUrl}/api/v1/auth/register`, {
       method: "POST",
       body: JSON.stringify(userInfo),
       headers: {
