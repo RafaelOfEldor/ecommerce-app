@@ -24,5 +24,11 @@ COPY --from=build /app/target/*.jar ./myapp.jar
 # Expose the application port
 EXPOSE 8080
 
+# Environment variables
+ARG DATABASE_URL
+ARG REACT_APP_API_URL
+ENV DATABASE_URL $DATABASE_URL
+ENV REACT_APP_API_URL $REACT_APP_API_URL
+
 # Define the entrypoint command to run the application
 ENTRYPOINT ["java", "-jar", "./myapp.jar"]
