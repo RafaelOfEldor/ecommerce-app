@@ -25,9 +25,9 @@ COPY --from=build /app/target/*.jar ./myapp.jar
 EXPOSE 8080
 
 # Environment variables
-ARG DATABASE_URL
+ARG SPRING_DATASOURCE_URL
 ARG REACT_APP_API_URL
-ENV DATABASE_URL $DATABASE_URL
+ENV SPRING_DATASOURCE_USERNAME $SPRING_DATASOURCE_USERNAME
 ENV REACT_APP_API_URL $REACT_APP_API_URL
 
 # Define the entrypoint command to run the application

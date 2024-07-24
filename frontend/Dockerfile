@@ -13,6 +13,9 @@ RUN npm install
 # Copy source files
 COPY client/ ./
 
+ARG BACKEND_API_BASE_URL
+ENV BACKEND_API_BASE_URL=$BACKEND_API_BASE_URL
+
 # Build the React app using Parcel
 RUN npm run build
 
@@ -35,8 +38,8 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Environment variables
-ARG REACT_APP_API_URL
-ENV REACT_APP_API_URL $REACT_APP_API_URL
+ARG BACKEND_API_BASE_URL
+ENV BACKEND_API_BASE_URL $BACKEND_API_BASE_URL
 
 # Set entrypoint
 ENTRYPOINT ["/entrypoint.sh"]

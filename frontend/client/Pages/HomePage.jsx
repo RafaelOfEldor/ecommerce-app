@@ -11,6 +11,7 @@ export default function HomePage(props) {
   const [searchParams, setSearchParams] = useSearchParams();
   const itemId = searchParams.get(`itemid`);
 
+
   const [slide, setSlide] = React.useState(0);
   const [itemAddedToCart, setItemAddedToCart] = React.useState(false);
   const { isUserAuthenticated, username, userId, mail, firstName, lastName, role, logOut, increaseAmountOfItemsInCart  } = useAuth()
@@ -107,8 +108,6 @@ export default function HomePage(props) {
       navigate("/login")
     }
   }
-
-  console.log(apiUrl);
 
   const itemElements = items.map((item, index) => {
     return (
