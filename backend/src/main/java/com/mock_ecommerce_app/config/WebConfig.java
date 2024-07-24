@@ -16,11 +16,15 @@ import java.util.Arrays;
 @Configuration
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
+
+    @Value("${REACT_APP_BASE_URL}")
+    private String frontendBaseUrl;
+
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
                 .allowCredentials(true)
-                .allowedOrigins("http://frontend.mock-ecommerce-namespace:3000")
+                .allowedOrigins(frontendBaseUrl)
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("Authorization", "Content-Type", "Accept")
                 .maxAge(3600L);
