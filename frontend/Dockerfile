@@ -22,5 +22,22 @@ FROM nginx:alpine
 # Copy the dist files to the Nginx html directory
 COPY --from=build /app/client/dist /usr/share/nginx/html
 
+# Copy the runtime-env.js to the Nginx html directory
+COPY client/runtime-env.js /usr/share/nginx/html/runtime-env.js
+
 # Copy the Nginx configuration file
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy the entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+
+# Make the entrypoint script executable
+RUN chmod +x /entrypoint.sh
+
+# Environment variables
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL $REACT_APP_API_URL
+
+# Set entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["nginx", "-g", "daemon off;"]
