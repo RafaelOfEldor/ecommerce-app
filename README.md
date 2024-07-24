@@ -1,10 +1,10 @@
 # ecommerce-app
-An ecommerce website using spring boot + react, deployed through AWS with docker. 
+An ecommerce website using spring boot + postgreSQL + react, deployed through AWS ECS with docker. 
 
-Made to improve and display my spring boot backend skills.
+Made to improve and display my spring boot backend skills, as well as learn some docker and AWS.
 
 
-Nothing costs any money lol, check your accounts payment details after signing up to see a wonderful little treat.
+Nothing costs any money lol, check your accounts payment details after signing up/in to see a wonderful little treat.
 
 
 Also, please be aware that while i require info from a user to show most of my functionality, you don't need to
@@ -16,3 +16,57 @@ sensitive information into my database. Just make up fake credentials and have f
 Yes, i made all the item entities manually.
 Yes, it made me depressed.
 No, i wouldn't do it again.
+
+
+## Trying it locally
+
+## with docker compose:
+
+simply place a .env file in the root directory with these values filled out
+
+```
+SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/[some_name]
+SPRING_DATASOURCE_USERNAME=[some_name]
+SPRING_DATASOURCE_PASSWORD=[some_password]
+REACT_APP_BASE_URL=http://localhost:3000
+BACKEND_API_BASE_URL=http://localhost:8080
+POSTGRES_DB=[same as some_name from SPRING_DATASOURCE_URL]
+POSTGRES_USER=[same as SPRING_DATASOURCE_USERNAME]
+POSTGRES_PASSWORD=[same as SPRING_DATASOURCE_PASSWORD]
+```
+
+then go into a docker enabled terminal and enter "
+```bash
+docker-compose up -d
+```
+
+
+
+## without docker compose:
+
+same .env file from the version with docker compose.
+
+Add and additional .env file in client folder with this:
+
+```
+BACKEND_API_BASE_URL=http://localhost:8080
+```
+
+ensure your backend gets this environmental variable:
+
+```
+REACT_APP_BASE_URL=http://localhost:3000
+```
+
+then, start your backend isolated, and once that succeds go into frontend directory and enter:
+
+```bash
+npm install
+```
+
+then:
+
+```bash
+npm run dev
+```
+
