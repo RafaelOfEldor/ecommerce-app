@@ -108,6 +108,8 @@ export default function HomePage(props) {
     }
   }
 
+  console.log(apiUrl);
+
   const itemElements = items.map((item, index) => {
     return (
       <div className="item-card" key={index} onClick={() => handleViewProduct(item.itemId)}>
