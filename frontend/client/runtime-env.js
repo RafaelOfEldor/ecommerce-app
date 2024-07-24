@@ -1,6 +1,8 @@
 // frontend/client/runtime-env.js
 (function() {
+  console.log('Loading runtime-env.js');
   window.__ENV__ = {
-    REACT_APP_API_URL: "%%REACT_APP_API_URL%%"
+    BACKEND_API_BASE_URL: "__BACKEND_API_BASE_URL__"
   };
+  console.log('Environment Variables:', window.__ENV__);
 })();

@@ -1,6 +1,12 @@
 #!/bin/sh
 
-echo "Replacing environment variables in runtime-env.js"
-sed -i 's|%%REACT_APP_API_URL%%|'${REACT_APP_API_URL}'|g' /usr/share/nginx/html/runtime-env.js
+if [ -z "${BACKEND_API_BASE_URL}" ]; then
+  echo "Error: BACKEND_API_BASE_URL environment variable is not set."
+  exit 1
+fi
 
-exec "$@"
+sed -i "s|__BACKEND_API_BASE_URL__|${BACKEND_API_BASE_URL}|g" /usr/share/nginx/html/runtime-env.js
+
+sed -i "s|__BACKEND_API_BASE_URL__|${BACKEND_API_BASE_URL}|g" /etc/nginx/conf.d/default.conf
+
+nginx -g 'daemon off;'
