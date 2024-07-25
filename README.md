@@ -35,7 +35,7 @@ POSTGRES_USER=[same as SPRING_DATASOURCE_USERNAME]
 POSTGRES_PASSWORD=[same as SPRING_DATASOURCE_PASSWORD]
 ```
 
-then go into the file root/frontend/client/runtime-env.js and enter
+then go into the file root/frontend/client/runtime-env.js and enter:
 
 ```
 (function() {
@@ -47,7 +47,7 @@ then go into the file root/frontend/client/runtime-env.js and enter
 })();
 ```
 
-then go into a docker enabled terminal and enter "
+then go into a docker enabled terminal and enter:
 ```bash
 docker-compose up -d
 ```
