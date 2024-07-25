@@ -5,7 +5,7 @@ import GoogleLogo from "../images/Google-g-logo.svg"
 import Logo from "../images/Mock-Ecommerce.svg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
-const apiUrl = process.env.BACKEND_API_BASE_URL;
+const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
 export default function CartPage(props) {
 

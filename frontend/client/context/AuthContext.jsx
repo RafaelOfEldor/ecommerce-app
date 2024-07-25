@@ -4,7 +4,7 @@ import React, {
   useEffect,
   useState,
 } from "react";
-const apiUrl = process.env.BACKEND_API_BASE_URL;
+const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
 import {jwtDecode} from "jwt-decode";
 

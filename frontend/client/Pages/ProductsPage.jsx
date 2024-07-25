@@ -4,7 +4,7 @@ import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
 import jacketImage from "../images/random-jacket.jpg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
-const apiUrl = process.env.BACKEND_API_BASE_URL;
+const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
 export default function ProductsPage(props) {
 
