@@ -35,22 +35,26 @@ POSTGRES_USER=[same as SPRING_DATASOURCE_USERNAME]
 POSTGRES_PASSWORD=[same as SPRING_DATASOURCE_PASSWORD]
 ```
 
+then go into the file root/frontend/client/runtime-env.js and enter
+
+```
+(function() {
+  console.log('Loading runtime-env.js');
+  window.__ENV__ = {
+    BACKEND_API_BASE_URL: "[same value as BACKEND_API_BASE_URL from root .env]"
+  };
+  console.log('Environment Variables:', window.__ENV__);
+})();
+```
+
 then go into a docker enabled terminal and enter "
 ```bash
 docker-compose up -d
 ```
 
-
-
 ## without docker compose:
 
-same .env file from the version with docker compose.
-
-Add and additional .env file in client folder with this:
-
-```
-BACKEND_API_BASE_URL=http://localhost:8080
-```
+same .env file from the version with docker compose as well as same root/frontend/client/runtime-env.js.
 
 ensure your backend gets this environmental variable:
 
@@ -58,7 +62,7 @@ ensure your backend gets this environmental variable:
 REACT_APP_BASE_URL=http://localhost:3000
 ```
 
-then, start your backend isolated, and once that succeds go into frontend directory and enter:
+then, start your backend isolated through intellij or something, and once that succeds go into frontend directory and enter:
 
 ```bash
 npm install
