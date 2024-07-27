@@ -30,28 +30,4 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedHeaders("Authorization", "Content-Type", "Accept")
                 .maxAge(3600L);
     }
-
-//    @Bean
-//    public FilterRegistrationBean<CorsFilter> corsFilter() {
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        CorsConfiguration config = new CorsConfiguration();
-//        config.setAllowCredentials(true);
-//        config.addAllowedOrigin("http://localhost:3000");
-//        config.setAllowedHeaders(Arrays.asList(
-//                org.springframework.http.HttpHeaders.AUTHORIZATION,
-//                org.springframework.http.HttpHeaders.CONTENT_TYPE,
-//                org.springframework.http.HttpHeaders.ACCEPT
-//        ));
-//        config.setAllowedMethods(Arrays.asList(
-//                HttpMethod.GET.name(),
-//                HttpMethod.POST.name(),
-//                HttpMethod.PUT.name(),
-//                HttpMethod.DELETE.name()
-//        ));
-//        config.setMaxAge(3600L);
-//        source.registerCorsConfiguration("/**", config);
-//        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
-//        bean.setOrder(-102);
-//        return bean;
-//    }
 }
