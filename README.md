@@ -1,5 +1,7 @@
 # ecommerce-app
-An ecommerce website using spring boot + postgreSQL + react, deployed through AWS ECS with docker. 
+An ecommerce website using spring boot + postgreSQL + react + docker.
+
+Working on deploying through AWS ECS.
 
 Made to improve and display my spring boot backend skills, as well as learn some docker and AWS.
 
@@ -17,6 +19,9 @@ Yes, i made all the item entities manually.
 Yes, it made me depressed.
 No, i wouldn't do it again.
 
+## EARLY DEMO
+
+https://github.com/user-attachments/assets/ca5fb377-fa7f-43d9-9040-c0a142139587
 
 ## Trying it locally
 
