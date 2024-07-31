@@ -25,25 +25,27 @@ export default function HomePage(props) {
   },[items])
 
   async function fetchProducts() {
-    // fetch(`${apiUrl}/api/v1/products/page/${Math.floor((Math.random() * 3))}`).then((response) =>
-    //   response.json().then((data) => {
-    //     setItems(data);
-    //   }),
-    // );
-
-    fetch(`${apiUrl}/api/v1/products/page/0`).then((response) =>
-      response.json().then((data) => {
+    const res = await fetch(`${apiUrl}/api/v1/products/page/0`);
+    
+    if (res.ok) {
+      const data = await res.json();
+      if (data.length > 0) {
         setItems(data);
-      }),
-    );
+      }
+    }
   }
 
   async function fetchCarouselItems() {
-    fetch(`${apiUrl}/api/v1/products/page/1`).then((response) =>
-      response.json().then((data) => {
+    const res = await fetch(`${apiUrl}/api/v1/products/page/1`);
+    
+    if (res.ok) {
+
+      const data = await res.json()
+
+      if (data.length > 0) {
         setCarouselItems(data);
-      }),
-    );
+      }
+    }
   }
 
   React.useEffect(() => {

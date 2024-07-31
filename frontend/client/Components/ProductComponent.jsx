@@ -31,7 +31,9 @@ export default function ProductComponent(props) {
       response.json().then((data) => {
         console.log(data)
         let alreadyReviewed = data?.reviews?.find(item => item.reviewAuthor === username);
-        if (alreadyReviewed) {
+        console.log(username)
+        console.log(alreadyReviewed)
+        if (alreadyReviewed || username !== "") {
           setCanReview(false);
         } else {
           orders?.map((order, index) => {

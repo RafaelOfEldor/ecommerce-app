@@ -98,12 +98,12 @@ export function AuthProvider({ children }) {
 
   const logOut = () => {
     localStorage.removeItem("access_token")
-    setIsUserAuthenticated()
-    setUsername()
-    setFirstName()
-    setLastName()
-    setMail()
-    setRole()
+    setIsUserAuthenticated(false)
+    setUsername(null)
+    setFirstName(null)
+    setLastName(null)
+    setMail(null)
+    setRole(null)
     
     // resetUserInfo()
 }
