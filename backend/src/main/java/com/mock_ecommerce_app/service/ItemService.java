@@ -5,6 +5,8 @@ import com.mock_ecommerce_app.repository.ItemRepository;
 import com.mock_ecommerce_app.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -28,7 +30,8 @@ public class ItemService {
     }
 
     public List<Item> getItemsPageable(int pageNumber) {
-        return itemRepository.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
+        Pageable pageable = PageRequest.of(pageNumber, 10, Sort.by(Sort.Order.asc("itemId")));
+        return itemRepository.findAll(pageable).getContent();
     }
 
     public List<Item> getApparelPageable(int pageNumber) {
