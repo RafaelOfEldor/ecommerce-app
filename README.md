@@ -38,6 +38,8 @@ BACKEND_API_BASE_URL=http://localhost:8080
 POSTGRES_DB=[same as some_name from SPRING_DATASOURCE_URL]
 POSTGRES_USER=[same as SPRING_DATASOURCE_USERNAME]
 POSTGRES_PASSWORD=[same as SPRING_DATASOURCE_PASSWORD]
+GOOGLE_DISCOVERY_URL=[your_google_discovery_url]
+GOOGLE_CLIENT_ID=[your_google_client_id]
 ```
 
 then go into the file root/frontend/client/runtime-env.js and enter:
@@ -61,11 +63,15 @@ docker-compose up -d
 
 same .env file from the version with docker compose as well as same root/frontend/client/runtime-env.js.
 
-ensure your backend gets this environmental variable:
+ensure your backend gets these environmental variables:
 
 ```
 REACT_APP_BASE_URL=http://localhost:3000
+GOOGLE_DISCOVERY_URL=[your_google_discovery_url]
+GOOGLE_CLIENT_ID=[your_google_client_id]
 ```
+
+If you don't have google discovery stuff, you can alternatively just remove the LoginWithOpenidButton in frontend/client/pages/LoginPage.jsx.
 
 then, start your backend isolated through intellij or something, and once that succeds go into frontend directory and enter:
 

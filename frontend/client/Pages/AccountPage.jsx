@@ -78,14 +78,14 @@ export default function AccountPage(props) {
               >
               <h4>My Adresses</h4>
               </NavLink>
-              <NavLink
+              {/* <NavLink
               to="privacy"
               className={({isActive}) => 
               isActive ? "account-sidelayout-link-active privacy" : "account-sidelayout-link privacy"
               }
               >
               <h4>My Privacy</h4>
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
           <div className="account-page-sidelayout billing">
@@ -107,14 +107,14 @@ export default function AccountPage(props) {
               >
               <h4>My Purchases</h4>
               </NavLink>
-              <NavLink
+              {/* <NavLink
               to="cancellations"
               className={({isActive}) => 
             isActive ? "account-sidelayout-link-active cancellations" : "account-sidelayout-link cancellations"
           }
               >
               <h4>My Cancellations</h4>
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
         </div>

@@ -1,19 +1,32 @@
 package com.mock_ecommerce_app.service;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import com.mock_ecommerce_app.auth.AuthenticationRequest;
 import com.mock_ecommerce_app.auth.AuthenticationResponse;
 import com.mock_ecommerce_app.auth.RegisterRequest;
+import com.mock_ecommerce_app.dtos.OpenIdCredentialsDTO;
 import com.mock_ecommerce_app.model.Role;
 import com.mock_ecommerce_app.model.User;
 import com.mock_ecommerce_app.model.UserCart;
 import com.mock_ecommerce_app.repository.UserCartRepository;
 import com.mock_ecommerce_app.repository.UserRepository;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +38,19 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(RegisterRequest request) {
+    @Value("${GOOGLE_DISCOVERY_URL}")
+    private String googleDiscoveryUrl;
+
+    @Value("${GOOGLE_CLIENT_ID}")
+    private String googleClientId;
+
+    private final RestTemplate restTemplate = new RestTemplate();
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    public ResponseEntity<Optional<AuthenticationResponse>> register(RegisterRequest request) {
+        if (userRepository.findByUsername(request.getUsername()).isPresent()) {
+            return ResponseEntity.badRequest().body(null);
+        }
         UserCart userCart = new UserCart();
         userCartRepository.save(userCart);
         var user = User.builder()
@@ -42,7 +67,14 @@ public class AuthenticationService {
         userCartRepository.save(userCart);
         var jwtToken = jwtService.generateToken(user);
         userRepository.save(user);
-        return AuthenticationResponse.builder().token(jwtToken).build();
+        return ResponseEntity.ok(Optional.of(AuthenticationResponse.builder().token(jwtToken).build()));
+    }
+
+    public OpenIdCredentialsDTO getCredentials() {
+        OpenIdCredentialsDTO credentials = new OpenIdCredentialsDTO();
+        credentials.setGoogle_openid_config(googleDiscoveryUrl);
+        credentials.setGoogle_client_id(googleClientId);
+        return credentials;
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
@@ -58,33 +90,77 @@ public class AuthenticationService {
         return AuthenticationResponse.builder().token(jwtToken).build();
     }
 
-//    public Authentication register(RegisterRequest request) {
-//        var user = User.builder()
-//                .firstName(request.getFirstname())
-//                .lastName(request.getLastname())
-//                .email(request.getEmail())
-//                .username(request.getUsername())
-//                .password(passwordEncoder.encode(request.getPassword()))
-//                .role(Role.USER)
-//                .build();
-//        userRepository.save(user);
-//        var jwtToken = jwtService.generateToken(user);
-//        System.out.println(AuthenticationResponse.builder().token(jwtToken).build());
-//        return authenticate(new AuthenticationRequest(request.getUsername(), request.getPassword()));
-//    }
-//
-//    public Authentication authenticate(AuthenticationRequest request) {
-//       Authentication authentication = authenticationManager.authenticate(
-//                new UsernamePasswordAuthenticationToken(
-//                        request.getUsername(),
-//                        request.getPassword()
-//                )
-//        );
-//        var user = userRepository.findByUsername(request.getUsername())
-//                .orElseThrow(() -> new UsernameNotFoundException("User not found."));
-//        var jwtToken = jwtService.generateToken(user);
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-////        return AuthenticationResponse.builder().token(jwtToken).build();
-//        return authentication;
-//    }
+    public void setAccessToken(String accessToken, HttpServletResponse response) {
+        Cookie cookie = createCookie("access_token", accessToken);
+        response.addCookie(cookie);
+    }
+
+    private Cookie createCookie(String name, String value) {
+        Cookie cookie = new Cookie(name, value);
+        cookie.setHttpOnly(true);
+        cookie.setSecure(true);
+        cookie.setPath("/");
+        cookie.setMaxAge(60 * 60 * 24);
+        return cookie;
+    }
+
+    public AuthenticationResponse authenticateWithGoogle(String accessToken) {
+        String userInfoUrl = "https://www.googleapis.com/oauth2/v3/userinfo";
+
+        // Create headers with the Bearer token
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBearerAuth(accessToken);
+
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+
+        // Create a RestTemplate instance
+        RestTemplate restTemplate = new RestTemplate();
+
+        try {
+            // Make the GET request to the user info endpoint
+            ResponseEntity<String> response = restTemplate.exchange(userInfoUrl, HttpMethod.GET, entity, String.class);
+
+            // Parse the response body
+            JsonNode jsonNode = objectMapper.readTree(response.getBody());
+
+            String email = jsonNode.get("email").asText();
+            String userName = jsonNode.get("name").asText(); // Or use other fields as needed
+            String sub = jsonNode.get("sub").asText(); // Or use other fields as needed
+
+            // Check if the user exists in the database
+            User user = userRepository.findByUsername(userName + " " + sub).orElse(null);
+            UserCart userCart = new UserCart();
+            userCartRepository.save(userCart);
+
+            if (user == null) {
+                // Create new user if not exists
+                user = User.builder()
+                        .firstname(jsonNode.get("given_name").asText())
+                        .lastname(jsonNode.get("family_name").asText())
+                        .email(email)
+                        .userCart(userCart)
+                        .username(userName + " " + sub)
+                        .password(passwordEncoder.encode(generateRandomPassword())) // Use a dummy password or generate one
+                        .role(Role.USER)
+                        .build();
+                userRepository.save(user);
+                userCart.setUser(user);
+                userCartRepository.save(userCart);
+                userRepository.save(user);
+            }
+
+            // Generate JWT token for the user
+            var jwtToken = jwtService.generateToken(user);
+
+
+            return AuthenticationResponse.builder().token(jwtToken).build();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to authenticate with Google", e);
+        }
+    }
+
+    private String generateRandomPassword() {
+        // Generate a random password or use any placeholder password for Google login
+        return "temporaryPassword";
+    }
 }

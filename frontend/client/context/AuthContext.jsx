@@ -88,12 +88,41 @@ export function AuthProvider({ children }) {
       }
   }
 
+  async function loadUser() {
+    const res = await fetch(`/api/auth/login`);
+    if (res.ok) {
+      const user = await res.json();
+      console.log(data)
+      setIsUserAuthenticated(true)
+      setUsername(user.username)
+      setFirstName(user.fullName.split(" ")[0])
+      setLastName(user.fullName.split(" ")[user.fullName.split(" ").length - 1])
+      setMail(user.mail)
+      setRole(user.role)
+      setAddresses(user.addresses)
+      setOrders(user.orders)
+      setUserId(user.id)
+      setItemAmountInCart(user.userCart.items.length)
+
+      localStorage.setItem("userId", user.sub);
+
+      fetchUserInfo();
+      return user.sub;
+    } else {
+      localStorage.clear();
+      if (webSocket) {
+        webSocket.close();
+      }
+    }
+  }
+
   function increaseAmountOfItemsInCart() {
     setItemAmountInCart(prev => prev + 1)
   }
 
   useEffect(() => {
     getUserFromToken()
+    getUserAuthentication()
   }, [])
 
   const logOut = () => {

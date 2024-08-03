@@ -4,6 +4,7 @@ import GoogleLogo from "../images/Google-g-logo.svg";
 import Logo from "../images/Mock-Ecommerce.svg";
 import { useAuth } from "../context/AuthContext";
 import "./css/pages/registerAndLoginPage.css"
+import LoginWithOpenidButton from "../functions/LoginWithOpenidButton";
 
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
@@ -82,10 +83,7 @@ export default function LoginPage(props) {
         <input placeholder="Username" name="username" />
         <input placeholder="Password" name="password" type="password" />
         <button className="create-account-button">Sign In</button>
-        <button className="login-google-button">
-          <img src={GoogleLogo} alt="Google Logo" />
-          Sign up with Google
-        </button>
+        <LoginWithOpenidButton />
         <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
           <h4 style={{ fontWeight: "300" }}>Don't have an account? </h4>
           <Link to="/register">Sign Up</Link>

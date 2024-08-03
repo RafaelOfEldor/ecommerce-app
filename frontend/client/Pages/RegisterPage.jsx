@@ -53,21 +53,25 @@ export default function RegisterPage(props) {
       const data = await res.json(); 
       localStorage.setItem("access_token", data.token)
       console.log(data)
+      getUserFromToken();
+      getUserAuthentication()
+      navigate("/")
+    } else {
+      setErrorMessage("Username already taken");
     }
   }
 
-  getUserFromToken();
-  getUserAuthentication()
-  navigate("/")
+  
 
 }
 
   return (
     <div style={{display: "flex"}}>
-      <h4 style={{color: "red", position: "absolute", letterSpacing: "1px", marginLeft: "74vw", marginTop: "10vh"}}>{errorMessage !== "" && errorMessage}</h4>
+      {/* <h4 style={{color: "red", position: "absolute", letterSpacing: "1px", left: "74vw", marginTop: "10vh"}}>{errorMessage !== "" && errorMessage}</h4> */}
       <img src={Logo} className="register-page-logo"/>
       <form className="register-form" onSubmit={registerUser}>
         <h1 style={{fontWeight: "500", letterSpacing: "1px"}}>Create an account</h1>
+        <h4 style={{color: "red", letterSpacing: "1px", position: "absolute", top: "550"}}>{errorMessage !== "" && errorMessage}</h4>
         <input placeholder="First Name" name="firstName" />
         <input placeholder="Last Name" name="lastName" />
         <input placeholder="Username" name="username" />
