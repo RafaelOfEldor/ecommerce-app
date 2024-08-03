@@ -5,6 +5,8 @@ import GoogleLogo from "../images/Google-g-logo.svg"
 import Logo from "../images/Mock-Ecommerce.svg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
+import "./css/pages/registerAndLoginPage.css"
+
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
 export default function RegisterPage(props) {

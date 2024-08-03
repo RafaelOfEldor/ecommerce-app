@@ -146,7 +146,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Sneakers",
-						"https://png2.cleanpng.com/sh/6d1c6064036732a267e9b18bbafb7c63/L0KzQYm3WcE0N6ZtiJH0aYP2gLBuTfFqel5rhARsZT20PbLwkr1rd6NpedC2c4DygsX6TgNpd5Z4RdDya3Wwf7ftTgdpcaVqRadrOXG5RLO7UsEybGkARqgEM0ezRoKAUcU0Pmk5TKsDMEG2RYi1kP5o/kisspng-air-force-1-air-jordan-sports-shoes-nike-off-white-5b9a64b4211d89.6937061715368449801357.png",
+						"https://static.vecteezy.com/system/resources/previews/030/761/291/non_2x/modern-sport-sneakers-blue-color-ai-generative-free-png.png",
 						true,
 						random.nextDouble(18, 40),
 						"Introducing our latest sneakers, a pinnacle of style and comfort. Crafted with precision, these shoes seamlessly blend fashion-forward design with cutting-edge technology. The sleek silhouette and dynamic color palette make a bold statement, ensuring you stand out in any crowd. The breathable mesh upper provides optimal ventilation, while the cushioned insole guarantees a plush and responsive feel with every step. Whether you're hitting the gym, running errands, or simply navigating the urban landscape, these sneakers offer unparalleled support and flexibility. Elevate your footwear game with this fusion of contemporary aesthetics and unparalleled functionality—a true embodiment of modern athleticism.",
@@ -209,7 +209,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Hatsune Miku Cosplay",
-						"https://www.youvimi.com/cdn/shop/products/QQ_20210603105308.png",
+						"https://i.pinimg.com/736x/83/03/8e/83038e5e4256ac2b8691c39d8afc5868.jpg",
 						true,
 						random.nextDouble(18, 40),
 						"Introducing the ultimate Hatsune Miku cosplay kit, a meticulously crafted ensemble for fans to embody the iconic virtual pop sensation. This kit encapsulates Miku's signature look, featuring a vibrant turquoise wig with her distinctive twin-tails, perfectly emulating her futuristic persona. The costume is a meticulous replica, mirroring Miku's recognizable sleeveless top, tie, and pleated skirt adorned with digital motifs. Accessorize with thigh-high stockings, armbands, and the unmistakable Vocaloid headset to complete the transformation. Designed for both authenticity and comfort, this Hatsune Miku cosplay kit invites enthusiasts to step into the virtual limelight and celebrate the unique charm of this beloved digital diva.",
@@ -251,7 +251,7 @@ public class MockEcommerceApplication {
 						"Gold Earrings",
 						"https://admin.pngadgil1832.com/UploadedFiles/ProductImages/ER14855011PNG_01.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Gold earrings are exquisite accessories that effortlessly blend elegance and style. Crafted from the lustrous precious metal, these earrings showcase timeless beauty. The radiant allure of gold adds a touch of luxury to any ensemble, making them a versatile choice for both casual and formal occasions. Whether adorned with intricate designs, gemstones, or simple geometric shapes, gold earrings capture attention and elevate the wearer's aesthetic. Their enduring appeal makes them cherished pieces in jewelry collections, symbolizing sophistication and refinement. Whether as a gift or a personal indulgence, gold earrings remain a timeless expression of enduring beauty and classic fashion.",
 						250,
 						"jewelry"
@@ -260,7 +260,7 @@ public class MockEcommerceApplication {
 						"Gold Cuban Chain",
 						"https://www.welry.com/globalassets/welry/necklaces/vsc066499y24_a1.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Introducing our exquisite Gold Cuban Chain, a timeless symbol of opulence and sophistication. Crafted with precision, each link boasts a lustrous 18-karat gold finish, ensuring a radiant allure that transcends trends. The classic Cuban link design, renowned for its robust and intricate interlocking pattern, enhances the chain's substantial weight and luxurious feel. Meticulously polished to achieve a flawless gleam, this accessory seamlessly transitions from casual elegance to upscale charm. Whether worn solo or layered, the Gold Cuban Chain is a statement of refined taste and enduring style, a manifestation of uncompromising quality for those who appreciate the finer things in life.",
 						250,
 						"jewelry"
@@ -269,7 +269,7 @@ public class MockEcommerceApplication {
 						"Diamond Cuban Chain",
 						"https://thegoldgods.com/cdn/shop/products/Diamond-Cuban-Link-Chain-10mm-Gold-Gods-18k-white-gold-plated-Front-view-Gold-Chain-Mens-Jewelry.png?v=1689258811&width=1080",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Introducing the epitome of opulence and style, our Diamond Cuban Chain is a dazzling testament to sophistication. Meticulously crafted with precision, each link showcases the brilliance of diamonds, meticulously set in lustrous precious metal. This iconic chain seamlessly blends timeless elegance with a bold, contemporary edge. The classic Cuban link design exudes strength and masculinity, while the diamonds add a touch of luxury that captures attention with every movement. Whether worn solo as a statement piece or layered for a more personalized aesthetic, this Diamond Cuban Chain is an embodiment of enduring craftsmanship, refined taste, and an unwavering commitment to exceptional style.",
 						250,
 						"jewelry"
@@ -278,16 +278,16 @@ public class MockEcommerceApplication {
 						"Diamond Ring",
 						"https://i.pinimg.com/originals/f6/aa/4e/f6aa4e7dfb5711cd66dad999be55f4b6.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Glisten with timeless elegance as you adorn your hand with this exquisite diamond ring. Crafted with precision, the dazzling centerpiece features a brilliant-cut diamond, capturing and reflecting light with unparalleled radiance. Set in a delicate band of lustrous white gold, the design exudes sophistication and grace. The minimalist yet opulent setting allows the diamond to take center stage, showcasing its exceptional clarity and brilliance. This ring is more than a piece of jewelry; it's a symbol of enduring love and commitment, a testament to the beauty that lasts a lifetime. Wear it proudly and let its sparkle tell your unique love story.",
 						250,
 						"jewelry"
 				));
 				itemRepository.save(new Item(
 						"Silver Hoop Earrings",
-						"https://www.silpada.com/globalassets/products/inv-1tc7-default/p3461_a2.png?format=webp&quality=100&width=300&height=300",
+						"https://auratenewyork.com/cdn/shop/products/aurate-earrings-hoops-custom-341_1024x1024.png?v=1605204615",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Elevate your style with these exquisite silver hoop earrings, a timeless accessory that effortlessly blends classic charm with modern elegance. Crafted from high-quality sterling silver, these hoops boast a sleek, polished surface that catches and reflects light, adding a subtle sparkle to your look. The minimalist design allows for versatile pairing, complementing both casual and formal ensembles. The lightweight construction ensures comfort throughout the day, while the secure latch-back closure provides a secure fit. Whether you're dressing up for a special occasion or adding a touch of sophistication to your everyday wear, these silver hoop earrings are a must-have accessory.",
 						250,
 						"jewelry"
@@ -296,16 +296,16 @@ public class MockEcommerceApplication {
 						"Purple Gold Ring",
 						"https://www.treatsstudio.co.uk/cdn/shop/files/treats_ring_9.png?v=1688380199&width=1445",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Behold the allure of this enchanting purple gold ring, a mesmerizing fusion of regal elegance and contemporary flair. Crafted with meticulous precision, the lustrous band showcases a radiant, deep purple gemstone at its heart, encased in a setting of resplendent gold. The rich, royal hues of the purple gem exude sophistication, while the warm embrace of the gold adds a touch of opulence. Delicate engravings on the band enhance its ornate charm, creating a piece that seamlessly blends classic and modern aesthetics. This exquisite ring is more than a piece of jewelry; it's a testament to refined taste and timeless beauty.",
 						250,
 						"jewelry"
 				));
 				itemRepository.save(new Item(
 						"Platinum Bracelet",
-						"https://cdn11.bigcommerce.com/s-j38el1cgyu/images/stencil/1280x1280/products/7444/24353/BD-3540_0__28223.1690339445.png?c=1",
+						"https://cdn11.bigcommerce.com/s-j38el1cgyu/images/stencil/1280x1280/products/7444/24353/BD-3510000_0__28223.1690339445.png?c=1",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Introducing our exquisite Platinum Bracelet, a stunning embodiment of sophistication and luxury. Meticulously crafted from pure platinum, this bracelet exudes timeless elegance and boasts a radiant luster that captivates admirers. The delicate links intertwine gracefully, forming a seamless and comfortable fit on the wrist. The brilliance of platinum enhances the inherent beauty of the piece, making it a versatile accessory for any occasion. Whether worn solo for a touch of understated glamour or layered with other jewelry, this platinum bracelet is a symbol of refined taste and enduring style. Elevate your collection with this unparalleled statement of opulence.",
 						250,
 						"jewelry"
@@ -314,7 +314,7 @@ public class MockEcommerceApplication {
 						"Butterfly Necklace",
 						"https://i.pinimg.com/originals/fb/e3/f5/fbe3f5552f8bca53ce13435d232e56da.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Introducing our exquisite Butterfly Necklace, a mesmerizing fusion of elegance and nature-inspired beauty. Crafted with meticulous precision, this delicate accessory showcases a graceful butterfly motif, its wings adorned with shimmering crystals that catch the light with every movement. The pendant, suspended from a fine chain, creates a whimsical and enchanting effect. Whether worn as a charming everyday piece or to elevate a special occasion, this Butterfly Necklace is a symbol of transformation and grace. With its timeless design and intricate detailing, it adds a touch of ethereal allure to any outfit, making it a must-have for those who appreciate delicate sophistication.",
 						250,
 						"jewelry"
@@ -323,7 +323,7 @@ public class MockEcommerceApplication {
 						"The Witcher's Wolf Emblem Necklace",
 						"https://americanwolves.com/cdn/shop/products/The_Witcher_School_of_the_Wolf_Necklace_-_American_Wolves_600x600.png?v=1582641849",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"The Witcher's Wolf Emblem Necklace is a captivating accessory inspired by the iconic symbol of Geralt of Rivia, the renowned monster hunter. Crafted with meticulous detail, the pendant features the wolf medallion, a symbol of the School of the Wolf—a prestigious order of monster slayers. Made from high-quality materials, the pendant captures the intricate design of the wolf's head, reflecting the Witcher's resilience and strength. This exquisite piece is not merely a stylish adornment but also a homage to the mythical world of The Witcher, making it a must-have for fans and those who appreciate fine craftsmanship and symbolic significance.",
 						250,
 						"jewelry"
@@ -332,7 +332,7 @@ public class MockEcommerceApplication {
 						"Moon Bracelet",
 						"https://manonjewelry.com/wp-content/uploads/2013/11/B-MoonCharmBracelet-43207-web-85.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Introducing the Moon Bracelet, an exquisite blend of celestial elegance and contemporary style. Crafted with meticulous precision, this accessory features a delicate silver chain adorned with a crescent moon charm, capturing the mystique of lunar beauty. The moon charm, intricately detailed with subtle engravings, reflects the moon's phases, adding a touch of celestial allure to your ensemble. The adjustable clasp ensures a perfect fit, while the lightweight design guarantees comfort for everyday wear. Whether worn alone for a minimalist statement or layered for a bohemian vibe, the Moon Bracelet is a timeless piece that transcends trends, making it a celestial treasure for any occasion.",
 						250,
 						"jewelry"
@@ -341,7 +341,7 @@ public class MockEcommerceApplication {
 						"Spiky Choker",
 						"https://i.pinimg.com/originals/c4/a7/8c/c4a78c23735c432884c3c9850b0e14d9.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Introducing our edgy Spiky Choker – a bold fusion of fashion and rebellion. Crafted with meticulous attention to detail, this statement accessory is designed to captivate attention and unleash your inner rockstar. The choker features a series of sleek, strategically arranged metallic spikes that exude an unmistakable aura of confidence and strength. Whether you're channeling a punk-inspired vibe or seeking to elevate your street-style game, the Spiky Choker is the ultimate choice. Its adjustable closure ensures a comfortable fit, while the gleaming spikes add an element of danger to your look. Make a fearless statement and embrace your individuality with this striking accessory.",
 						250,
 						"jewelry"
@@ -350,7 +350,7 @@ public class MockEcommerceApplication {
 						"Yellow Choker",
 						"https://i.pinimg.com/originals/f0/96/67/f0966733612c966977c6bdc455ef907b.png", // https://cdn.reddingo.com/assets/product/overview/DC-ZZ-YE.png
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"The radiant Yellow Choker is a striking accessory that effortlessly elevates any outfit with its vibrant charm. Crafted with meticulous attention to detail, this choker features a soft, velvety band that comfortably hugs the neck, creating a bold yet elegant statement. The luscious yellow hue exudes energy and positivity, making it a perfect choice for both casual and formal occasions. Its adjustable closure ensures a snug fit for various neck sizes, while the subtle sheen adds a touch of glamour. Whether paired with a sleek cocktail dress or a casual blouse, this Yellow Choker is a versatile and stylish adornment.",
 						250,
 						"jewelry"
@@ -359,7 +359,7 @@ public class MockEcommerceApplication {
 						"Purple Gold Earrings",
 						"https://www.lillianesjewelry.com/wp-content/uploads/101-A2756-1-600x600.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Introducing our exquisite Purple Gold Earrings, a stunning blend of opulence and sophistication. Crafted with precision, these earrings feature lustrous purple gemstones set in a delicately designed gold setting. The rich, regal hues of purple complement the warm glow of the gold, creating a captivating contrast that effortlessly elevates any ensemble. Whether you're attending a gala, a special occasion, or simply want to add a touch of glamour to your everyday look, these earrings are the perfect choice. Radiate elegance and charm with these Purple Gold Earrings, a testament to timeless beauty and refined taste.",
 						250,
 						"jewelry"
@@ -368,7 +368,7 @@ public class MockEcommerceApplication {
 						"Amethyst Necklace",
 						"https://www.lillianesjewelry.com/wp-content/uploads/115-B799-1-copy-600x600.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Introducing our exquisite Amethyst Necklace, a harmonious blend of elegance and spiritual allure. This handcrafted masterpiece features a radiant amethyst pendant, gracefully suspended from a delicate sterling silver chain. The mesmerizing violet gemstone, known for its calming energy and spiritual significance, captivates with its deep, translucent hues. The carefully selected amethyst, embraced by a silver bezel, exudes a timeless charm that effortlessly complements any attire. Whether worn as a statement piece or for its metaphysical properties, this Amethyst Necklace adds a touch of sophistication to your ensemble while inviting positive energies into your life. Elevate your style and spirit with this enchanting accessory.",
 						250,
 						"jewelry"
@@ -377,16 +377,16 @@ public class MockEcommerceApplication {
 						"Rolex",
 						"https://files.jewelfeed.com/jewelfeed/catalog/items/156af733-6b91-4fb8-ba43-f8818ae00ab9_WkcMv81.png.800x800_q85_keep_alpha.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Rolex, a venerable Swiss luxury watch brand, epitomizes precision, elegance, and craftsmanship since its inception in 1905. Renowned for creating timeless masterpieces, Rolex timepieces seamlessly merge functionality with unparalleled aesthetics. The iconic Oyster Perpetual, born in 1926, introduced the world's first waterproof wristwatch. Subsequent innovations, like the self-winding Perpetual movement and the Datejust's date display, solidified Rolex's horological supremacy. Impeccably designed with 904L steel, precious metals, and cutting-edge technology, each Rolex watch symbolizes a legacy of excellence. Coveted by collectors and synonymous with success, a Rolex transcends time as a symbol of enduring sophistication and prestige.",
 						250,
 						"jewelry"
 				));
 				itemRepository.save(new Item(
 						"Richard Mille Antique Watch",
-						"https://imagedelivery.net/lyg2LuGO05OELPt1DKJTnw/1566c4ec-234d-40df-ee99-77de25821000/public",
+						"https://imageio.forbes.com/blogs-images/nargessbanks/files/2018/03/rm11-03_mcl_fullfront.png?height=106&width=71&fit=bounds",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"The Richard Mille is a pinnacle of horological artistry, an exquisite fusion of precision engineering and avant-garde design. Crafted with unparalleled expertise, these luxury timepieces transcend traditional watchmaking boundaries. Renowned for their lightweight yet durable cases, often made from advanced materials like carbon fiber and titanium, Richard Mille watches redefine elegance with a contemporary edge. The intricately skeletonized dials showcase the intricate movement, a testament to the brand's commitment to technical innovation. Each timepiece is a unique masterpiece, a marriage of form and function that appeals to discerning connoisseurs seeking the epitome of luxury in the world of haute horlogerie.",
 						250,
 						"jewelry"
@@ -395,7 +395,7 @@ public class MockEcommerceApplication {
 						"Gucci Ring",
 						"https://itsluxury.com/media/catalog/product/y/b/ybc152045001__1.png?quality=100&fit=bounds&height=&width=",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"The Gucci ring epitomizes opulence and sophistication, seamlessly blending Italian craftsmanship with contemporary design. Crafted from lustrous materials, this iconic piece showcases the brand's commitment to luxury. The ring features the distinctive Gucci logo, meticulously engraved to create a seamless fusion of style and brand identity. Its exquisite detailing and fine finishing make it a statement accessory, reflecting the timeless elegance synonymous with Gucci. Whether worn as a standalone statement or paired with other Gucci pieces, this ring exudes a sense of fashion-forward flair. Elevate your ensemble with the unmistakable allure of the Gucci ring, a symbol of enduring style.",
 						250,
 						"jewelry"
@@ -404,7 +404,7 @@ public class MockEcommerceApplication {
 						"Chanel Nose Ring",
 						"https://www.chanel.com/images/t_zoomjewelry2/f_auto/lune-single-earring-white-white-gold-diamond-packshot-default-j12120-9529713360926.jpg",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"Introducing the Chanel Nose Ring, a statement piece that seamlessly blends edgy allure with timeless elegance. Crafted from high-quality materials, this avant-garde accessory captures the essence of Chanel's iconic style. The nose ring features the interlocking C logo, creating a bold and distinctive look that effortlessly elevates any ensemble. Its sleek design reflects the brand's commitment to sophistication, allowing for a seamless transition from casual to formal occasions. Embrace individuality and amplify your fashion statement with this unique piece that embodies the spirit of Chanel – a perfect fusion of contemporary chic and classic sophistication. Redefine your style with the Chanel Nose Ring, where luxury meets rebellion.",
 						250,
 						"jewelry"
@@ -413,7 +413,7 @@ public class MockEcommerceApplication {
 						"Prada Cuban Chain",
 						"https://www.prada.com/content/dam/pradanux_products/1/1JC/1JC802/2DTOF0118/1JC802_2DTO_F0118_SLF.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"The Prada Cuban Chain is a dazzling accessory that effortlessly merges luxury and bold design. Crafted with precision, this chain showcases Prada's iconic elegance with a contemporary twist. The interlocking links, meticulously detailed and polished to perfection, exude a timeless charm. Its versatility allows it to elevate any outfit, whether draped over a classic black dress or paired with casual attire. The distinct blend of sophistication and urban flair makes the Prada Cuban Chain a statement piece, seamlessly fusing high-end fashion with street-style edge. Embrace a touch of opulence with this accessory, redefining your fashion narrative with Prada's signature allure.",
 						250,
 						"jewelry"
@@ -422,7 +422,7 @@ public class MockEcommerceApplication {
 						"Wizard Sphere Necklace pro ultra series-10",
 						"https://chairish-prod.freetls.fastly.net/image/product/master/f534c704-582b-48dd-9e66-9d178462f5ff/crystal-iron-and-crystal-orb-pendant-6278",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(18, 10000),
 						"The Wizard Sphere Necklace is a captivating piece of mystical craftsmanship. Suspended from a delicate chain, the pendant features a meticulously crafted miniature crystal-clear orb that encapsulates a swirling galaxy of iridescent colors. Infused with enchantments, the sphere emanates a subtle, ethereal glow, casting a mesmerizing aura. The intricately detailed silver or gold-plated casing is adorned with arcane symbols, capturing the essence of ancient wizardry. As the wearer adorns this enchanting necklace, they carry a tangible piece of magic, enhancing their aura with a touch of otherworldly charm. A unique blend of elegance and mysticism, it's a timeless accessory for those who seek the extraordinary.",
 						250,
 						"jewelry"
@@ -459,7 +459,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Protein Bar - Vanilla Caramel",
-						"https://www.nutramino.com/sites/default/files/styles/large/public/2022-07/Bar-Crispy-van-caramel-1000-1066_0.png?itok=1przEF9S",
+						"https://sportsfood.no/cdn/shop/products/PowerBar_PP30_VanilCaramCrisp_Foil_sRGB_1_108a5d0c-e79a-4734-8e1a-d95970c6d1fd_1800x1800.png?v=1698910622",
 						true,
 						random.nextDouble(18, 40),
 						"Indulge your taste buds with our Vanilla Caramel Flavored Protein Bar, a delightful fusion of creamy vanilla and rich caramel. Crafted to satisfy your cravings while supporting your fitness goals, this protein-packed treat is a perfect blend of decadence and nutrition. Each bar delivers a substantial protein boost to fuel your body, making it an ideal post-workout snack or a convenient on-the-go pick-me-up. Enjoy the luscious sweetness of vanilla paired with the irresistible richness of caramel, all wrapped up in a convenient, portable package. Elevate your snacking experience with the wholesome goodness of our Vanilla Caramel Flavored Protein Bar.",
@@ -515,7 +515,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Oreo Cookies - 200G",
-						"https://www.cadburygiftsdirect.co.uk/media/catalog/product/cache/d781fed7f79dc069f26dcbeb98b1f140/o/r/oreo-original-154g_3.png",
+						"https://www.checkers.co.za/medias/10739395EA-checkers515Wx515H?context=bWFzdGVyfGltYWdlc3w5MDE2OHxpbWFnZS9wbmd8aW1hZ2VzL2hhZi9oMzIvMTA1NDQxMzc0MzcyMTQucG5nfGViMDNiNjRkOWM1OWU2NGI1Y2JjYjgzMDU3Njc0YzY1ZjQ2ZmY0YmM3ZTAzYTUyOGY3ZjJhNDM4ZDA1NGRlZmU",
 						true,
 						random.nextDouble(18, 40),
 						"\n" +
@@ -525,7 +525,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Biscuits - 400G",
-						"https://assets.stickpng.com/images/580b57fbd9996e24bc43c0fa.png",
+						"https://e7.pngegg.com/pngimages/774/627/png-clipart-custard-cream-shortbread-arnott-s-shapes-arnott-s-biscuits-biscuit-cream-baked-goods.png",
 						true,
 						random.nextDouble(18, 40),
 						"Indulge in the perfect blend of crispiness and sweetness with our delectable pack of biscuits. Each bite delivers a symphony of flavors, combining a buttery richness with a hint of vanilla, creating an irresistible treat for your taste buds. Baked to perfection, these biscuits boast a satisfying crunch that pairs seamlessly with your favorite hot beverage or stands alone as a delightful snack. Packed with quality ingredients, our biscuits are crafted to offer a comforting and memorable experience. Whether you're sharing them with friends or savoring a quiet moment, our biscuits promise to elevate every break into a moment of pure delight.",
@@ -561,7 +561,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Organic All-Natural Energy Bar",
-						"https://www.outdoorprovisions.co.uk/cdn/shop/products/01.png?v=1665754109",
+						"https://cdn.vilgain.com/image/product/facebook-preview/19ab5151-0498-4d08-b089-cec24e164dc2?v=1675771413",
 						true,
 						random.nextDouble(18, 40),
 						"Introducing our Organic All-Natural Energy Bar, a wholesome blend of nature's finest ingredients to fuel your day. Crafted with care, this nutritious bar combines organic nuts, seeds, and dried fruits, free from artificial additives or preservatives. Packed with essential nutrients, it's a tasty source of sustained energy for your active lifestyle. Every bite delivers a harmonious mix of flavors and textures, offering a satisfying crunch and chewiness. Whether you're on the go, hitting the gym, or seeking a healthy snack, our energy bar is your go-to choice. Elevate your nourishment with this guilt-free, delicious treat that Mother Nature would approve.",
@@ -620,7 +620,7 @@ public class MockEcommerceApplication {
 						"Ipad",
 						"https://purepng.com/public/uploads/large/purepng.com-ipadelectronicstablet-ipad-941524671278vjvlk.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"The iPad, a revolutionary tablet created by Apple, seamlessly blends cutting-edge technology with sleek design. Boasting a stunning Retina display, it delivers vivid colors and sharp details for an immersive visual experience. Its powerful A-series chip ensures swift performance, whether you're multitasking, gaming, or creating content. The intuitive touch interface allows effortless navigation, while the App Store provides access to a vast array of apps tailored for productivity, creativity, and entertainment. With a slim profile and lightweight build, the iPad is effortlessly portable, making it the ideal companion for work or play, bringing innovation and versatility to your fingertips.",
 						250,
 						"technology"
@@ -629,7 +629,7 @@ public class MockEcommerceApplication {
 						"Macbook Air 2024",
 						"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP825/macbookair.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing the MacBook Air 2024, a pinnacle of cutting-edge technology and sleek design. This ultraportable laptop embodies innovation with its stunning 13.3-inch Retina display, boasting vibrant colors and crisp details. Powered by the latest M2 chip, it delivers unrivaled speed and efficiency. The feather-light chassis, now even thinner, houses a redesigned keyboard for enhanced typing comfort. With 16GB of unified memory and a spacious 512GB SSD, the MacBook Air ensures seamless multitasking and ample storage. Equipped with Thunderbolt 4 ports, it enables lightning-fast data transfer. Elevate your computing experience with the MacBook Air 2024 – where power meets elegance.",
 						250,
 						"technology"
@@ -638,7 +638,7 @@ public class MockEcommerceApplication {
 						"Lenovo Legion 16 pro",
 						"https://ongpng.com/wp-content/uploads/2023/04/3.Lenovo-Legion-Y540-1026x806-1.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"The Lenovo Legion 16 Pro is a gaming powerhouse designed for uncompromising performance. With a massive 16-inch display featuring a high refresh rate, every frame is delivered with stunning clarity and smoothness, immersing gamers in a visually captivating experience. Powered by cutting-edge processors and top-tier graphics, this laptop ensures seamless gameplay, effortlessly handling resource-intensive titles. Its sleek, modern design combines style with functionality, featuring customizable RGB lighting for a personalized touch. The Legion 16 Pro also boasts advanced cooling technology to keep temperatures in check during intense gaming sessions, allowing enthusiasts to push the limits of performance without compromising on stability.",
 						250,
 						"technology"
@@ -647,7 +647,7 @@ public class MockEcommerceApplication {
 						"The Beast - Stationary Gaming Computer",
 						"https://upload.wikimedia.org/wikipedia/commons/f/f5/Avalanche_Hardline_Liquid_Cooled_Gaming_PC.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"\n" +
 								"Introducing \"The Beast,\" an unparalleled stationary gaming PC that redefines performance boundaries. Powered by a cutting-edge octa-core processor with overclocking capabilities, it roars to life with clock speeds that shatter limits. Graphics prowess is delivered by a top-tier GPU, ensuring every frame is a visual masterpiece. A colossal RAM capacity ensures seamless multitasking, while a lightning-fast SSD guarantees rapid game loading. The Beast's robust cooling system maintains optimal temperatures during the most intense gaming sessions. Immerse yourself in the ultimate gaming experience with customizable RGB lighting and a sleek, futuristic design. Unleash unparalleled power with \"The Beast.\"",
 						250,
@@ -657,7 +657,7 @@ public class MockEcommerceApplication {
 						"ThinkPad 2022",
 						"https://p2-ofp.static.pub/fes/cms/2022/03/21/3ved6sx5xwp6yhl8lbpo42lgxtblqh290202.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing the ThinkPad 2022, a cutting-edge laptop that seamlessly blends power, portability, and innovation. This sleek device is engineered for productivity, featuring the latest Intel Core processor for lightning-fast performance. The 14-inch display showcases vibrant visuals with precision and clarity, making every task a visual delight. With an ultra-slim design, the ThinkPad 2022 is a portable powerhouse, ideal for professionals on the go. Equipped with advanced security features, including a fingerprint reader and robust encryption, your data remains safeguarded. The backlit keyboard ensures comfortable typing in any environment. Elevate your work experience with the ThinkPad 2022 – where performance meets sophistication.",
 						250,
 						"technology"
@@ -666,7 +666,7 @@ public class MockEcommerceApplication {
 						"Samsung Galaxy Tablet S9",
 						"https://i0.wp.com/mtcfactoryoutlet.com/wp-content/uploads/2021/08/tab-a7-lite.png?fit=3000%2C2000&ssl=1",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"The Samsung Galaxy Tablet S9 combines sleek design with powerful performance. Boasting a vibrant 10.5-inch Super AMOLED display, it offers crisp visuals for both work and entertainment. Equipped with the latest Exynos processor and ample RAM, multitasking is seamless. The S Pen stylus enhances productivity, allowing precise note-taking and creative expression. Its robust battery ensures long-lasting usage, while the quad-speaker system delivers immersive audio. The tablet also features a high-resolution camera for capturing moments on the go. With a slim profile and premium build, the Galaxy Tablet S9 is a versatile companion for users seeking a blend of style and functionality.",
 						250,
 						"technology"
@@ -675,7 +675,7 @@ public class MockEcommerceApplication {
 						"LG 65\" Oled TV",
 						"https://www.vhv.rs/dpng/f/11-119933_lg-oled-tv-png-transparent-png.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing the LG 65-inch OLED TV, a pinnacle of visual excellence. Immerse yourself in a breathtaking cinematic experience with its stunning 4K resolution and OLED technology, delivering vibrant colors and perfect blacks. The expansive 65-inch display brings your favorite movies, shows, and games to life, while Dolby Vision and Atmos support elevate audio-visual immersion. The sleek design enhances any living space, featuring a razor-thin profile and minimalist stand. Powered by LG's advanced AI ThinQ, enjoy voice control and smart features, seamlessly integrating with your smart home ecosystem. Elevate your home entertainment with the LG 65-inch OLED TV, where innovation meets unparalleled quality.",
 						250,
 						"technology"
@@ -684,7 +684,7 @@ public class MockEcommerceApplication {
 						"Samsung Galaxy Phone 23",
 						"https://static.vecteezy.com/system/resources/previews/022/722/945/original/samsung-galaxy-s23-ultra-transparent-image-free-png.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing the Samsung Galaxy Phone 23, a marvel of cutting-edge technology and sleek design. Boasting a stunning 6.5-inch Dynamic AMOLED display with an unprecedented 120Hz refresh rate, it delivers immersive visuals and smooth interactions. The phone is powered by the latest Snapdragon processor, ensuring seamless multitasking and efficient performance. Capture life's moments in extraordinary detail with the advanced triple-camera system, featuring a 108MP main sensor. The 5000mAh battery provides all-day endurance, while fast charging and wireless capabilities keep you connected effortlessly. With 5G connectivity, a fingerprint scanner, and the intuitive One UI, the Galaxy Phone 23 redefines the smartphone experience.",
 						250,
 						"technology"
@@ -702,7 +702,7 @@ public class MockEcommerceApplication {
 						"Massage Pistol",
 						"https://static.vecteezy.com/system/resources/previews/010/864/665/original/massage-gun-3d-illustration-free-png.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"\n" +
 								"Introducing the pinnacle of relaxation technology, our massage pistol is a cutting-edge device designed to provide unparalleled muscle relief. Ergonomically crafted for optimal comfort, this handheld marvel delivers powerful percussive therapy to target sore muscles and alleviate tension. With adjustable speed settings, it caters to individual preferences, ensuring a personalized and soothing experience. The sleek and portable design allows for on-the-go relief, making it an ideal companion for fitness enthusiasts and those seeking post-workout recovery. Equipped with various attachment heads, it offers versatility for targeting specific muscle groups. Unwind and revitalize with our massage pistol, your gateway to relaxation and well-being.",
 						250,
@@ -712,7 +712,7 @@ public class MockEcommerceApplication {
 						"Tesla Optimus - Artificial Intelligence Robot Maid/Butler",
 						"https://images.barrons.com/im-477124",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing the Tesla Optimus AI Robot Maid/Butler, a groundbreaking fusion of cutting-edge technology and household assistance. This sleek, humanoid companion is designed to seamlessly integrate into your daily life, offering unparalleled efficiency and convenience. Powered by advanced artificial intelligence, the Optimus understands and anticipates your needs, effortlessly managing household chores with precision. Equipped with autonomous navigation, it gracefully moves around your home, ensuring a spotless environment. Its interactive touchscreen interface and voice command capabilities make communication intuitive. From cleaning and organizing to providing information and entertainment, the Tesla Optimus AI Robot Maid/Butler redefines domestic assistance, combining innovation with elegance for a truly futuristic home experience.",
 						250,
 						"technology"
@@ -721,7 +721,7 @@ public class MockEcommerceApplication {
 						"1440p 240hz Gaming Monitor",
 						"https://ongpng.com/wp-content/uploads/2023/03/31.SAMSUNG-_Odyssey_gaiming_monitor_1573x1632.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing the cutting-edge 1440p 240Hz Gaming Monitor, the epitome of immersive gaming experiences. This sleek monitor boasts a stunning 1440p resolution, delivering crystal-clear visuals with sharp details that enhance every gaming moment. The remarkable 240Hz refresh rate ensures ultra-smooth transitions, reducing motion blur and providing a competitive edge in fast-paced games. Immerse yourself in lifelike colors and deep contrasts, thanks to the advanced display technology. With adaptive sync technology, screen tearing is a thing of the past. Elevate your gaming setup with this monitor's sleek design and unparalleled performance, where every frame is a visual masterpiece in the world of high-performance gaming.",
 						250,
 						"technology"
@@ -730,16 +730,16 @@ public class MockEcommerceApplication {
 						"4k Oled Ultrawide 144hz Monitor",
 						"https://storage.aoc.com/assets/8533/AOC_CU34G2_PV_-FTR-large.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing the pinnacle of visual excellence – the 4K OLED Ultrawide 144Hz Monitor. Immerse yourself in a breathtaking display that boasts a stunning 3840x2160 resolution, delivering unparalleled clarity and lifelike imagery. The OLED technology ensures each pixel radiates true-to-life colors with deep blacks, creating an infinite contrast ratio. Elevate your gaming experience with a buttery-smooth 144Hz refresh rate, providing fluid motion and responsiveness. The Ultrawide aspect ratio widens your perspective, offering an expansive view for both work and play. Crafted with precision, this monitor combines cutting-edge technology, sleek design, and an immersive visual feast, setting a new standard for premium displays.",
 						250,
 						"technology"
 				));
 				itemRepository.save(new Item(
 						"Shure sm7b Microphone",
-						"https://products.shureweb.eu/shure_product_db/product_images/files/5d7/cae/9d-/thumb_transparent/2140e6b3255a02c1671635465b5c46f6.png",
+						"https://products.shureweb.eu/shure_product_db/product_main_images/files/7e1/bf6/ed-/header_transparent/721ed7ee412b45897688a7b5acdefa44.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing the pinnacle of visual excellence – the 4K OLED Ultrawide 144Hz Monitor. Immerse yourself in a breathtaking display that boasts a stunning 3840x2160 resolution, delivering unparalleled clarity and lifelike imagery. The OLED technology ensures each pixel radiates true-to-life colors with deep blacks, creating an infinite contrast ratio. Elevate your gaming experience with a buttery-smooth 144Hz refresh rate, providing fluid motion and responsiveness. The Ultrawide aspect ratio widens your perspective, offering an expansive view for both work and play. Crafted with precision, this monitor combines cutting-edge technology, sleek design, and an immersive visual feast, setting a new standard for premium displays.",
 						250,
 						"technology"
@@ -748,7 +748,7 @@ public class MockEcommerceApplication {
 						"GoXLR Audio Mixing Board",
 						"https://mediadl.musictribe.com/media/PLM/data/images/products/P0CQK/2000Wx2000H/Image_TH_P0CQK_GoXLR_Left_XL.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"The GoXLR Audio Mixing Board is a revolutionary tool for content creators, streamers, and musicians seeking unparalleled control over their audio setup. With its intuitive design, the GoXLR simplifies the complex process of audio mixing. It features a customizable motorized fader, allowing users to adjust volume levels effortlessly. The vibrant, user-friendly interface provides access to various audio sources, from microphone inputs to music and game sounds. Offering real-time monitoring, EQ settings, and programmable buttons, the GoXLR ensures a professional and dynamic audio experience. Its compact size belies its powerful capabilities, making it an essential companion for anyone looking to elevate their audio production to new heights.",
 						250,
 						"technology"
@@ -757,7 +757,7 @@ public class MockEcommerceApplication {
 						"Sony xm5 Headphones",
 						"https://store.sony.co.nz/dw/image/v2/ABBC_PRD/on/demandware.static/-/Sites-sony-master-catalog/default/dw2e089ba5/images/WH1000XM5S/WH1000XM5S.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"The Sony XM5 headphones redefine audio immersion with cutting-edge technology and sleek design. Delivering an unparalleled listening experience, these wireless over-ear headphones boast industry-leading noise-canceling capabilities, ensuring an escape into pure sound. The Adaptive Sound Control adapts to your surroundings, optimizing noise cancellation accordingly. Immerse yourself in rich, high-resolution audio with the powerful 40mm drivers that reproduce every detail of your favorite tracks. The touch-sensitive controls offer seamless navigation, while the plush ear cushions provide comfort during extended use. With a long-lasting battery life, the Sony XM5 headphones effortlessly blend style, comfort, and exceptional audio performance.",
 						250,
 						"technology"
@@ -766,16 +766,16 @@ public class MockEcommerceApplication {
 						"Apple Airpods Max",
 						"https://parspng.com/wp-content/uploads/2023/08/airpodspng.parspng.com-3.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"The Apple AirPods Max redefine premium audio with their exquisite design and cutting-edge technology. These over-ear headphones boast high-fidelity sound, thanks to custom-built drivers that deliver deep bass, accurate mids, and crisp highs. The adaptive EQ ensures an immersive listening experience by adjusting the sound to the shape of your ears. Active Noise Cancellation (ANC) and Transparency mode provide a tailored auditory experience, allowing you to immerse yourself in music or stay aware of your surroundings. Crafted with a stainless steel frame, breathable knit mesh canopy, and memory foam ear cushions, the AirPods Max offer both comfort and style for an unparalleled audio journey.",
 						250,
 						"technology"
 				));
 				itemRepository.save(new Item(
 						"Apple Airpods Pro",
-						"The Apple AirPods Pro redefine the audio experience, delivering an immersive and customizable sound with Active Noise Cancellation. These wireless earbuds boast a sleek, in-ear design with a comfortable fit and customizable silicone tips for a secure seal. Adaptive EQ automatically tunes the music to the shape of your ear, ensuring a rich and balanced sound profile. The transparency mode effortlessly blends your surroundings with your music, while the H1 chip enables hands-free Siri access. With sweat and water resistance, they're ideal for workouts or daily activities. The compact charging case offers convenience, extending battery life for a seamless wireless experience.",
+						"https://png.pngtree.com/png-vector/20231104/ourmid/pngtree-apple-airpods-pro-png-image_10477533.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"technology"
@@ -784,7 +784,7 @@ public class MockEcommerceApplication {
 						"Samsung Earbuds",
 						"https://images.samsung.com/is/image/samsung/assets/nz/support/mobile-devices/how-to-activate-samsung-earbuds/1111.png?$ORIGIN_PNG$",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing Samsung Earbuds, a pinnacle of wireless audio innovation. These sleek and compact earbuds redefine the auditory experience, delivering crisp, clear sound with deep bass and immersive details. Designed for seamless integration with your Samsung devices, they boast advanced Bluetooth connectivity for a hassle-free pairing process. With touch-sensitive controls, you can effortlessly manage calls, adjust volume, or navigate tracks. The ergonomic design ensures a comfortable fit, while intelligent sensors detect when you're wearing them, pausing playback when removed. Additionally, the long-lasting battery life ensures extended listening enjoyment, making Samsung Earbuds the perfect companion for those who demand exceptional audio quality on the go.",
 						250,
 						"technology"
@@ -793,7 +793,7 @@ public class MockEcommerceApplication {
 						"Meta Quest 3",
 						"https://www.synergiz.com/wp-content/uploads/2023/10/meta-quest-3.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 5000),
 						"Introducing Meta Quest 3, a groundbreaking leap into the future of virtual reality. This immersive headset redefines the boundaries of digital experience, boasting unparalleled realism and functionality. Meta Quest 3 combines cutting-edge optics with an expansive field of view, transporting users into vivid, lifelike environments. Its ergonomic design ensures comfort during extended use, while advanced haptic feedback technology enhances tactile sensations. Powered by an ultra-fast processor, it delivers seamless, lag-free interactions. With an evolved tracking system and intuitive gesture controls, Meta Quest 3 offers an unparalleled level of immersion. Step into a new dimension of gaming, education, and social connectivity with the Meta Quest 3 – where the virtual becomes reality.",
 						250,
 						"technology"
@@ -875,9 +875,9 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Gardening Knee Pads",
-						"https://c-pf.niceshops.com/upload/image/product/large/default/esschert-design-knee-pads-1351672-en.png",
+						"https://en.hoegert.com/wp-content/uploads/2023/05/HT5K296.png",
 						true,
-						5999,
+						random.nextDouble(18, 40),
 						"Gardening knee pads are indispensable accessories for any avid gardener, providing optimal comfort and protection during prolonged kneeling sessions. Crafted from durable, moisture-resistant materials, these knee pads offer excellent support, reducing strain on joints and preventing soil and moisture from penetrating through. The ergonomic design ensures a snug fit, allowing free movement while tending to plants or performing ground-level tasks. Equipped with adjustable straps, they cater to various sizes and preferences. Whether planting, weeding, or cultivating, these knee pads are a reliable ally, ensuring that gardening remains a pleasurable experience by safeguarding your knees from discomfort and potential injuries.",
 						250,
 						"gardening"
@@ -895,7 +895,7 @@ public class MockEcommerceApplication {
 						"Garden Sprayer",
 						"https://www.holmanindustries.com.au/wp-content/uploads/GC8050-EzySpray-5L-Pump-Free-Garden-Sprayer-3.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(100, 200),
 						"Introducing our Garden Master Sprayer, a versatile solution for effortless and efficient gardening. This compact and lightweight sprayer is designed to simplify your plant care routine. With a robust 2-gallon capacity, it ensures extended coverage for your garden, eliminating the need for constant refills. The ergonomic handle and adjustable nozzle provide precise control over spray patterns, catering to various plant sizes and types. The translucent tank allows for easy monitoring of liquid levels, preventing unexpected interruptions. Crafted from durable materials, our Garden Master Sprayer guarantees longevity and resilience against harsh outdoor conditions. Elevate your gardening experience with this reliable and user-friendly sprayer.",
 						250,
 						"gardening"
@@ -920,7 +920,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Solar Powered Garden Lights",
-						"https://products.shureweb.eu/shure_product_db/product_images/files/5d7/cae/9d-/thumb_transparent/2140e6b3255a02c1671635465b5c46f6.png",
+						"https://globeledphilippines.com/wp-content/uploads/2018/07/Solar_Garden_Lights.png",
 						true,
 						random.nextDouble(18, 40),
 						"Illuminate your garden with our eco-friendly Solar-Powered Garden Lights. Harnessing the power of the sun during the day, these lights charge their built-in batteries to provide a soft, ambient glow in the evening. Designed with durability in mind, the weather-resistant construction ensures longevity, even in diverse climates. Easy to install, these lights require no wiring, making them a hassle-free addition to your outdoor space. Choose from a variety of styles to complement your garden aesthetics. The automatic on/off feature conserves energy, and the LED bulbs emit a warm, inviting light, creating a charming atmosphere while reducing your carbon footprint. Enjoy enchanting nights with sustainable elegance.",
@@ -947,7 +947,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Garden Kneeler",
-						"https://primestashstore.com/cdn/shop/products/2_ad9062ee-cdf3-4938-958d-8a5ba0ffa3da_800x.png?v=1619204595",
+						"https://richmondrose-store.com/cdn/shop/products/Screenshot2020-07-06at17.30.07_cabca975-6351-4d4d-8de7-0288772afe62.png?v=1658753338",
 						true,
 						random.nextDouble(18, 40),
 						"The garden kneeler is a versatile and ergonomic tool designed to enhance your gardening experience. Crafted with a sturdy yet lightweight frame, it provides a comfortable and supportive surface for kneeling or sitting while tending to your plants. The padded cushion reduces strain on your knees and lower back, making prolonged gardening sessions more enjoyable. Flip it over, and it transforms into a convenient seat, allowing you to take breaks without leaving your garden. Equipped with handles on both sides, it's easily portable and can also serve as a helpful assistive device for getting up and down. A must-have for any gardening enthusiast, this kneeler combines functionality with comfort in the outdoor oasis.",
@@ -988,7 +988,7 @@ public class MockEcommerceApplication {
 						"Cloud Sofa",
 						"https://i.pinimg.com/originals/53/d8/82/53d882b543326bfa86515e736b6e054b.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(4999, 5000),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"furniture"
@@ -997,7 +997,7 @@ public class MockEcommerceApplication {
 						"Dining Table",
 						"https://freepngimg.com/download/dining_table/4-2-dining-table-transparent.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(200, 500),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"furniture"
@@ -1015,7 +1015,7 @@ public class MockEcommerceApplication {
 						"Bed",
 						"https://pngimg.com/d/bed_PNG17418.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(2000, 3000),
 						"Lorem ipsum dolor sit amet, et nusquam copiosae vivendum mea. Altera graecis tractatos his in, sit in dicant adipisci disputationi. No nostrud placerat voluptaria duo, facilisis constituto at nam, viris saepe ex vim. Est dolor solet ea, qui recteque gubergren voluptaria id, has at nominavi oportere. Ad vero tincidunt mei. Has summo atomorum ut,et minim blandit copiosae pro, pro in quod quidam fabellas.Mea ad tation audire. Modo persius at sea. Zril facilisis prodesset ut usu, clita prodesset persecuti his eu. Praesent rationibus scripserit id quo, altera elaboraret eloquentiam mei in. An sed augue aeque appetere, nec sumo incorrupte eu.",
 						250,
 						"furniture"
@@ -1024,7 +1024,7 @@ public class MockEcommerceApplication {
 						"Wardrobe",
 						"https://i.pinimg.com/originals/08/ba/ca/08bacad019414e3eea1ad2c449f0a1a9.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(100, 200),
 						"Introducing our elegant and functional wardrobe, a masterpiece of organization and style. Crafted with precision from durable wood, this wardrobe seamlessly blends contemporary aesthetics with practical design. The spacious interior offers a haven for your clothing, featuring multiple shelves, drawers, and hanging rods to accommodate your diverse wardrobe. Its sleek exterior, adorned with subtle detailing and a rich finish, effortlessly elevates any room decor. The smooth sliding doors ensure easy access while saving space, making it an ideal solution for bedrooms, dressing rooms, or walk-in closets. Upgrade your storage experience with this sophisticated wardrobe, where form meets functionality.",
 						250,
 						"furniture"
@@ -1040,7 +1040,7 @@ public class MockEcommerceApplication {
 				));
 				itemRepository.save(new Item(
 						"Desk",
-						"https://assets.stickpng.com/images/5a058d929cf05203c4b603fe.png",
+						"https://www.pngall.com/wp-content/uploads/2/Desk.png",
 						true,
 						random.nextDouble(18, 40),
 						"The Harmony Desk seamlessly blends functionality with a modern aesthetic, making it an ideal addition to any workspace. Crafted from high-quality, sustainable oak, its sleek design features clean lines and a spacious tabletop, providing ample room for creativity to flourish. The desk is equipped with integrated storage solutions, including drawers and compartments, ensuring an organized and clutter-free environment. Its sturdy construction guarantees durability, while subtle details like brushed metal handles add a touch of sophistication. Whether used for work or study, the Harmony Desk invites productivity and complements contemporary interiors, embodying a perfect balance of style and utility.",
@@ -1132,7 +1132,7 @@ public class MockEcommerceApplication {
 						"Futon",
 						"https://freepngimg.com/download/aquarium/43451-9-futon-free-photo-png.png",
 						true,
-						random.nextDouble(18, 40),
+						random.nextDouble(300, 500),
 						"A futon is a versatile and space-saving furniture piece that seamlessly combines the functionality of a sofa and a bed. Its design typically features a sturdy frame that can be easily converted from a comfortable seating arrangement during the day to a cozy bed at night. Futons are known for their adaptability, making them ideal for small living spaces, guest rooms, or home offices. The frame often allows for the folding or unfolding of the mattress, and the cushioning provides a comfortable sitting or sleeping surface. Futons come in various styles, materials, and sizes, catering to both aesthetic preferences and practical needs.",
 						250,
 						"furniture"

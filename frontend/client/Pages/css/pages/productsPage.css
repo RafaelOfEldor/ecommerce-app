@@ -1,0 +1,203 @@
+.item-cards {
+  position: relative;
+  margin-top: 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  gap: 4vw 4vh;
+  justify-content: center;
+}
+
+.item-card {
+  width: 300px;
+  min-height: 400px;
+  max-height: 400px;
+  display: flex;
+  flex-direction: column;
+  transition: .2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  background: linear-gradient(142deg, rgba(2,0,36,0.02) 0%, rgba(157,24,89,0.05) 37%, rgba(143,49,159,0.05) 57%, rgba(0,212,255,0.05) 100%);
+  padding: 10px;
+}
+
+
+
+.item-image {
+  transition: transform 0.2s ease-in-out;
+}
+
+.item-card:hover .item-image {
+  transform: scale(0.8); /* Zoom-out effect */
+}
+
+.item-card:hover {
+  scale: 1.02;
+}
+
+.item-card-buy-button {
+  position: relative;
+  width: 80px;
+   height: 40px;
+   border: none;
+   border-radius: 10px;
+   background-color: green;
+   color: white;
+   cursor: pointer;
+}
+
+.item-card-addcart-button {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: grey;
+  color: white;
+  cursor: pointer
+}
+.item-card-addcart-button:active {
+  scale: 0.95;
+}
+
+.item-card-buy-button:active {
+  scale: 0.95;
+}
+
+.cart-item-operations-div {
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-item-operations-div > button {
+  border: none;
+  background: none;
+  color: red;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer
+}
+
+.cart-item-operations-div > button:hover {
+  text-decoration: underline;
+}
+.change-page-button {
+  font-size: 16px;
+  padding: 1em 3.3em;
+  cursor: pointer;
+  transform: perspective(200px) rotateX(15deg);
+  margin-top: 100px;
+  margin-bottom: 50px;
+  color: white;
+  font-weight: 900;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(142deg, rgba(2,0,36,0.7) 0%, rgba(157,24,89,0.8) 37%, rgba(143,49,159,0.8) 57%, rgba(18, 61, 182, 0.4) 100%);
+  box-shadow: rgba(63, 94, 251, 0.2) 0px 40px 29px 0px;
+  will-change: transform;
+  transition: all 0.3s;
+  border-bottom: 2px solid rgba(70, 135, 252, 1);
+}
+
+
+.change-page-button:hover {
+  transform: perspective(180px) rotateX(30deg) translateY(2px);
+}
+
+.change-page-button:active {
+  transform: perspective(170px) rotateX(36deg) translateY(5px);
+}
+
+.products-page-category-select {
+  height: 36px;
+  min-width: 170px;
+  font-size: 1.1rem;
+}
+
+.products-page-category-select:focus {
+  border-color: #9147ff !important;
+  background: #fff !important;
+  outline: none !important;
+}
+
+.products-page-category-clear {
+display: inline-block;
+  outline: 0;
+  border: 0;
+  background-image: linear-gradient(to right,#e052a0,#f15c41);
+  cursor: pointer;
+  border-radius: 2px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 10px;
+  font-size: 14px;
+  transition: .2s ease-in-out ;
+}
+
+.products-page-category-clear:hover {
+  background-image: linear-gradient(to right,#ff0000,#91130a);
+}
+
+.search-wrapper {
+  position: relative;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  z-index: 10;
+}
+
+.search-wrapper input {
+  font-size: 14px;
+  border-radius: 6px;
+  line-height: 1.5;
+  padding: 5px 10px;
+  width: 250px;
+  transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+  border: 2px solid #dee1e2;
+  color: rgb(14, 14, 16);
+  background: #dee1e2;
+  display: block;
+  height: 36px;
+  z-index: 1;
+}
+
+.search-wrapper input:hover {
+  border-color: #ccc;
+}
+
+.search-wrapper input:focus {
+  border-color: #9147ff !important;
+  background: #fff !important;
+  outline: none !important;
+}
+
+.search-wrapper .search-icon {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-20%);
+  color: rgba(143,49,159,0.8);
+  
+  scale: 1.2;
+  cursor: pointer;
+  pointer-events: auto; /* Enable pointer events for the icon */
+  transition: transform 0.3s, color 0.3s;
+}
+
+.search-wrapper .search-icon:hover {
+  color: black;
+  
+  /* Uncomment the scale if you want to enlarge the icon on hover */
+  /* scale: 1.3; */
+}
+
+
+

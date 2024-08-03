@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
+import { VscListFilter } from "react-icons/vsc";
+import { FiSearch } from "react-icons/fi";
+import "./css/pages/productsPage.css"
 
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
@@ -13,21 +16,31 @@ export default function ProductsPage(props) {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [category, setCategory] = useState(""); // State for selected category
+  const [searchQuery, setSearchQuery] = useState(""); // State for search query
+  const [noResults, setNoResults] = useState(false);
 
   useEffect(() => {
-    changePage(page);
-  }, []);
+    fetchProducts(0, false)
+  }, []); // Fetch products when category or search query changes
 
-  async function fetchProducts(page) {
-    console.log(`Fetching products for page ${page}`);
-    const res = await fetch(`${apiUrl}/api/v1/products/page/${page}`);
+  useEffect(() => {
+    changePage(0, true)
+  }, [category]); // Fetch products when category or search query changes
+
+  async function fetchProducts(page, changeByFilter) {
+    const res = await fetch(`${apiUrl}/api/v1/products/${category === "" ? "" : category + "/"}page/${page}${
+      searchQuery === "" ? "" : !changeByFilter ? "/" + searchQuery : ""}`);
     if (res.ok) {
       const data = await res.json();
       console.log("Products data fetched:", data);
       if (data.length > 0) {
+        setNoResults(false)
         setPage(page);
         await loadImages(data);
         setProducts(data);
+      } else if (searchQuery !== "") {
+        setNoResults(true)
       }
     } else {
       console.error("Failed to fetch products");
@@ -42,11 +55,11 @@ export default function ProductsPage(props) {
           const img = new Image();
           img.src = product.itemImage;
           img.onload = () => {
-            console.log(`Image loaded for product ${product.itemId}`);
+            // console.log(`Image loaded for product ${product.itemId}`);
             resolve();
           };
           img.onerror = () => {
-            console.error(`Failed to load image for product ${product.itemId}`);
+            // console.error(`Failed to load image for product ${product.itemId}`);
             resolve();
           };
         })
@@ -88,25 +101,69 @@ export default function ProductsPage(props) {
     }
   };
 
-  const handleBuyItem = async (event) => {
+  const handleBuyItem = async (event, itemId) => {
     event.stopPropagation();
     if (isUserAuthenticated) {
-      console.log("yoo");
+      const addToCartElement = {
+        userId: userId,
+        itemId: itemId,
+      };
+      const res = await fetch(`${apiUrl}/api/v1/user/cart/additem`, {
+        method: "POST",
+        body: JSON.stringify(addToCartElement),
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        increaseAmountOfItemsInCart();
+        setItemAddedToCart(true);
+        navigate("/cart");
     } else {
-      navigate("/login");
+      
     }
+  } else {
+    navigate("/login");
   };
 
-  const changePage = async (newPage) => {
+}
+
+  const changePage = async (newPage, changeByFilter) => {
     setLoading(true);
-    await fetchProducts(newPage);
+    await fetchProducts(newPage, changeByFilter);
     setLoading(false);
+  };
+
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+    setPage(0); // Reset to the first page when category changes
+  };
+
+  const handleSearchItem = async (event) => {
+    event.preventDefault();
+    setPage(0); // Reset to the first page when category changes
+    setLoading(true);
+    await fetchProducts(0, false);
+    setLoading(false);
+  };
+
+
+  const handleClearCategory = () => {
+    setCategory("");
+    setPage(0);
+  };
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+    setPage(0, false); // Reset to the first page when search query changes
   };
 
   const productsElements = products.map((item, index) => (
     <div className="item-card" key={index} onClick={() => handleViewProduct(item.itemId)}>
-      <img src={item.itemImage} loading="eager" style={{ maxHeight: "200px", maxWidth: "300px" }} />
-      <h4>{item.itemName}</h4>
+      <img src={item.itemImage} loading="eager" className="item-image" style={{ maxHeight: "200px", maxWidth: "300px" }} />
+      <h4 style={{marginTop: "auto"}}>{item.itemName}</h4>
       <h4>${item.itemPrice.toFixed(2)}</h4>
       <h5>
         {Array.from(item.itemDescription).map((item, index) => {
@@ -119,58 +176,71 @@ export default function ProductsPage(props) {
       </h5>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h4 style={{ color: "green" }}>{item.itemInStock === true ? "in stock" : "out of stock"}</h4>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "5px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "5px", marginTop: "10px" }}>
           <button className="item-card-addcart-button" onClick={(event) => handleAddItemToCart(event, item?.itemId)}>
             Add To Cart
           </button>
-          <button className="item-card-buy-button" onClick={() => handleBuyItem(item?.itemId)}>
+          <button className="item-card-buy-button" onClick={(event) => handleBuyItem(event, item?.itemId)}>
             Buy
           </button>
         </div>
       </div>
     </div>
   ));
+  
 
   return (
     <div>
-      <div style={{ display: "flex", marginLeft: "10vw" }}>
-        <h1>Products:</h1>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginLeft: "10vw", marginRight: "10vw",
+        marginTop: "2vh", zIndex: "99"
+      }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <VscListFilter style={{ scale: "1.5" }} />
+          <select value={category} onChange={handleCategoryChange} className="products-page-category-select" style={{ marginLeft: "20px" }}>
+            <option value="">Sort by category</option>
+            <option value="apparel">Apparel</option>
+            <option value="jewelry">Jewelry</option>
+            <option value="technology">Technology</option>
+            <option value="gardening">Gardening</option>
+            <option value="consumables">Consumables</option>
+            <option value="furniture">Furniture</option>
+          </select>
+          {category !== "" && <button onClick={handleClearCategory} className="products-page-category-clear" style={{ marginLeft: "10px" }}>X</button>}
+          {/* <button onClick={handleApplyFilter} className="products-page-category-apply" style={{ marginLeft: "10px" }}>Apply</button> */}
+        </div>
+        <form className="search-wrapper" onSubmit={(event) => handleSearchItem(event)}>
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+          <FiSearch onClick={(event) => handleSearchItem(event)} className="search-icon" style={{ translate: "0% -30%"}} />
+        </form>
       </div>
       <div className="item-cards">
-        {loading ? <div>Loading...</div> : productsElements.length > 0 ? productsElements : <div>No products available</div>}
+
+        {noResults ? 
+        <div>Couldnt find any such item...</div> 
+        :
+        loading ? <div>Loading...</div> : productsElements.length > 0 ? productsElements : <div>No products available</div>
+
+      }
       </div>
       <div className={`item-added-to-cart-component ${itemAddedToCart ? "show" : ""}`}>
         <h1>Item added to cart</h1>
       </div>
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", margin: "0", padding: "10px"}}>
         <button
-          onClick={() => changePage(page - 1)}
+          onClick={() => changePage(page - 1, false)}
           disabled={page === 0}
-          style={{
-            marginTop: "50px",
-            width: "200px",
-            height: "100px",
-            backgroundColor: "blue",
-            color: "white",
-            border: "none",
-            fontSize: "1.2rem",
-          }}
+          className="change-page-button previous"
         >
           previous page
         </button>
         <button
-          onClick={() => changePage(page + 1)}
-          style={{
-            marginLeft: "50vw",
-            transform: "translate(-50%",
-            marginTop: "50px",
-            width: "200px",
-            height: "100px",
-            backgroundColor: "blue",
-            color: "white",
-            border: "none",
-            fontSize: "1.2rem",
-          }}
+          onClick={() => changePage(page + 1, false)}
+          className="change-page-button next"
         >
           next page
         </button>

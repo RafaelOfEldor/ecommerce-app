@@ -29,7 +29,7 @@ export default function RoutesPage() {
 
         <Route path="/login" element={<LoginPage />}/>
         <Route path="/register" element={<RegisterPage />}/>
-        <Route path="/about" element={<ProtectedRoute><AboutPage /></ProtectedRoute>}/>
+        <Route path="/about" element={<AboutPage />}/>
         <Route path="/cart" element={<ProtectedRoute><CartPage /></ProtectedRoute>}/>
   
         <Route path="/account" element={<ProtectedRoute><AccountPage /></ProtectedRoute>}>

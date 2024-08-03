@@ -1,6 +1,7 @@
 import React, { useContext, Component } from "react";
 import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
 import {useAuth} from "../../context/AuthContext"
+import "../css/components/privacyComponent.css"
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
 export default function PrivacyComponent(props) {

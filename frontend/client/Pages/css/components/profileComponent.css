@@ -1,0 +1,60 @@
+.account-page-div {
+  display: flex;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  transform: translate(0);
+  /* border: 3px solid rgba(0, 0, 0, 0.05); */
+  padding: 50px 50px;
+  transform: translate(0);
+  transform-style: preserve-3d;
+}
+
+.profile-form::before {
+  content:"";
+  position: absolute;
+  inset: 0;
+  transform: translate3d(0,0,-0.5px);
+  background: rgb(2,0,36);
+  background: linear-gradient(142deg, rgba(2,0,36,0.3) 0%, rgba(157,24,89,0.44) 37%, rgba(143,49,159,0.55) 57%, rgba(0,212,255,0.66) 100%);
+  filter: blur(10px);
+  clip-path: polygon(-100vmax -100vmax,100vmax -100vmax,100vmax 100vmax,-100vmax 100vmax,-100vmax -100vmax,0 0,0 100%,100% 100%,100% 0,0 0);
+}
+
+.profile-form-input {
+  width: 340px;
+  height: 50px;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  border: none;
+  transition: ease-in-out 0.5s;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: rgba(193, 199, 201, 0.3);
+}
+
+.profile-form-input.username {
+  width: 100%
+}
+
+.profile-form-input.email {
+  width: 100%
+}
+
+.profile-form > button {
+  margin-left: 70%;
+  cursor: pointer;
+  background-color: rgb(155, 67, 15);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;;
+  width: 250px;
+  height: 60px;
+}
