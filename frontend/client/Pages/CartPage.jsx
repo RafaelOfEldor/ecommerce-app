@@ -5,6 +5,7 @@ import GoogleLogo from "../images/Google-g-logo.svg"
 import Logo from "../images/Mock-Ecommerce.svg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
+import "./css/pages/cartPage.css"
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
 export default function CartPage(props) {
@@ -99,11 +100,15 @@ export default function CartPage(props) {
         }
     )
   async function handleCheckout() {
-    if (addresses.length === 0) {
-      setErrorMessage("You need a shipping address to checkout. You can add one here")
+    
+    
+    if (itemsToBuyPreparedList.length === 0) {
+      setErrorMessage("You currently do not have any items in your cart");
+    } else if (addresses.length === 0) {
+      setErrorMessage("You need to select a shipping address before proceeding to checkout. Add address");
     } else if (!shippingAddress) {
-      setErrorMessage("You need to select a shipping address before proceeding to checkout")
-    } else {
+      setErrorMessage("You need to select a shipping address before proceeding to checkout. Add address");
+    }else {
       const purchaseElement = {
         userId: userId,
         addressId: shippingAddress,
@@ -256,7 +261,13 @@ export default function CartPage(props) {
         </div>
         <h3 style={{fontWeight: "400"}}>Subtotal {`(${cartElements?.length != 0 && cartElements.length} items)`}: <b>${totalPrice && totalPrice.toFixed(2)}</b></h3>
         <button onClick={handleCheckout}>Proceed to checkout</button>
-        {errorMessage && <h5 style={{color: "red", fontWeight: "400", textAlign: "center"}}>{errorMessage}</h5>}
+        {errorMessage && 
+        <div style={{display: "flex", }}>
+          <h5 style={{color: "red", fontWeight: "400", textAlign: "center"}}>{errorMessage} 
+            { itemsToBuyPreparedList.length > 0 && <Link to="/account/adress" style={{textDecoration: "underline", cursor: "pointer", marginLeft: "5px"}}>here</Link>}
+          </h5>
+          
+        </div>}
       </div>
     </div>
   )

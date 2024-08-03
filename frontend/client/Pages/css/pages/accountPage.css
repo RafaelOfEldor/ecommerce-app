@@ -1,0 +1,178 @@
+.account-page-div {
+  display: flex;
+  margin-left: 10vw;
+  margin-top: 5vh;
+}
+
+.account-page-sidelayout {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
+.account-page-sidelayout-links-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px 50px;
+}
+
+.account-sidelayout-link {
+  text-decoration: none;
+  color: rgb(92, 67, 67);
+}
+
+.account-sidelayout-link-active {
+  text-decoration: none;
+  padding-bottom: 5px;
+  padding-right: 5px;
+  scale: 1.05;
+  color: black;
+}
+
+.account-page-sidelayout.routes {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+}
+
+.account-page-sidelayout.personal {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 20px;
+}
+
+.account-page-sidelayout.personal.links {
+  margin-left: 40px;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.account-page-sidelayout.billing {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 20px;
+}
+
+.account-page-sidelayout.billing.links {
+  margin-left: 40px;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.account-sidelayout-routes-link {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+.account-sidelayout-routes-link-active {
+  text-decoration: none;
+  padding-bottom: 5px;
+  color: black;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.account-sidelayout-logout-button {
+  position:absolute;
+  top: 90vh;
+  border: none;
+  width: 100px;
+  height: 50px;
+  cursor: pointer;
+  background-color: rgb(155, 15, 15);
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+.account-addresses-page {
+  display: flex;
+  margin: 50px 50px;
+  flex-direction: column;
+}
+
+.account-addresses-page > div {
+  margin-top: 20px;
+  width: 55vw;;
+  height: 500px;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.account-addresses-page > button {
+  width: 10vw;
+  height: 50px;
+  margin-top: 20px;
+  margin-left: 45vw;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.account-addresses-page > button:active {
+  margin-top: 21px;
+}
+
+.account-add-address-div {
+  display: flex;
+  flex-direction: column;
+  gap: 50px 50px;
+  margin-left: 150px;
+}
+
+.account-add-address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 50px 50px;
+  margin: 100px 100px;
+}
+
+.account-add-address-form > input {
+  height: 50px;
+  width: 800px
+}
+
+.account-add-address-form > button {
+  position: absolute;
+  top: 90vh;
+  left: 70vw;
+  width: 200px;
+  height: 50px;
+  background-color: green;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.account-add-address-div > button {
+  position: absolute;
+  top: 90vh;
+  width: 100px;
+  height: 50px;
+  background-color: red;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.account-add-address-form > button:hover {
+  cursor: pointer
+}
+
+.account-add-address-div > button:hover {
+  cursor: pointer
+}
+
+.account-add-address-form > button:active {
+  top: 90.5vh;
+}
+
+.account-add-address-div > button:active {
+  top: 90.5vh;
+}

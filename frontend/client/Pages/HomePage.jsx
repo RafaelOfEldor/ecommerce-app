@@ -4,6 +4,8 @@ import { Link, Routes, Route, Outlet, useNavigate, useSearchParams } from "react
 import jacketImage from "../images/random-jacket.jpg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
+import "./css/pages/homePage.css"
+
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
 export default function HomePage(props) {
@@ -114,8 +116,8 @@ export default function HomePage(props) {
   const itemElements = items.map((item, index) => {
     return (
       <div className="item-card" key={index} onClick={() => handleViewProduct(item.itemId)}>
-        <img src={item.itemImage} style={{maxHeight: "200px", maxWidth: "300px"}}/>
-        <h4>{item.itemName}</h4>
+        <img src={item.itemImage} className="item-image" style={{maxHeight: "200px", maxWidth: "300px"}}/>
+        <h4 style={{marginTop: "auto"}}>{item.itemName}</h4>
         <h4>${item.itemPrice.toFixed(2)}</h4>
         <h5>{Array.from(item.itemDescription).map((item, index) => {
           if (index < 150) {
@@ -172,7 +174,7 @@ export default function HomePage(props) {
   })
 
   return (
-    <div>
+    <div style={{paddingBottom: "100px"}}>
       <div className="homepage-carousel">
         <BsArrowLeftCircleFill className="arrow homepage-carousel-left" onClick={previousSlide}/>
         {items && carouselElements}

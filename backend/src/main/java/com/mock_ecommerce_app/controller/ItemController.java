@@ -37,6 +37,24 @@ public class ItemController {
         }
     }
 
+    @GetMapping("/page/{pageNumber}/{searchQuery}")
+    public List<Item> getSearchByPage(@PathVariable int pageNumber, @PathVariable String searchQuery) {
+        try {
+            return itemService.getSearchByPage(pageNumber, searchQuery);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @GetMapping("/{category}/page/{pageNumber}/{searchQuery}")
+    public List<Item> getCategoryAndSearchByPage(@PathVariable int pageNumber, @PathVariable String category, @PathVariable String searchQuery) {
+        try {
+            return itemService.getCategoryAndSearchByPage(pageNumber, category, searchQuery);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
     @GetMapping("/apparel/page/{pageNumber}")
     public List<Item> getApparelByPage(@PathVariable int pageNumber) {
         try {
