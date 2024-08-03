@@ -3,10 +3,16 @@ package com.mock_ecommerce_app.controller;
 import com.mock_ecommerce_app.auth.AuthenticationRequest;
 import com.mock_ecommerce_app.auth.RegisterRequest;
 import com.mock_ecommerce_app.auth.AuthenticationResponse;
+import com.mock_ecommerce_app.dtos.OpenIdCredentialsDTO;
 import com.mock_ecommerce_app.service.AuthenticationService;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -16,41 +22,48 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> registerUser(@RequestBody RegisterRequest request) {
-        System.out.println(request);
-        return ResponseEntity.ok(authenticationService.register(request));
+    public ResponseEntity<Optional<AuthenticationResponse>> registerUser(@RequestBody RegisterRequest request) {
+        return authenticationService.register(request);
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> registerUser(@RequestBody AuthenticationRequest request) {
+    public ResponseEntity<AuthenticationResponse> authenticateUser(@RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(authenticationService.authenticate(request));
     }
 
-//    @PostMapping("/register")
-//    public ResponseEntity<UserDetails> registerUser(@RequestBody RegisterRequest request) {
-//        Authentication authentication = authenticationService.register(request);
-//
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-//        System.out.println(userDetails.getAuthorities());
-//
-//        return ResponseEntity.ok(userDetails);
-//    }
-//
-//    @PostMapping("/authenticate")
-//    public ResponseEntity<UserDetails> authenticateUser(@RequestBody AuthenticationRequest request) {
-////        return ResponseEntity.ok(authenticationService.authenticate(request));
-//        Authentication authentication = authenticationService.authenticate(request);
-//
-//        SecurityContextHolder.getContext().setAuthentication(authentication);
-//
-//        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-//        System.out.println(userDetails.getAuthorities());
-//
-//
-//        return ResponseEntity.ok(userDetails);
-//    }
+    @GetMapping("/login/credentials")
+    public ResponseEntity<OpenIdCredentialsDTO> getCredentials() {
+        return ResponseEntity.ok(authenticationService.getCredentials());
+    }
 
+    @PostMapping("/login/accessToken")
+    public ResponseEntity<Void> setAccessToken(@RequestBody Map<String, String> body, HttpServletResponse response) {
+        try {
+            String accessToken = body.get("access_token");
+            if (accessToken == null) {
+                return ResponseEntity.badRequest().build();
+            }
+            authenticationService.setAccessToken(accessToken, response);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
 
-
+    @PostMapping("/login/google")
+    public ResponseEntity<AuthenticationResponse> googleLogin(@RequestBody Map<String, String> body) {
+        try {
+            String accessToken = body.get("access_token");
+            if (accessToken == null) {
+                return ResponseEntity.badRequest().build(); // Return 400 Bad Request if access_token is missing
+            }
+            AuthenticationResponse response = authenticationService.authenticateWithGoogle(accessToken);
+            return ResponseEntity.ok(response); // Return 200 OK with the authentication response
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null); // Return 500 Internal Server Error
+        }
+    }
 }
+

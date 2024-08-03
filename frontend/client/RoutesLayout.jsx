@@ -9,6 +9,7 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import ProductComponent from "./Components/ProductComponent";
 import AccountPage from "./Pages/AccountPage";
 import CartPage from "./Pages/CartPage";
+import LoginCallbackPage from "./Pages/LoginCallbackPage";
 import AccountProfileComponent from "./Pages/account-subpages/ProfileComponent";
 import AccountAdressesComponent from "./Pages/account-subpages/AdressesComponent";
 import AccountCancellationsComponent from "./Pages/account-subpages/CancellationsComponent";
@@ -28,6 +29,7 @@ export default function RoutesPage() {
         <Route path="/products/product/:itemid" element={<ProductComponent />}/>
 
         <Route path="/login" element={<LoginPage />}/>
+        <Route path="login/callback" element={<LoginCallbackPage />} />
         <Route path="/register" element={<RegisterPage />}/>
         <Route path="/about" element={<AboutPage />}/>
         <Route path="/cart" element={<ProtectedRoute><CartPage /></ProtectedRoute>}/>
@@ -35,10 +37,10 @@ export default function RoutesPage() {
         <Route path="/account" element={<ProtectedRoute><AccountPage /></ProtectedRoute>}>
           <Route path="profile" element={<AccountProfileComponent />}/>
           <Route path="adress" element={<AccountAdressesComponent />}/>
-          <Route path="cancellations" element={<AccountCancellationsComponent />}/>
+          {/* <Route path="cancellations" element={<AccountCancellationsComponent />}/> */}
           <Route path="paymentdetails" element={<AccountPaymentComponent />}/>
           <Route path="purchases" element={<AccountPurchasesComponent />}/>
-          <Route path="privacy" element={<AccountPrivacyComponent />}/>
+          {/* <Route path="privacy" element={<AccountPrivacyComponent />}/> */}
         </Route>
 
         <Route path="*" element={<h1>Page not found</h1>} />

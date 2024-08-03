@@ -1,4 +1,4 @@
-import React, { useContext, Component } from "react";
+import React, { useContext, useEffect, useState, Component } from "react";
 import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
 import {useAuth} from "../../context/AuthContext"
 import "../css/components/profileComponent.css"
@@ -54,25 +54,25 @@ const [loadingChanges, setLoadingChanges] = React.useState(false)
         setLastName(prev => e.target.lastname.value)
       }
     }
-    if (e.target.username.value !== "") {
-      const res = await fetch(`${apiUrl}/api/v1/user/change/username`, {
-        method: "POST",
-        body: JSON.stringify({
-          username: username,
-          detailToChange: e.target.username.value
-        }),
-        headers: {
-          "content-type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
-        }
-      })
-      if (res.ok) {
-        setUsername(prev => e.target.username.value)
-        getUserFromToken();
-        getUserAuthentication();
-        navigate("/account/profile")
-      }
-    }
+    // if (e.target.username.value !== "") {
+    //   const res = await fetch(`${apiUrl}/api/v1/user/change/username`, {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       username: username,
+    //       detailToChange: e.target.username.value
+    //     }),
+    //     headers: {
+    //       "content-type": "application/json",
+    //       Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+    //     }
+    //   })
+    //   if (res.ok) {
+    //     setUsername(prev => e.target.username.value)
+    //     getUserFromToken();
+    //     getUserAuthentication();
+    //     navigate("/account/profile")
+    //   }
+    // }
     if (e.target.mail.value !== "") {
       e.preventDefault()
       const res = await fetch(`${apiUrl}/api/v1/user/change/email`, {
@@ -94,6 +94,23 @@ const [loadingChanges, setLoadingChanges] = React.useState(false)
     return () => clearTimeout(refreshPage);
   }
 
+  const [displayUsername, setDisplayUsername] = useState("");
+
+    useEffect(() => {
+        // Split the username by spaces
+        const words = username.split(' ');
+
+        // Check if any word after the first one contains numbers
+        const hasNumbers = words.slice(1).some(word => /\d/.test(word));
+
+        // Set the displayUsername accordingly
+        if (hasNumbers) {
+            setDisplayUsername(words[0]);
+        } else {
+            setDisplayUsername(username);
+        }
+    }, [username]);
+
   return (
     <div className="account-page-div">
       <form className="profile-form" onSubmit={handleSaveChanges}>
@@ -109,8 +126,8 @@ const [loadingChanges, setLoadingChanges] = React.useState(false)
           </div>
         </div>
         <div style={{display: "flex", flexDirection: "column"}}>
-            <h3>Username</h3>
-            <input placeholder={username} className="profile-form-input username" name="username"/>
+            <h3>Username {"(immutable)"}</h3>
+            <input placeholder={displayUsername} disabled={true}className="profile-form-input username" name="username"/>
             <h3>Email</h3>
             <input placeholder={mail} className="profile-form-input email" name="mail"/>
         </div>

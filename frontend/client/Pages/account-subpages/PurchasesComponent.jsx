@@ -120,7 +120,7 @@ export default function PurchasesComponent(props) {
         <div style={{display: "flex", justifyContent: "space-around", alignItems: "center", width: "55vw", height: "50px", borderStyle: "solid",
       borderWidth: "1px"}}>
           <div style={{minWidth: "180px", maxWidth: "180px", alignItems: "center", justifyContent: "center", textAlign: "center"}}>
-            <h3>Order id:</h3>
+            <h3>order id:</h3>
           </div>
           <div style={{height: "40px", width: "1px", background: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)"}}></div>
           <div style={{minWidth: "180px", maxWidth: "180px", alignItems: "center", justifyContent: "center", textAlign: "center"}}>

@@ -34,6 +34,8 @@ public class UserService {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User was not found"));
     }
 
+
+
     public User addUser(User user) {
         return userRepository.save(user);
     }
@@ -96,7 +98,6 @@ public class UserService {
         }
         return ResponseEntity.badRequest().body(null);
     }
-
 
 
     public ResponseEntity<String> changeFirstname(UserChangeDTO firstnameRequest) {
