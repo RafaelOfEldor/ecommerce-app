@@ -1,7 +1,5 @@
 # ecommerce-app
-An ecommerce website using spring boot + postgreSQL + react + docker.
-
-Working on deploying through AWS ECS.
+An ecommerce website using spring boot + postgreSQL + react + docker, deployed through AWS ECS.
 
 Made to improve and display my spring boot backend skills, as well as learn some docker and AWS.
 
