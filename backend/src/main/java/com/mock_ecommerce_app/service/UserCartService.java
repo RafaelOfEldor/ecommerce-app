@@ -65,6 +65,9 @@ public class UserCartService {
                     Item itemToChange = itemRepository.findById(orderedItem.getOrderedItemOriginalItemId()).orElse(null);
                     if (itemToChange != null) {
                         itemToChange.setItemStock(itemToChange.getItemStock() - item.getItemQuantity());
+                        if (itemToChange.getItemStock() <= 0) {
+                            itemToChange.setItemInStock(false);
+                        }
                         itemRepository.save(itemToChange);
                         userCart.getItems().remove(itemToChange);
                         userCartRepository.save(userCart);
