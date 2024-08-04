@@ -6,6 +6,7 @@ import Logo from "../images/Mock-Ecommerce.svg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
 import "./css/pages/registerAndLoginPage.css"
+import LoginWithOpenidButton from "../functions/LoginWithOpenidButton";
 
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
@@ -79,7 +80,7 @@ export default function RegisterPage(props) {
         <input placeholder="Password" name="password" type="password"/>
         <input placeholder="Confirm Password" name="confirmPassword" type="password" />
         <button className="create-account-button">Create Account</button>
-        <button className="login-google-button"> <img src={GoogleLogo}/>Sign up with Google</button>
+        <LoginWithOpenidButton />
         <div style={{display: "flex", gap: "20px", alignItems: "center"}}>
           <h4 style={{fontWeight: "300"}}>Already have an account? </h4>
           <Link to="/login">Log In</Link>

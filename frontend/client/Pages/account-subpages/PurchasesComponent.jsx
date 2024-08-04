@@ -79,12 +79,17 @@ export default function PurchasesComponent(props) {
                     ${item.orderedItemPrice.toFixed(2)} <h5 style={{fontSize: "0.8rem", fontWeight: "600", marginLeft: "10px"}}>per unit </h5>
                     </h3>
                     <h5 style={{marginTop: "5px", marginRight: "69px", minWidth: "80px"}}>Quantity: {item.orderedItemQuantity}</h5>
+                    <Link to={`/products/product/view?itemid=${item.orderedItemOriginalItemId}`} className="order-component-link">
+                      View item
+                    </Link>
                   </div>
                 )
+                
               }
+              
             )
+            
           }
-
         </div>
 
       </div>

@@ -105,13 +105,34 @@ export default function HomePage(props) {
     }
   }
 
-  function handleBuyItem() {
+  const handleBuyItem = async (event, itemId) => {
+    event.stopPropagation();
     if (isUserAuthenticated) {
-      console.log("yoo")
+      const addToCartElement = {
+        userId: userId,
+        itemId: itemId,
+      };
+      const res = await fetch(`${apiUrl}/api/v1/user/cart/additem`, {
+        method: "POST",
+        body: JSON.stringify(addToCartElement),
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        increaseAmountOfItemsInCart();
+        setItemAddedToCart(true);
+        navigate("/cart");
     } else {
-      navigate("/login")
+      
     }
-  }
+  } else {
+    navigate("/login");
+  };
+
+}
 
   const itemElements = items.map((item, index) => {
     return (
@@ -131,21 +152,22 @@ export default function HomePage(props) {
           }
         })}</h5>
         <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-          <h4 style={{color: "green"}} >{item.itemInStock === true ? "in stock" : "out of stock"}</h4>
+          <h4 style={{color: "green"}} >{item.itemInStock === true ? "in stock" : <h4 style={{color: "red"}}>Out of stock</h4>}</h4>
           <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", gap: "5px"}}>
             <button
+            disabled={!item?.itemInStock}
             className="item-card-addcart-button"
             onClick={(event) => handleAddItemToCart(event, item?.itemId)}
             >
               Add To Cart</button>
             <button
+            disabled={!item?.itemInStock}
             className="item-card-buy-button"
-            onClick={() => handleBuyItem(item?.itemId)}
+            onClick={(event) => handleBuyItem(event, item?.itemId)}
             >
               Buy</button>
             </div>
         </div>
-        {/* <h4>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4> */}
       </div>
       )
   })

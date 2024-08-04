@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, Routes, Route, Outlet, useNavigate, NavLink } from "react-router-dom";
 import data from "../data";
 import AccountLogo from "../images/account-logo.svg"
@@ -11,7 +11,14 @@ const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 export default function Navbar(props) {
 
   
-const { isUserAuthenticated, ItemAmountInCart } = useAuth()
+
+  
+const { isUserAuthenticated, ItemAmountInCart, getUserAuthentication } = useAuth()
+
+useEffect(() => {
+  getUserAuthentication();
+}, [])
+
 console.log(isUserAuthenticated)
   return (
     <div>
@@ -51,23 +58,23 @@ console.log(isUserAuthenticated)
             <h1>About</h1>
           </NavLink>
 
-          <NavLink 
+          {/* <NavLink 
           to="/contact"
           className={({isActive}) => 
             isActive ? "navbar-link-active contact" : "navbar-link contact"
           }>
             <h1>Contact</h1>
-          </NavLink>
+          </NavLink> */}
         </div>
           {!isUserAuthenticated ? 
           <div className="nav-bar right-section">
-          <NavLink 
+          {/* <NavLink 
           to="/search"
           className={({isActive}) => 
             isActive ? "navbar-link-active search" : "navbar-link search"
           }>
             <img src={SearchLogo} style={{height: "30px"}}/>
-          </NavLink>
+          </NavLink> */}
 
           <NavLink 
           to="/login"
@@ -79,13 +86,13 @@ console.log(isUserAuthenticated)
           </div>
           :
           <div className="nav-bar right-section"> 
-          <NavLink 
+          {/* <NavLink 
           to="/search"
           className={({isActive}) => 
             isActive ? "navbar-link-active search" : "navbar-link search"
           }>
             <img src={SearchLogo} style={{height: "30px"}}/>
-          </NavLink>
+          </NavLink> */}
           
           <NavLink 
           to="/cart"

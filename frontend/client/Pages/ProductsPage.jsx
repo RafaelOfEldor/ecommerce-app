@@ -175,12 +175,12 @@ export default function ProductsPage(props) {
         })}
       </h5>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h4 style={{ color: "green" }}>{item.itemInStock === true ? "in stock" : "out of stock"}</h4>
+        <h4 style={{ color: "green" }}>{item.itemInStock === true ? "in stock" : <h4 style={{color: "red"}}>Out of stock</h4>}</h4>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "5px", marginTop: "10px" }}>
-          <button className="item-card-addcart-button" onClick={(event) => handleAddItemToCart(event, item?.itemId)}>
+          <button disabled={!item?.inStock} className="item-card-addcart-button" onClick={(event) => handleAddItemToCart(event, item?.itemId)}>
             Add To Cart
           </button>
-          <button className="item-card-buy-button" onClick={(event) => handleBuyItem(event, item?.itemId)}>
+          <button disabled={!item?.inStock} className="item-card-buy-button" onClick={(event) => handleBuyItem(event, item?.itemId)}>
             Buy
           </button>
         </div>
