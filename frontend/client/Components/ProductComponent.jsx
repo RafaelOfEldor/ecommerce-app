@@ -135,14 +135,34 @@ export default function ProductComponent(props) {
     console.log(reviewRating);
   }
 
-  
-  function handleBuyItem() {
+  const handleBuyItem = async (event, itemId) => {
+    event.stopPropagation();
     if (isUserAuthenticated) {
-      console.log("yoo")
+      const addToCartElement = {
+        userId: userId,
+        itemId: itemId,
+      };
+      const res = await fetch(`${apiUrl}/api/v1/user/cart/additem`, {
+        method: "POST",
+        body: JSON.stringify(addToCartElement),
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        increaseAmountOfItemsInCart();
+        setItemAddedToCart(true);
+        navigate("/cart");
     } else {
-      navigate("/login")
+      
     }
-  }
+  } else {
+    navigate("/login");
+  };
+
+}
 
   return (
     <div className="product-details-page">
@@ -158,20 +178,25 @@ export default function ProductComponent(props) {
             </h4>
             <h4 style={{fontWeight: "400", marginLeft: "10px"}}> {`${product?.reviews?.length > 0 ? "(" + product?.reviews?.length + " reviews)" : "no reviews"}`}</h4>
             <h4 style={{fontWeight: "400", marginLeft: "10px"}}> | </h4>
-            <h4  className="product-details-page-product-div-stock" style={{marginLeft: "5px"}}>  {product?.itemInStock ? "In stock" : "Out of stock"}</h4>
+            <h4  className="product-details-page-product-div-stock" style={{marginLeft: "5px"}}>  {product?.itemInStock ? 
+            product?.itemStock > 10 ? "In stock" : <h4>in stock <i style={{color: "black", fontSize: "0.9rem"}}>- only {product?.itemStock} units remaining</i></h4>
+            : 
+            <h4 style={{color: "red"}}>Out of stock</h4>}</h4>
           </div>
           <h4  className="product-details-page-product-div-price">${product?.itemPrice?.toFixed(2)}</h4>
           <h4  className="product-details-page-product-div-description">{product?.itemDescription}</h4>
           <div style={{height: "1px", minWidth: "400px", maxWidth: "400px", marginTop: "20px", background: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)"}}></div>
           <div style={{display: "flex", gap: "20px", marginTop: "20px"}}>
           <button
+            disabled={!product?.itemInStock}
             className="item-card-addcart-button" style={{width: "190px", height: "50px"}}
             onClick={() => handleAddItemToCart(product?.itemId)}
             >
               Add To Cart</button>
             <button
+            disabled={!product?.itemInStock}
             className="item-card-buy-button" style={{width: "190px", height: "50px"}}
-            onClick={() => handleBuyItem(product?.itemId)}
+            onClick={(event) => handleBuyItem(event, product?.itemId)}
             >
               Buy</button>
           </div>

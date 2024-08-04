@@ -144,6 +144,11 @@ const getUserAuthentication = () => {
       return false;
     }
     const { exp: expiration } = jwtDecode(token);
+    // console.log(exp);
+    // console.log(expiration);
+    // console.log(Date.now())
+    console.log((expiration*1000)/100000000000);
+    console.log(Date.now()/100000000000)
     if (Date.now() > expiration * 1000) {
         logOut()
     } else {

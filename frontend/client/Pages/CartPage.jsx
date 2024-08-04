@@ -90,7 +90,7 @@ export default function CartPage(props) {
     window.location.reload()
   }
 
-  const adressOptionsElement = addresses.map(item => {
+  const adressOptionsElement = addresses?.map(item => {
     return (
         <option 
           value={item.addressId} style={{padding: "50px", fontSize: "1rem", textAlign: "center"}}>
@@ -170,7 +170,7 @@ export default function CartPage(props) {
     setShippingAddress(event.target.value)
   }
 
-  console.log(shippingAddress)
+  console.log(cartDetails)
 
   function calculateTotalPrice() {
     let sum = 0;
@@ -182,7 +182,7 @@ export default function CartPage(props) {
 
   useEffect(() => {
     fetchCartInfo()
-  }, [])
+  }, [userId])
 
   useEffect(() => {
     calculateTotalPrice()
@@ -222,11 +222,16 @@ export default function CartPage(props) {
           <select className="cart-quantity-selecter"
           onChange={(event) => handleQuantityChange(index, event)}
           >
-            <option value={1}>Qty: 1</option>
+            {/* <option value={1}>Qty: 1</option>
             <option value={2}>Qty: 2</option>
             <option value={3}>Qty: 3</option>
             <option value={4}>Qty: 4</option>
-            <option value={5}>Qty: 5</option>
+            <option value={5}>Qty: 5</option> */}
+            {item.itemStock >= 1 ? <option value={1}>Qty: 1</option> : <option>Out of stock</option>}
+            {item.itemStock >= 2 && <option value={2}>Qty: 2</option>}
+            {item.itemStock >= 3 && <option value={3}>Qty: 3</option>}
+            {item.itemStock >= 4 && <option value={4}>Qty: 4</option>}
+            {item.itemStock >= 5 && <option value={5}>Qty: 5</option>}
           </select>
         </div>
         
