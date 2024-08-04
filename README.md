@@ -69,7 +69,8 @@ GOOGLE_DISCOVERY_URL=[your_google_discovery_url]
 GOOGLE_CLIENT_ID=[your_google_client_id]
 ```
 
-If you don't have google discovery stuff, you can alternatively just remove the LoginWithOpenidButton in frontend/client/pages/LoginPage.jsx.
+If you don't have google discovery stuff, you can alternatively just remove the LoginWithOpenidButton in frontend/client/pages/LoginPage.jsx
+and frontend/client/pages/RegisterPage.jsx.
 
 then, start your backend isolated through intellij or something, and once that succeds go into frontend directory and enter:
 
