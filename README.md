@@ -59,6 +59,8 @@ docker-compose up -d
 
 ## without docker compose:
 
+Requires postgreSQL to be setup on your computer.
+
 same .env file from the version with docker compose as well as same root/frontend/client/runtime-env.js.
 
 ensure your backend gets these environmental variables:
