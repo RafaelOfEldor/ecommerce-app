@@ -1,13 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Link, Routes, Route, Outlet, useNavigate, useSearchParams } from "react-router-dom";
-import jacketImage from "../images/random-jacket.jpg"
-import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {useAuth} from "../context/AuthContext"
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
 export default function ProductComponent(props) {
 
-  const [slide, setSlide] = React.useState(0);
   const [itemAddedToCart, setItemAddedToCart] = React.useState(false);
   const { isUserAuthenticated, username, userId, mail, firstName, lastName, role, logOut, orders, increaseAmountOfItemsInCart  } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams();
@@ -17,11 +14,9 @@ export default function ProductComponent(props) {
 
   const [product, setProduct] = useState({})
   const [productRating, setProductRating] = useState(null)
-  const [page, setPage] = useState(0)
   const [canReview, setCanReview] = useState(false);
   const [reviewText, setReviewText] = useState("");
   const [reviewRating, setReviewRating] = useState(1);
-  const [showReviewAddition, setShowReviewAddition] = useState(false);
 
 
   async function fetchProduct() {
