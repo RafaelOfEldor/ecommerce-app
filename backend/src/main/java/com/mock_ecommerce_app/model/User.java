@@ -39,7 +39,7 @@ public class User implements UserDetails {
     private String email;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-    @JsonIgnoreProperties("user")
+    @JsonIgnoreProperties({"user", "review"})
     private List<Order> orders = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.ALL)

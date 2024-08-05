@@ -60,7 +60,7 @@ export default function PurchasesComponent(props) {
           {order.items.map((item, index) => {
             return (
                   <div className="order-details-div active">
-                    <h3>{item.orderedItemName}</h3>
+                    <h3>{item?.orderedItemName.slice(0, 10)}{item?.orderedItemName?.length > 9 && "..."}</h3>
                     <img src={item.orderedItemImage} style={{maxHeight: "40px"}}/>
                     <h5 style={{maxHeight: "15px"}}>
                       {Array.from(item.orderedItemDescription).map((item, index) => {

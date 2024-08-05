@@ -48,11 +48,17 @@ public class UserService {
         try {
             User user = userRepository.findById(addToCartDTO.getUserId()).orElse(null);
             if (user != null) {
+                System.out.println("yo");
                 UserCart userCart = userCartRepository.findById(user.getUserCart().getId()).orElse(null);
+                System.out.println("yo");
                 Item item = itemRepository.findById(addToCartDTO.getItemId()).orElse(null);
+                System.out.println("yo");
                 userCart.getItems().add(item);
+                System.out.println("yo");
                 userCartRepository.save(userCart);
+                System.out.println("yo");
                 userRepository.save(user);
+                System.out.println("yo");
                 return ResponseEntity.ok(Optional.of(userCart));
             }
         } catch (Exception e) {

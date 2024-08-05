@@ -16,10 +16,6 @@ import java.util.List;
 @ToString
 @NoArgsConstructor
 public class UserInfoDto {
-    /*
-        Make a DTO that sends back firstName, lastName, username, role, email, id
-        */
-
     private String firstName;
     private String lastName;
     private String userName;
