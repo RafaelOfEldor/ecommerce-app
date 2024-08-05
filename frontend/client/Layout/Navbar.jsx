@@ -1,8 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { Link, Routes, Route, Outlet, useNavigate, NavLink } from "react-router-dom";
-import data from "../data";
+import { Outlet, NavLink } from "react-router-dom";
 import AccountLogo from "../images/account-logo.svg"
-import SearchLogo from "../images/search-logo.svg"
 import ShoppingCartLogo from "../images/shopping-basket-logo.svg"
 import ProjectLogo from "../images/project-logo.png"
 import {useAuth} from "../context/AuthContext"

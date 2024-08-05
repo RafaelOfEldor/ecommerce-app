@@ -1,16 +1,12 @@
 import React, { useContext, Component, useEffect } from "react";
-import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
-import data from "../data";
-import GoogleLogo from "../images/Google-g-logo.svg"
-import Logo from "../images/Mock-Ecommerce.svg"
-import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
+import { useNavigate } from "react-router-dom";
 import {useAuth} from "../context/AuthContext"
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
 export default function ProtextedRoute({children}) {
 
   const navigate = useNavigate();
-  const { isUserAuthenticated, getUserAuthentication } = useAuth()
+  const { isUserAuthenticated } = useAuth()
 
   
   useEffect(() => {
