@@ -70,5 +70,4 @@ public class Item {
         this.itemCategory = itemCategory;
     }
 
-    //Without reviews for now
 }

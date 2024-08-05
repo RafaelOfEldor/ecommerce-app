@@ -56,13 +56,13 @@ public class AuthenticationController {
         try {
             String accessToken = body.get("access_token");
             if (accessToken == null) {
-                return ResponseEntity.badRequest().build(); // Return 400 Bad Request if access_token is missing
+                return ResponseEntity.badRequest().build();
             }
             AuthenticationResponse response = authenticationService.authenticateWithGoogle(accessToken);
-            return ResponseEntity.ok(response); // Return 200 OK with the authentication response
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null); // Return 500 Internal Server Error
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 }
