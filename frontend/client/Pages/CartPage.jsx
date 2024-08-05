@@ -56,9 +56,6 @@ export default function CartPage(props) {
             for (let i = 0; i <cartDetails.length; i++) {
               sum += cartDetails[i].itemPrice
             }
-            console.log(cartDetails)
-            console.log(originalPrice)
-            console.log(sum)
             setTotalPrice(sum)
           }
     }
@@ -70,7 +67,6 @@ export default function CartPage(props) {
         userId: userId,
         itemId: itemId
       }
-      console.log(JSON.stringify())
       const res = await fetch(`${apiUrl}/api/v1/user/cart/removeitem`, {
             method: "POST",
             body: JSON.stringify(removeFromCartElement),
@@ -81,7 +77,6 @@ export default function CartPage(props) {
           })
           if (res.ok) {
             const data = await res.json();
-            console.log(data)
           }
     } else {
       navigate("/login")
@@ -115,7 +110,7 @@ export default function CartPage(props) {
         items: itemsToBuyPreparedList
       }
 
-      const res = await fetch("http://localhost:8080/api/v1/usercart/checkout", {
+      const res = await fetch(`${apiUrl}/api/v1/usercart/checkout`, {
             method: "POST",
             body: JSON.stringify(purchaseElement),
             headers: {
@@ -125,7 +120,6 @@ export default function CartPage(props) {
           })
           if (res.ok) {
             const data = await res.json();
-            console.log(data)
             getUserFromToken()
             const awaitRedirect = setTimeout(() => {
               navigate("/account/purchases")
@@ -133,17 +127,7 @@ export default function CartPage(props) {
             return () => clearTimeout(awaitRedirect);
           }
           
-      console.log(shippingAddress)
     }
-    /*
-    Create an object containg a Long "userId" and an array items containing ItemsWithQuantityDTO.
-    Example:
-
-    userId: userId,
-    addressId: shippingAddress,
-    items: itemsToBuyPreparedList
-    
-    */
   }
 
   const handleQuantityChange = (index, event) => {
@@ -154,23 +138,15 @@ export default function CartPage(props) {
   
     newCartDetails[index].itemPrice = originalPrice[index] * newQuantity;
     newItemsToBuyDetails[index].itemQuantity = newQuantity;
-    console.log(originalPrice)
-    console.log(newQuantity)
-    console.log(newCartDetails[index].itemPrice)
-  
+
     setCartDetails(newCartDetails);
     setitemsToBuyPreparedList(newItemsToBuyDetails)
-    calculateTotalPrice(); // Update the total price based on the changes
+    calculateTotalPrice(); 
   };
-
-  console.log(cartDetails)
-  console.log(itemsToBuyPreparedList)
 
   const handleAddressSelect = (event) => {
     setShippingAddress(event.target.value)
   }
-
-  console.log(cartDetails)
 
   function calculateTotalPrice() {
     let sum = 0;
@@ -222,11 +198,6 @@ export default function CartPage(props) {
           <select className="cart-quantity-selecter"
           onChange={(event) => handleQuantityChange(index, event)}
           >
-            {/* <option value={1}>Qty: 1</option>
-            <option value={2}>Qty: 2</option>
-            <option value={3}>Qty: 3</option>
-            <option value={4}>Qty: 4</option>
-            <option value={5}>Qty: 5</option> */}
             {item.itemStock >= 1 ? <option value={1}>Qty: 1</option> : <option>Out of stock</option>}
             {item.itemStock >= 2 && <option value={2}>Qty: 2</option>}
             {item.itemStock >= 3 && <option value={3}>Qty: 3</option>}

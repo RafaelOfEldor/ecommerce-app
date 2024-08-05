@@ -77,12 +77,10 @@ export function AuthProvider({ children }) {
             setOrders(data.orders)
             setUserId(data.id)
             setItemAmountInCart(data.userCart.items.length)
-            console.log(data)
           }
         } else {
           logOut();
           resetUserInfo();
-          console.log("Session expired, please login")
         }
       } else {
       }
@@ -92,7 +90,6 @@ export function AuthProvider({ children }) {
     const res = await fetch(`/api/auth/login`);
     if (res.ok) {
       const user = await res.json();
-      console.log(data)
       setIsUserAuthenticated(true)
       setUsername(user.username)
       setFirstName(user.fullName.split(" ")[0])
@@ -134,22 +131,27 @@ export function AuthProvider({ children }) {
     setMail(null)
     setRole(null)
     
-    // resetUserInfo()
 }
 
 const getUserAuthentication = () => {
-  console.log("yoo")
     const token = localStorage.getItem("access_token");
     if (!token) {
       return false;
     }
-    const { exp: expiration } = jwtDecode(token);
-    // console.log(exp);
-    // console.log(expiration);
-    // console.log(Date.now())
-    console.log((expiration*1000)/100000000000);
-    console.log(Date.now()/100000000000)
-    if (Date.now() > expiration * 1000) {
+    const { exp: expiration, sub: sub } = jwtDecode(token);
+    const expirationTime = expiration * 1000;
+    const currentTime = Date.now();
+
+    if (sub) {
+      if (currentTime > expirationTime) {
+          logOut()
+      } else {
+        setIsUserAuthenticated(true)
+        getUserFromToken()
+        return true;
+      }
+    }
+    else if (currentTime > expirationTime) {
         logOut()
     } else {
       setIsUserAuthenticated(true)
@@ -164,16 +166,6 @@ const resetUserInfo = () => {
   setLastName(null)
   setMail(null)
 }
-
-  
-
-  // async function fetchUserInfo() {
-  //   fetch(`/api/users/byid/${userId}`).then((response) =>
-  //     response.json().then((data) => {
-  //       setUserInfo(data);
-  //     }),
-  //   );
-  // }
 
   return (
     <AuthContext.Provider
@@ -203,45 +195,3 @@ const resetUserInfo = () => {
     </AuthContext.Provider>
   );
 }
-
-// const AuthProvider = ({ children }) => {
-
-  
-
-
-//   const login = async (usernameAndPassword) => {
-//       return new Promise((resolve, reject) => {
-//           performLogin(usernameAndPassword).then(res => {
-//               const jwtToken = res.headers["authorization"];
-//               localStorage.setItem("access_token", jwtToken);
-
-//               const decodedToken = jwtDecode(jwtToken);
-
-//               setCustomer({
-//                   username: decodedToken.sub,
-//                   roles: decodedToken.scopes
-//               })
-//               resolve(res);
-//           }).catch(err => {
-//               reject(err);
-//           })
-//       })
-//   }
-
-
-//   return (
-//       <AuthContext.Provider value={{
-//           customer,
-//           login,
-//           logOut,
-//           getUserAuthentication,
-//           setCustomerFromToken
-//       }}>
-//           {children}
-//       </AuthContext.Provider>
-//   )
-// }
-
-// export const useAuth = () => useContext(AuthContext);
-
-// export default AuthProvider;

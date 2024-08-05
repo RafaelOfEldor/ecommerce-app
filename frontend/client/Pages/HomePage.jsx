@@ -21,11 +21,6 @@ export default function HomePage(props) {
 
   const [items, setItems] = React.useState([])
   const [carouselItems, setCarouselItems] = React.useState([])
-
-  React.useEffect(() => {
-    console.log(items)
-  },[items])
-
   async function fetchProducts() {
     const res = await fetch(`${apiUrl}/api/v1/products/page/0`);
     
@@ -78,7 +73,6 @@ export default function HomePage(props) {
         userId: userId,
         itemId: itemId
       }
-      console.log(JSON.stringify())
       const res = await fetch(`${apiUrl}/api/v1/user/cart/additem`, {
             method: "POST",
             body: JSON.stringify(addToCartElement),
@@ -90,11 +84,9 @@ export default function HomePage(props) {
           if (res.ok) {
             const data = await res.json();
             increaseAmountOfItemsInCart()
-            console.log(data)
             setItemAddedToCart(true)
 
             const addedToCartDuration = setTimeout(() => {
-              console.log("it happened")
               setItemAddedToCart(false)
             }, 2000);
             return () => clearTimeout(addedToCartDuration);
@@ -190,7 +182,6 @@ export default function HomePage(props) {
           }
         })}</h5>
         <h4 style={{color: "green", userSelect: "none"}} >{item.itemInStock === true ? "in stock" : "out of stock"}</h4>
-        {/* <h4 style={{userSelect: "none"}}>{item.itemReview[Math.floor((Math.random() * 3))].reviewRating} / 5</h4> */}
       </div>
       )
   })
