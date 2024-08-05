@@ -1,5 +1,5 @@
 import React from "react";
-import { FaLinkedin, FaGithub, FaGoogle, FaMicrosoft   } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 import "./css/pages/aboutPage.css";
 
 export default function AboutPage(props) {

@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState, Component } from "react";
-import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {useAuth} from "../../context/AuthContext"
 import "../css/components/profileComponent.css"
 

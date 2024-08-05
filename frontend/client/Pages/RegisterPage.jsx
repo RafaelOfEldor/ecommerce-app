@@ -1,9 +1,6 @@
 import React, { useContext, Component } from "react";
-import { Link, Routes, Route, Outlet, useNavigate } from "react-router-dom";
-import data from "../data";
-import GoogleLogo from "../images/Google-g-logo.svg"
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../images/Mock-Ecommerce.svg"
-import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
 import "./css/pages/registerAndLoginPage.css"
 import LoginWithOpenidButton from "../functions/LoginWithOpenidButton";
