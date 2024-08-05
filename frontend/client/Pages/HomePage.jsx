@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { Link, Routes, Route, Outlet, useNavigate, useSearchParams } from "react-router-dom";
-import jacketImage from "../images/random-jacket.jpg"
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
 import "./css/pages/homePage.css"

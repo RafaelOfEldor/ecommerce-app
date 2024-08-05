@@ -1,9 +1,5 @@
-import React, { useContext, Component } from "react";
-import { Link, Routes, Route, Outlet, useNavigate, NavLink, useLocation } from "react-router-dom";
-import data from "../data";
-import GoogleLogo from "../images/Google-g-logo.svg"
-import Logo from "../images/Mock-Ecommerce.svg"
-import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
+import React from "react";
+import { Outlet, useNavigate, NavLink, useLocation } from "react-router-dom";
 import {useAuth} from "../context/AuthContext"
 import "./css/pages/accountPage.css"
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;

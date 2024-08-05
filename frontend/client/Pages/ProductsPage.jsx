@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
 import { VscListFilter } from "react-icons/vsc";
 import { FiSearch } from "react-icons/fi";
 import "./css/pages/productsPage.css"
