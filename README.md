@@ -44,11 +44,9 @@ then go into the file root/frontend/client/runtime-env.js and enter:
 
 ```
 (function() {
-  console.log('Loading runtime-env.js');
   window.__ENV__ = {
     BACKEND_API_BASE_URL: "[same value as BACKEND_API_BASE_URL from root .env]"
   };
-  console.log('Environment Variables:', window.__ENV__);
 })();
 ```
 

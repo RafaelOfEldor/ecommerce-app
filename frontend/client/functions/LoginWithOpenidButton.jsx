@@ -8,9 +8,7 @@ export default function LoginWithOpenidButton() {
 
   async function loadAuthorizationUrl() {
     const credentialsRes = await fetch(apiUrl + "/api/v1/auth/login/credentials");
-    console.log(credentialsRes);
     const credentials = await credentialsRes.json();
-    console.log(credentials);
     const { google_openid_config, google_client_id } = credentials;
 
     const state = randomString(50);
@@ -34,10 +32,8 @@ export default function LoginWithOpenidButton() {
   }, []);
 
   const handleClick = (event) => {
-    event.preventDefault(); // Prevent default button behavior
-    event.stopPropagation(); // Stop event from propagating up to the form
-    console.log("yo")
-    // Your logic for handling OpenId login goes here
+    event.preventDefault();
+    event.stopPropagation();
   };
 
   return (

@@ -15,7 +15,6 @@ export default function LoginPage(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Preload images before rendering the page
     const preloadImages = async () => {
       const images = [GoogleLogo, Logo];
       await loadImages(images);

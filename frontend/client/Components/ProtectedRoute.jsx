@@ -15,7 +15,6 @@ export default function ProtextedRoute({children}) {
   
   useEffect(() => {
     const checkUserAuthenticated = setTimeout(() => {
-      console.log("yoo")
       if (!isUserAuthenticated) {
         navigate("/login")
     }

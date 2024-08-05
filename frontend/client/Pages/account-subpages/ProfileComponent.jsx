@@ -33,7 +33,6 @@ const [loadingChanges, setLoadingChanges] = React.useState(false)
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         }
       })
-      console.log(res)
       if (res.ok) {
         setFirstName(prev => e.target.firstname.value)
       }
@@ -97,13 +96,10 @@ const [loadingChanges, setLoadingChanges] = React.useState(false)
   const [displayUsername, setDisplayUsername] = useState("");
 
     useEffect(() => {
-        // Split the username by spaces
         const words = username.split(' ');
 
-        // Check if any word after the first one contains numbers
         const hasNumbers = words.slice(1).some(word => /\d/.test(word));
 
-        // Set the displayUsername accordingly
         if (hasNumbers) {
             setDisplayUsername(words[0]);
         } else {
