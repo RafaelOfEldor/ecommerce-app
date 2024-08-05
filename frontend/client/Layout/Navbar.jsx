@@ -19,7 +19,6 @@ useEffect(() => {
   getUserAuthentication();
 }, [])
 
-console.log(isUserAuthenticated)
   return (
     <div>
       <nav className="offer-bar">

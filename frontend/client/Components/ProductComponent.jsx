@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { Link, Routes, Route, Outlet, useNavigate, useSearchParams } from "react-router-dom";
-// import data from "../data";
 import jacketImage from "../images/random-jacket.jpg"
 import {BsArrowLeftCircleFill, BsArrowRightCircleFill} from "react-icons/bs"
 import {useAuth} from "../context/AuthContext"
@@ -29,17 +28,13 @@ export default function ProductComponent(props) {
     if (itemId){
       fetch(`${apiUrl}/api/v1/products/${itemId}`).then((response) =>
       response.json().then((data) => {
-        console.log(data)
         let alreadyReviewed = data?.reviews?.find(item => item.reviewAuthor === username);
-        console.log(username)
-        console.log(alreadyReviewed)
         if (alreadyReviewed || username !== "") {
           setCanReview(false);
         } else {
           orders?.map((order, index) => {
             order?.items?.map((item) => {
               if (itemId.toString() === item.orderedItemOriginalItemId.toString()) {
-                console.log("in here!")
                   return (
                     setCanReview(true)
                   )
@@ -81,7 +76,6 @@ export default function ProductComponent(props) {
     })
     if (res.ok) {
       const data = await res.json();
-      console.log(data)
     }
   }
 
@@ -97,7 +91,6 @@ export default function ProductComponent(props) {
         userId: userId,
         itemId: itemId
       }
-      console.log(JSON.stringify())
       const res = await fetch(`${apiUrl}/api/v1/user/cart/additem`, {
             method: "POST",
             body: JSON.stringify(addToCartElement),
@@ -109,11 +102,9 @@ export default function ProductComponent(props) {
           if (res.ok) {
             const data = await res.json();
             increaseAmountOfItemsInCart()
-            console.log(data)
             setItemAddedToCart(true)
 
             const addedToCartDuration = setTimeout(() => {
-              console.log("it happened")
               setItemAddedToCart(false)
             }, 2000);
             return () => clearTimeout(addedToCartDuration);
@@ -127,12 +118,10 @@ export default function ProductComponent(props) {
 
   const handleSettingReviewText = (event) => {
     setReviewText(event.target.value);
-    console.log(reviewText);
   }
 
   const handleSettingReviewRating = (event) => {
     setReviewRating(Number(event.target.value));
-    console.log(reviewRating);
   }
 
   const handleBuyItem = async (event, itemId) => {
@@ -207,22 +196,6 @@ export default function ProductComponent(props) {
           </div>
         </div>
         
-        {/* itemCategory
-        "apparel"
-        itemDescription
-        "The sports jacket, a versatile and timeless piece of outerwear, seamlessly blends style and functionality. Crafted from high-quality materials, this jacket embodies a perfect marriage of form and function, making it an essential addition to any wardrobe. The exterior showcases a sophisticated design, characterized by a tailored fit that accentuates the wearer's silhouette. The meticulous attention to detail is evident in the fine stitching and carefully chosen fabrics, ensuring a polished and refined appearance.\n\nConstructed to withstand varying weather conditions, the sports jacket provides a comfortable and breathable layer. Its lightweight yet durable composition makes it an ideal choice for transitional seasons or as a stylish outer layer during cooler evenings. The jacket features a zippered front closure and a well-designed collar, offering both protection from the elements and a touch of classic elegance.\n\nVersatility is a key attribute of this sports jacket. Whether paired with jeans for a casual outing or worn over a crisp shirt for a more formal affair, it effortlessly adapts to various occasions. Pockets, both functional and stylish, add practicality to the design, allowing for the convenient storage of essentials while maintaining a sleek aesthetic.\n\nIn summary, the sports jacket is a sartorial essential, marrying fashion and function in a way that complements the modern lifestyle. With its timeless appeal and thoughtful design, this jacket stands as a symbol of sophistication and practicality, making it a wardrobe staple for those who appreciate both style and substance."
-        itemId
-        1
-        itemImage
-        "https://pngimg.com/d/jacket_PNG8047.png"
-        itemInStock
-        true
-        itemName
-        "Jacket"
-        itemPrice
-        36.088667288943256
-        itemStock
-      250 */}
     </div>
     <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: "50px"}}>
       <div style={{height: "1px", minWidth: "95vw", maxWidth: "95vw", marginTop: "20px", background: "linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(157,24,89,1) 37%, rgba(143,49,159,1) 57%, rgba(18, 61, 182, 1) 100%)"}}></div>
@@ -235,17 +208,6 @@ export default function ProductComponent(props) {
     <div style={{display: "flex", alignItems: "flex-start", justifyContent: "space-between", width: "100vw", height: "auto",  marginTop: "50px", paddingBottom: "5vh", overflow: "auto"}}>
     
       <div style={{display: "flex", flexDirection: "column", gap: "50px", marginTop: "50px", paddingLeft: "200px"}}>
-      {/* {orders?.map((order, index) => {
-          order?.items?.map((item) => {
-            if (itemId.toString() === item.orderedItemOriginalItemId.toString()) {
-              console.log("in here!")
-              return (
-                
-              )
-            }
-          })
-          
-        })} */}
         
         
 

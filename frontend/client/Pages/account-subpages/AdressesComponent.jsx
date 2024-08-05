@@ -31,14 +31,12 @@ export default function AdressesComponent(props) {
           })
           if (res.ok) {
             const data = await res.json();
-            console.log(data)
             setAddAddress(false)
             setAddresses(prevAddresses => [...prevAddresses, data]);
           }
           
   }
 
-  console.log(addresses)
   if (addAddress) {
     return (
       <div className="account-add-address-div">
