@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import {useAuth} from "../context/AuthContext"
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
@@ -17,6 +17,7 @@ export default function ProductComponent(props) {
   const [canReview, setCanReview] = useState(false);
   const [reviewText, setReviewText] = useState("");
   const [reviewRating, setReviewRating] = useState(1);
+  const [displayUsername, setDisplayUsername] = useState("");
 
 
   async function fetchProduct() {
@@ -24,7 +25,7 @@ export default function ProductComponent(props) {
       fetch(`${apiUrl}/api/v1/products/${itemId}`).then((response) =>
       response.json().then((data) => {
         let alreadyReviewed = data?.reviews?.find(item => item.reviewAuthor === username);
-        if (alreadyReviewed || username !== "") {
+        if (alreadyReviewed || username === "" || username === null) {
           setCanReview(false);
         } else {
           orders?.map((order, index) => {
@@ -148,6 +149,20 @@ export default function ProductComponent(props) {
 
 }
 
+
+
+    useEffect(() => {
+        const words = username?.split(' ');
+
+        const hasNumbers = words?.slice(1).some(word => /\d/.test(word));
+
+        if (hasNumbers) {
+            setDisplayUsername(words[0]);
+        } else {
+            setDisplayUsername(username);
+        }
+    }, [username]);
+
   return (
     <div className="product-details-page">
       <div className="product-details-page-product-div">
@@ -236,7 +251,7 @@ export default function ProductComponent(props) {
             <textarea style={{ width: '100%', height: '100px', marginBottom: '10px' }} value={reviewText} placeholder="Write review here" onChange={handleSettingReviewText}>
               {reviewText}
             </textarea>
-            <h4 style={{ fontWeight: '500' }}><b>Purchased by: </b>{username}</h4>
+            <h4 style={{ fontWeight: '500' }}><b>Purchased by: </b>{displayUsername}</h4>
           </div>  
           <button style={reviewText === "" ?
             { height: '25px', width: '100px', marginTop: '20px', borderStyle: "none", background: "rgba(184, 200, 181, 0.8)", borderRadius: "10px",
@@ -264,7 +279,7 @@ export default function ProductComponent(props) {
               }}>
               <h3 style={{fontWeight: "500"}}>{item.reviewRating} / 5</h3>
               <h4 style={{fontWeight: "400", marginTop: "10px"}}>{item.reviewComment}</h4>
-              <h4 style={{fontWeight: "500", marginTop: "10px"}}> <b>Purchased by: </b>{item.reviewAuthor}</h4>
+              <h4 style={{fontWeight: "500", marginTop: "10px"}}> <b>Purchased by: </b>{item.reviewAuthor?.split(" ")[0]}</h4>
             </div>
             )
           }) 

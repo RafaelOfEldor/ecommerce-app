@@ -40,7 +40,7 @@ public class Item {
     private String itemDescription;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JsonIgnoreProperties({"item"})
+    @JsonIgnoreProperties({"item", "user"})
     private List<Review> reviews = new ArrayList<>();
 
     @Column(name = "item_stock")

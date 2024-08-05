@@ -158,6 +158,7 @@ export default function ProductsPage(props) {
   };
 
   const productsElements = products.map((item, index) => (
+    
     <div className="item-card" key={index} onClick={() => handleViewProduct(item.itemId)}>
       <img src={item.itemImage} loading="eager" className="item-image" style={{ maxHeight: "200px", maxWidth: "300px" }} />
       <h4 style={{marginTop: "auto"}}>{item.itemName}</h4>
@@ -174,10 +175,10 @@ export default function ProductsPage(props) {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h4 style={{ color: "green" }}>{item.itemInStock === true ? "in stock" : <h4 style={{color: "red"}}>Out of stock</h4>}</h4>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "5px", marginTop: "10px" }}>
-          <button disabled={!item?.inStock} className="item-card-addcart-button" onClick={(event) => handleAddItemToCart(event, item?.itemId)}>
+          <button disabled={!item?.itemInStock} className="item-card-addcart-button" onClick={(event) => handleAddItemToCart(event, item?.itemId)}>
             Add To Cart
           </button>
-          <button disabled={!item?.inStock} className="item-card-buy-button" onClick={(event) => handleBuyItem(event, item?.itemId)}>
+          <button disabled={!item?.itemInStock} className="item-card-buy-button" onClick={(event) => handleBuyItem(event, item?.itemId)}>
             Buy
           </button>
         </div>
