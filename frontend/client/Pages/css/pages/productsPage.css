@@ -28,7 +28,7 @@
 }
 
 .item-card:hover .item-image {
-  transform: scale(0.8); /* Zoom-out effect */
+  transform: scale(0.8);
 }
 
 .item-card:hover {
@@ -188,15 +188,12 @@ display: inline-block;
   
   scale: 1.2;
   cursor: pointer;
-  pointer-events: auto; /* Enable pointer events for the icon */
+  pointer-events: auto;
   transition: transform 0.3s, color 0.3s;
 }
 
 .search-wrapper .search-icon:hover {
   color: black;
-  
-  /* Uncomment the scale if you want to enlarge the icon on hover */
-  /* scale: 1.3; */
 }
 
 

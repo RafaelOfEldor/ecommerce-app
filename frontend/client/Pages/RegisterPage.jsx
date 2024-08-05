@@ -53,7 +53,6 @@ export default function RegisterPage(props) {
     if (res.ok) {
       const data = await res.json(); 
       localStorage.setItem("access_token", data.token)
-      console.log(data)
       getUserFromToken();
       getUserAuthentication()
       navigate("/")
@@ -68,7 +67,6 @@ export default function RegisterPage(props) {
 
   return (
     <div style={{display: "flex"}}>
-      {/* <h4 style={{color: "red", position: "absolute", letterSpacing: "1px", left: "74vw", marginTop: "10vh"}}>{errorMessage !== "" && errorMessage}</h4> */}
       <img src={Logo} className="register-page-logo"/>
       <form className="register-form" onSubmit={registerUser}>
         <h1 style={{fontWeight: "500", letterSpacing: "1px"}}>Create an account</h1>

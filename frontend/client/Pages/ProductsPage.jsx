@@ -16,24 +16,23 @@ export default function ProductsPage(props) {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [category, setCategory] = useState(""); // State for selected category
-  const [searchQuery, setSearchQuery] = useState(""); // State for search query
+  const [category, setCategory] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [noResults, setNoResults] = useState(false);
 
   useEffect(() => {
     fetchProducts(0, false)
-  }, []); // Fetch products when category or search query changes
+  }, []); 
 
   useEffect(() => {
     changePage(0, true)
-  }, [category]); // Fetch products when category or search query changes
+  }, [category]);
 
   async function fetchProducts(page, changeByFilter) {
     const res = await fetch(`${apiUrl}/api/v1/products/${category === "" ? "" : category + "/"}page/${page}${
       searchQuery === "" ? "" : !changeByFilter ? "/" + searchQuery : ""}`);
     if (res.ok) {
       const data = await res.json();
-      console.log("Products data fetched:", data);
       if (data.length > 0) {
         setNoResults(false)
         setPage(page);
@@ -43,12 +42,11 @@ export default function ProductsPage(props) {
         setNoResults(true)
       }
     } else {
-      console.error("Failed to fetch products");
+      // console.error("Failed to fetch products");
     }
   }
 
   async function loadImages(products) {
-    console.log("Loading images for products");
     const promises = products.map(
       (product) =>
         new Promise((resolve) => {
@@ -138,12 +136,12 @@ export default function ProductsPage(props) {
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
-    setPage(0); // Reset to the first page when category changes
+    setPage(0); 
   };
 
   const handleSearchItem = async (event) => {
     event.preventDefault();
-    setPage(0); // Reset to the first page when category changes
+    setPage(0); 
     setLoading(true);
     await fetchProducts(0, false);
     setLoading(false);
@@ -157,7 +155,7 @@ export default function ProductsPage(props) {
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
-    setPage(0, false); // Reset to the first page when search query changes
+    setPage(0, false); 
   };
 
   const productsElements = products.map((item, index) => (
@@ -206,7 +204,6 @@ export default function ProductsPage(props) {
             <option value="furniture">Furniture</option>
           </select>
           {category !== "" && <button onClick={handleClearCategory} className="products-page-category-clear" style={{ marginLeft: "10px" }}>X</button>}
-          {/* <button onClick={handleApplyFilter} className="products-page-category-apply" style={{ marginLeft: "10px" }}>Apply</button> */}
         </div>
         <form className="search-wrapper" onSubmit={(event) => handleSearchItem(event)}>
           <input

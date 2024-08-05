@@ -6,8 +6,6 @@ export default function AboutPage(props) {
   return (
     <div className="about-container">
       <div className="about-header">
-        {/* <img src={Logo} alt="Project Logo" className="project-logo" /> */}
-        {/* <h1>About This Project</h1> */}
       </div>
       <div className="about-content">
         <div className="about-info">
