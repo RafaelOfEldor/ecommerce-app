@@ -110,29 +110,4 @@ public class User implements UserDetails {
         return true;
     }
 
-
-//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-//    @JsonIgnoreProperties("user")
-//    private List<Order> orders = new ArrayList<>();
-
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "user_address",
-//            joinColumns = @JoinColumn(name = "user_id"),
-//            inverseJoinColumns = @JoinColumn(name = "address_id")
-//    )
-//    @JsonIgnoreProperties("users")
-//    private List<Address> addresses = new ArrayList<>();
-
-//    public User(String userName, String userPassword) {
-//        this.username = userName;
-//        this.password = userPassword;
-//    }
-//
-//    //      --------For testing-------
-//    public User(Long userId, String userName, String userEmail) {
-//        this.id = userId;
-//        this.username = userName;
-//        this.email = userEmail;
-//    }
 }

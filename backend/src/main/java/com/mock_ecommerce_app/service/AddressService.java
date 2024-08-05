@@ -39,12 +39,9 @@ public class AddressService {
             user.getAddresses().add(address);
             address.getUsers().add(user);
             addressRepository.save(address);
-//            userRepository.save(user);
             return ResponseEntity.ok(Optional.of(address));
         }
         return ResponseEntity.badRequest().body(null);
-//        return ResponseEntity.ok(Optional.of(address));
-
     }
 
     public List<Address> getAddresses() {

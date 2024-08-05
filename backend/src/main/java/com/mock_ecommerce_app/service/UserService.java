@@ -147,9 +147,4 @@ public class UserService {
         }
         return ResponseEntity.badRequest().body("Couldn't change email :/");
     }
-
-
-//    public String findByUsername(String username) {
-//        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
-//    }
 }

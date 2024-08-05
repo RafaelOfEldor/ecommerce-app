@@ -92,23 +92,4 @@ public class ItemService {
         }
         itemRepository.deleteById(id);
     }
-
-//    public Item updateItem(Long id, Item newItem) {
-//
-//        return itemRepository.findById(id)
-//                .map(machine -> {
-//                    if (newItem.getItemName() != null) {
-//                        machine.setItemName(newItem.getItemName());
-//                    }
-//
-//                    if (newItem.getItemQuantity() != null) {
-//                        machine.setItemQuantity(newItem.getItemQuantity());
-//                    }
-//                    return itemRepository.save(machine);
-//                })
-//                .orElseGet(() -> {
-//                    return itemRepository.save(newItem);
-//                });
-//    }
-
 }

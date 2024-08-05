@@ -76,40 +76,4 @@ public class AddressController {
 
         }
     }
-
-
-    //Takes in id of user in parameter and a json body with Long field "addressId"
-    //      {
-    //          "addressId": 4 <-(number corresponding to address id)
-    //      }
-//    @PostMapping("/{id}/existingaddress")
-//    public User  addExistingAddressToUser(@PathVariable Long id,  @RequestBody ExistingAddressDTO existingAddressDTO) {
-//        try {
-//            User user = userService.getUserById(id);
-//            Address address = addressService.getAddressById(existingAddressDTO.getAddressId());
-//            user.getAddresses().add(address);
-//            return userService.addUser(user);
-//        } catch (Exception e) {
-//            return null;
-//        }
-//    }
-
-
-    //Takes in id of user in api path and a body json with string field for addressStreetName and
-    //string field for addressStreetNameNumber. Example:
-    //      {
-    //          "addressStreetName": "name of street",
-    //          "addressStreetNameNumber": "id/number on house in the street"
-    //      }
-//    @PostMapping("/{id}/newaddress")
-//    public User  createNewAddressAndAddItToUser(@PathVariable Long id,  @RequestBody NewAddressDTO newAddressDTO) {
-//        try {
-//            User user = userService.getUserById(id);
-//            Address address = new Address(newAddressDTO.getAddressStreetName(), newAddressDTO.getAddressStreetNameNumber());
-//            user.getAddresses().add(address);
-//            return userService.addUser(user);
-//        } catch (Exception e) {
-//            return null;
-//        }
-//    }
 }

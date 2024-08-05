@@ -107,40 +107,34 @@ public class AuthenticationService {
     public AuthenticationResponse authenticateWithGoogle(String accessToken) {
         String userInfoUrl = "https://www.googleapis.com/oauth2/v3/userinfo";
 
-        // Create headers with the Bearer token
         HttpHeaders headers = new HttpHeaders();
         headers.setBearerAuth(accessToken);
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        // Create a RestTemplate instance
         RestTemplate restTemplate = new RestTemplate();
 
         try {
-            // Make the GET request to the user info endpoint
             ResponseEntity<String> response = restTemplate.exchange(userInfoUrl, HttpMethod.GET, entity, String.class);
 
-            // Parse the response body
             JsonNode jsonNode = objectMapper.readTree(response.getBody());
 
             String email = jsonNode.get("email").asText();
-            String userName = jsonNode.get("name").asText(); // Or use other fields as needed
-            String sub = jsonNode.get("sub").asText(); // Or use other fields as needed
+            String userName = jsonNode.get("name").asText(); 
+            String sub = jsonNode.get("sub").asText(); 
 
-            // Check if the user exists in the database
             User user = userRepository.findByUsername(userName + " " + sub).orElse(null);
             UserCart userCart = new UserCart();
             userCartRepository.save(userCart);
 
             if (user == null) {
-                // Create new user if not exists
                 user = User.builder()
                         .firstname(jsonNode.get("given_name").asText())
                         .lastname(jsonNode.get("family_name").asText())
                         .email(email)
                         .userCart(userCart)
                         .username(userName + " " + sub)
-                        .password(passwordEncoder.encode(generateRandomPassword())) // Use a dummy password or generate one
+                        .password(passwordEncoder.encode(generateRandomPassword())) 
                         .role(Role.USER)
                         .build();
                 userRepository.save(user);
@@ -149,7 +143,6 @@ public class AuthenticationService {
                 userRepository.save(user);
             }
 
-            // Generate JWT token for the user
             var jwtToken = jwtService.generateToken(user);
 
 
@@ -160,7 +153,6 @@ public class AuthenticationService {
     }
 
     private String generateRandomPassword() {
-        // Generate a random password or use any placeholder password for Google login
         return "temporaryPassword";
     }
 }
