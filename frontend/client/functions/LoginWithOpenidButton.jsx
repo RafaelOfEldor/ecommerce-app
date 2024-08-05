@@ -1,5 +1,5 @@
 import React from "react";
-import "../pages/css/pages/registerAndLoginPage.css"
+import "../Pages/css/pages/registerAndLoginPage.css"
 import GoogleLogo from "../images/Google-g-logo.svg";
 const apiUrl = window.__ENV__?.BACKEND_API_BASE_URL;
 
