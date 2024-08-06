@@ -1,7 +1,7 @@
 # Link to website: https://mock-ecommerce.com/
 
 # ecommerce-app
-An ecommerce website using spring boot + postgreSQL + react and docker, deployed through AWS ECS.
+An ecommerce website using spring boot + postgreSQL + react and docker, deployed through AWS ECS + RDS.
 
 Made to improve and display my spring boot backend skills, as well as learn some docker and AWS.
 
@@ -50,7 +50,12 @@ then go into the file root/frontend/client/runtime-env.js and enter:
 
 then go into a docker enabled terminal and enter:
 ```bash
-docker-compose up -d
+docker-compose up -d --build
+```
+
+Remember terminate the containers, enter:
+```bash
+docker-compose down
 ```
 
 ## without docker compose:
@@ -65,6 +70,9 @@ ensure your backend gets these environmental variables:
 REACT_APP_BASE_URL=http://localhost:3000
 GOOGLE_DISCOVERY_URL=[your_google_discovery_url]
 GOOGLE_CLIENT_ID=[your_google_client_id]
+SPRING_DATASOURCE_URL=[your_postgres_datasource_url]
+SPRING_DATASOURCE_USERNAME=[your_postgres_datasource_username]
+SPRING_DATASOURCE_PASSWORD=[your_postgres_datasource_password]
 ```
 
 If you don't have google discovery stuff, you can alternatively just remove the LoginWithOpenidButton in frontend/client/pages/LoginPage.jsx
