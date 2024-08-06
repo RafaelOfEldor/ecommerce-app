@@ -37,8 +37,8 @@ export default function AboutPage(props) {
                 product browsing, and a fully functional {"(fake)"} shopping cart amongst other things. It heavily depends on
                 the right relations in the database between addresses, orders, users and reviews
                 which i managed through the ORM technique. As for my deployment,
-                I run three separate containers, frontend, backend and database.
-                I launch these three containers as services in an AWS ECS cluster, and use an ALB on the "mock-ecommerce.com" domain
+                I run two separate containers, frontend and backend connected to a PostgreSQL database through RDS.
+                I launch these two containers as services in an AWS ECS cluster, and use an ALB on the "mock-ecommerce.com" domain
                 to correctly navigate traffic between client and api.
 
                 {/* This project is a demonstration of how to integrate various
