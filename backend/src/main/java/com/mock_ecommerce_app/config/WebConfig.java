@@ -1,5 +1,6 @@
 package com.mock_ecommerce_app.config;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -21,11 +22,16 @@ public class WebConfig implements WebMvcConfigurer {
     @Value("${REACT_APP_BASE_URL}")
     private String frontendBaseUrl;
 
+    @PostConstruct
+    public void printCorsOrigin() {
+        System.out.println("REACT_APP_BASE_URL: " + frontendBaseUrl);
+    }
+
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**")
                 .allowCredentials(true)
-                .allowedOrigins(frontendBaseUrl)
+                .allowedOrigins(frontendBaseUrl, "https://mock-ecommerce.com", "https://www.mock-ecommerce.com")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("Authorization", "Content-Type", "Accept")
                 .maxAge(3600L);

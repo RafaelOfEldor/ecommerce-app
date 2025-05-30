@@ -21,7 +21,9 @@ spring:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
     mvc:
         cors:
-            allowed-origins: ${REACT_APP_BASE_URL}
+            allowed-origins:
+                - https://mock-ecommerce.com
+                - https://www.mock-ecommerce.com
 logging:
     level:
         root: INFO

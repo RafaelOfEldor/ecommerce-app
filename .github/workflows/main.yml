@@ -1,0 +1,88 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    name: Push Docker image to ECR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
+      - name: Build and push Docker image
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 975050009463.dkr.ecr.eu-west-1.amazonaws.com
+          rev=$(git rev-parse --short HEAD)
+          
+          # ---- BACKEND ----
+          docker build ./backend -t mock-ecommerce-backend
+          docker tag mock-ecommerce-backend 975050009463.dkr.ecr.eu-west-1.amazonaws.com/mock-ecommerce-backend:$rev
+          docker tag mock-ecommerce-backend 975050009463.dkr.ecr.eu-west-1.amazonaws.com/mock-ecommerce-backend:latest
+          docker push 975050009463.dkr.ecr.eu-west-1.amazonaws.com/mock-ecommerce-backend:$rev
+          docker push 975050009463.dkr.ecr.eu-west-1.amazonaws.com/mock-ecommerce-backend:latest
+      
+          # ---- FRONTEND ----
+          docker build ./frontend -t mock-ecommerce-frontend
+          docker tag mock-ecommerce-frontend 975050009463.dkr.ecr.eu-west-1.amazonaws.com/mock-ecommerce-frontend:$rev
+          docker tag mock-ecommerce-frontend 975050009463.dkr.ecr.eu-west-1.amazonaws.com/mock-ecommerce-frontend:latest
+          docker push 975050009463.dkr.ecr.eu-west-1.amazonaws.com/mock-ecommerce-frontend:$rev
+          docker push 975050009463.dkr.ecr.eu-west-1.amazonaws.com/mock-ecommerce-frontend:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Terraform configuration
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: terraform
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        working-directory: terraform
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+          TF_VAR_react_app_base_url: ${{ secrets.REACT_APP_BASE_URL }}
+          TF_VAR_backend_api_base_url: ${{ secrets.BACKEND_API_BASE_URL }}
+          TF_VAR_postgres_db: ${{ secrets.POSTGRES_DB }}
+          TF_VAR_postgres_user: ${{ secrets.POSTGRES_USER }}
+          TF_VAR_postgres_password: ${{ secrets.POSTGRES_PASSWORD }}
+          TF_VAR_google_discovery_url: ${{ secrets.GOOGLE_DISCOVERY_URL }}
+          TF_VAR_google_client_id: ${{ secrets.GOOGLE_CLIENT_ID }}
+          TF_VAR_mongodb_url: ${{ secrets.MONGODB_URL }}
+          TF_VAR_secret_cookie: ${{ secrets.SECRET_COOKIE }}
+          TF_VAR_react_app_environment_base_url: ${{ secrets.REACT_APP_ENVIRONMENT_BASE_URL }}
+          TF_VAR_microsoft_discovery_url: ${{ secrets.MICROSOFT_DISCOVERY_URL }}
+          TF_VAR_microsoft_client_id: ${{ secrets.MICROSOFT_CLIENT_ID }}
+
+          TF_VAR_route53_zone_id: ${{ secrets.ROUTE53_ZONE_ID }}
+          TF_VAR_ssl_cert_arn: ${{ secrets.SSL_CERT_ARN }}
+          TF_VAR_frontend_service_name: ${{ secrets.FRONTEND_SERVICE_NAME }}
+
+
+
+
+
+
+

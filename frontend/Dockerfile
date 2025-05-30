@@ -34,6 +34,9 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copy the entrypoint script
 COPY entrypoint.sh /entrypoint.sh
 
+RUN ls -la / && cat /entrypoint.sh
+
+
 # Make the entrypoint script executable
 RUN chmod +x /entrypoint.sh
 

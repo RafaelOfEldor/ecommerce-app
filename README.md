@@ -1,5 +1,3 @@
-# Website and Services not currently up, took it down due to cost
-
 # ecommerce-app
 An ecommerce website using spring boot + postgreSQL + react and docker, deployed through AWS ECS + RDS.
 
