@@ -24,7 +24,6 @@ export default function AboutPage(props) {
         </div>
         <div className="about-image">
           <div className="about-image-content">
-            <img src="https://via.placeholder.com/300" alt="Project Showcase" />
             <div className="additional-info">
               <h3>Why did i create this project?</h3>
               <p>
@@ -55,6 +54,7 @@ export default function AboutPage(props) {
                 <li>PostgreSQL</li>
                 <li>Docker</li>
                 <li>AWS</li>
+                <li>Terraform</li>
               </ul>
             </div>
           </div>
