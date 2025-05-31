@@ -38,7 +38,8 @@ export default function AboutPage(props) {
                 which i managed through the ORM technique. As for my deployment,
                 I run two separate containers, frontend and backend connected to a PostgreSQL database through RDS.
                 I launch these two containers as services in an AWS ECS cluster, and use an ALB on the "mock-ecommerce.com" domain
-                to correctly navigate traffic between client and api.
+                to correctly navigate traffic between client and api. I use terraform to manage and maintain this entire architecture,
+                and github actions for CI/CD to automatically deploy the latest version.
 
                 {/* This project is a demonstration of how to integrate various
                 technologies and create a seamless user experience. It's a great
